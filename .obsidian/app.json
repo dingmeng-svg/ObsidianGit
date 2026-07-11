@@ -1,0 +1,11 @@
+{
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "readableLineLength": false,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "00_Inbox/外部导入",
+  "showLineNumber": true,
+  "autoUpdateInternalLinks": true,
+  "openBehavior": "file:🏠 首页",
+  "attachmentFolderPath": "90_System/Assets"
+}

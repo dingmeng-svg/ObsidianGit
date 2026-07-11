@@ -1,0 +1,30 @@
+/* ============================
+   Obsidian 阅读优化 CSS 片段
+   ============================ */
+
+/* 1) 更舒服的阅读行高 */
+body {
+  font-family: -apple-system, "Noto Sans SC", sans-serif;
+}
+
+.cm-line {
+  line-height: 1.8;
+}
+
+.markdown-preview-view p {
+  line-height: 1.8;
+}
+
+/* 2) 彩色 Tag 胶囊 */
+.tag {
+  background-color: var(--interactive-accent);
+  color: white !important;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.85em;
+}
+
+/* 3) 高亮未完成任务 */
+.markdown-preview-view input[type="checkbox"]:not(:checked) {
+  accent-color: #e74c3c;
+}

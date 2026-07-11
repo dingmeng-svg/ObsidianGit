@@ -1,0 +1,1216 @@
+{
+  "workspaces": {
+    "PARA": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6326710e04cc104",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc517f93362218d8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Area 领域 My roles and responsibilities/Area 领域 My roles and responsibilities.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "00c56151d065b808",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "041f0d5d13929245",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Resources 资源  Things I'm interested in/Resources 资源 Things I'm interested in.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "3b2180ce84674ae3",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "790ef6d70daf99b3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Archive 归档 Completed or inactive things/Archive 归档 Completed or inactive things.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "107101f8422eebb4",
+      "mtime": "2024-06-03T15:09:31+08:00"
+    },
+    "P A R": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6326710e04cc104",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc517f93362218d8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Area 领域 My roles and responsibilities/Area 领域 My roles and responsibilities.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "00c56151d065b808",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "041f0d5d13929245",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Resources 资源  Things I'm interested in/Resources 资源 Things I'm interested in.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "107101f8422eebb4",
+      "mtime": "2024-06-03T15:10:01+08:00"
+    },
+    "P A": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6326710e04cc104",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc517f93362218d8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Area 领域 My roles and responsibilities/Area 领域 My roles and responsibilities.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "107101f8422eebb4",
+      "mtime": "2024-06-03T15:10:48+08:00"
+    },
+    "Inbox+ PA": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "42456ad81b61cc1f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "94920033ba9a2f0b",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Inbox 收件箱/Inbox 收件箱.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6326710e04cc104",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc517f93362218d8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Area 领域 My roles and responsibilities/Area 领域 My roles and responsibilities.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Inbox 收件箱/Inbox 收件箱.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Inbox 收件箱/Inbox 收件箱.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Inbox 收件箱/Inbox 收件箱.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "94920033ba9a2f0b",
+      "mtime": "2024-06-03T15:11:23+08:00"
+    },
+    "书写": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "dimension": 76.39109697933227,
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "国内公司清理.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                },
+                "group": "a1741ad3d52394ea"
+              }
+            ]
+          },
+          {
+            "id": "7ae603123a771003",
+            "type": "split",
+            "dimension": 23.608903020667725,
+            "children": [
+              {
+                "id": "7ae4188d0a64c58a",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "02549979fd0b329d",
+                    "type": "leaf",
+                    "state": {
+                      "type": "outline",
+                      "state": {
+                        "file": "国内公司清理.md"
+                      }
+                    },
+                    "group": "a1741ad3d52394ea"
+                  }
+                ]
+              },
+              {
+                "id": "0411fd74c0810c67",
+                "type": "tabs",
+                "children": [
+                  {
+                    "id": "1d832930a05838b6",
+                    "type": "leaf",
+                    "state": {
+                      "type": "localgraph",
+                      "state": {
+                        "file": "国内公司清理.md",
+                        "options": {
+                          "collapse-filter": true,
+                          "search": "",
+                          "localJumps": 1,
+                          "localBacklinks": true,
+                          "localForelinks": true,
+                          "localInterlinks": false,
+                          "showTags": false,
+                          "showAttachments": false,
+                          "hideUnresolved": false,
+                          "collapse-color-groups": true,
+                          "colorGroups": [],
+                          "collapse-display": true,
+                          "showArrow": false,
+                          "textFadeMultiplier": 0,
+                          "nodeSizeMultiplier": 1,
+                          "lineSizeMultiplier": 1,
+                          "collapse-forces": true,
+                          "centerStrength": 0.518713248970312,
+                          "repelStrength": 10,
+                          "linkStrength": 1,
+                          "linkDistance": 250,
+                          "scale": 1,
+                          "close": true
+                        }
+                      }
+                    },
+                    "group": "a1741ad3d52394ea"
+                  }
+                ]
+              }
+            ],
+            "direction": "horizontal"
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "国内公司清理.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "国内公司清理.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "国内公司清理.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "107101f8422eebb4",
+      "mtime": "2024-06-05T11:22:56+08:00"
+    },
+    "Dashboard+IN PARA": {
+      "main": {
+        "id": "a23483ef5bd36493",
+        "type": "split",
+        "children": [
+          {
+            "id": "04654ed0ab5ba701",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c098fe4fa0d6fdaa",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Inbox 收件箱/Inbox 收件箱.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "cd54a246cc0345d5",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "107101f8422eebb4",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "a6326710e04cc104",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc517f93362218d8",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Area 领域 My roles and responsibilities/Area 领域 My roles and responsibilities.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "00c56151d065b808",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "041f0d5d13929245",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Resources 资源  Things I'm interested in/Resources 资源 Things I'm interested in.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "3b2180ce84674ae3",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "790ef6d70daf99b3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Archive 归档 Completed or inactive things/Archive 归档 Completed or inactive things.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "bd2774d9d6396d4f",
+        "type": "split",
+        "children": [
+          {
+            "id": "a440c5473a36427b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9306bbd249b4568e",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "797b9d7eaf7b7d60",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              },
+              {
+                "id": "e7c3fd5d1d06bd70",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {}
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "right": {
+        "id": "2fa697fb3b2ed1f1",
+        "type": "split",
+        "children": [
+          {
+            "id": "1ffa7e4622730d19",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "fac442dc9af33246",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  }
+                }
+              },
+              {
+                "id": "b1f7db2393e94ee3",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "ec35edd93496fd3f",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "92048ac8b64a4a3a",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Project 项目 Things I‘m actively working on/Project 项目 Things I‘m actively working on.md"
+                  }
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "workspaces:管理工作区布局": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "audio-recorder:开始/结束录音": false
+        }
+      },
+      "active": "9306bbd249b4568e",
+      "mtime": "2024-06-05T11:24:21+08:00"
+    }
+  },
+  "active": "书写"
+}
