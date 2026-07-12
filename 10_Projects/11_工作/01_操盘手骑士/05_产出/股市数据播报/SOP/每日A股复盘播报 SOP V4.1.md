@@ -288,8 +288,8 @@ summary: 一句话总结当日市场
 ## 2.6 交付格式硬性规定
 
 1. **先写文件到 vault，再出回复**：`write_file` 必须在回复输出之前完成
-2. **落盘路径**：`操盘手骑士/04_产出/股市数据播报/2026/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md`
-   - 完整绝对路径：`/home/ubuntu/vault/10_Projects/11_工作/01_操盘手骑士/04_产出/股市数据播报/2026/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md`
+2. **落盘路径**：`操盘手骑士/05_产出/股市数据播报/2026/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md`
+   - 完整绝对路径：`/home/ubuntu/vault/10_Projects/11_工作/01_操盘手骑士/05_产出/股市数据播报/2026/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md`
    - `<M月>` 替换为中文月份如「6月」
 3. **最终回复 = 干净简报 + `---` + 附加信息区**
    - 简报区：每行一个数据指标，不带emoji对齐，不挤不混
@@ -469,7 +469,7 @@ cronjob(action='create',
   schedule="18 18 * * *",
   deliver="origin,local",
   enabled_toolsets=["web", "terminal", "file", "browser", "search", "delegation"],
-  prompt="判断是否为交易日。交易日则生成今日A股复盘。\n\n【数据采集】使用 delegate_task 并行采集...\n\n【文件落盘】write_file 存入：操盘手骑士/04_产出/股市数据播报/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md\n\n【回复】干净简报 + --- + 文件路径。"
+  prompt="判断是否为交易日。交易日则生成今日A股复盘。\n\n【数据采集】使用 delegate_task 并行采集...\n\n【文件落盘】write_file 存入：操盘手骑士/05_产出/股市数据播报/<M月>/每日复盘直播稿/YYYY-MM-DD-A股复盘直播稿.md\n\n【回复】干净简报 + --- + 文件路径。"
 )
 ```
 
