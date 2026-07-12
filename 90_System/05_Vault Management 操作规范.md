@@ -267,10 +267,13 @@ Vault 已纳入 Git 版本控制。`.gitignore` 排除规则禁止手动修改�
 
 ### Remotely Save 多端同步
 
+> **详细规范**：详见 [[21_图床与多端同步基础设施规范#四、多端同步层规范]]。
+> 以下为操作要点，完整配置与故障排查以 21 号文档为准。
+
 **技术链路**：
 - 同步方式：S3 兼容存储（腾讯云 COS）
-- 存储桶：`obsidian-sync-1309120115`（私有读写，与图床桶 `obsidian-image-bed-1309120115` 物理隔离）
-- 子账号：`obsidian-sync`（关联预设策略 `QcloudCOSDataReadWrite` 或自定义策略 `ObsidianSync-Policy` 限定仅同步桶）
+- 存储桶：`obsidian-sync-1309120115`（私有读写，与图床桶物理隔离）
+- 子账号：`obsidian-sync`（仅同步桶读写权限）
 - 忽略目录：`_备份_*/`、`.trash/`、`**/.git/`、`.obsidian/workspace.json`、`.obsidian/workspace-mobile.json`、`.obsidian/cache/`
 
 **与 Git 灾备的分工**：

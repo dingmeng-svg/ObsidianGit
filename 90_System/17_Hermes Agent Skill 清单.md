@@ -44,10 +44,11 @@ tags:
 | 2026-07-05 | `darwin-skill` v2.0 | 达尔文评分+9维rubric+棘轮 |
 | 2026-07-05 | `obsidian-cli` | Obsidian CLI 交互 |
 | 2026-07-05 | `skill-evolver` | 自进化引擎（策略多样化+对比更新+盲审） |
-|| 2026-07-08 | `douyin-copy-extract` | 短视频文案提取 |
+| 2026-07-08 | `douyin-copy-extract` | 短视频文案提取 |
 | 2026-07-11 | `recipe-writing-standard` | 食谱编写标准 Skill |
 | 2026-07-11 | `atomic-note-extraction` v2.7.0 | 新增 `related_system_docs` 字段，建立与系统文档的双向引用 |
 | 2026-07-11 | `vault-management` v1.1.0 | 新增 `related_system_docs` 字段，建立与系统文档的双向引用 |
+| 2026-07-12 | `image-bed-sync` | 图床与多端同步基础设施规范（对应 21 号系统文档） |
 
 ---
 
