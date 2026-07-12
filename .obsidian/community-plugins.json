@@ -14,7 +14,6 @@
   "obsidian-checklist-plugin",
   "editing-toolbar",
   "obsidian-excalidraw-plugin",
-  "image-converter",
   "obsidian-kanban",
   "obsidian-icon-folder",
   "periodic-notes",
@@ -23,5 +22,7 @@
   "heatmap-calendar",
   "obsidian-minimal-settings",
   "auto-mover",
-  "bijitongbu"
+  "bijitongbu",
+  "obsidian-image-uploader",
+  "image-auto-upload-pro"
 ]
