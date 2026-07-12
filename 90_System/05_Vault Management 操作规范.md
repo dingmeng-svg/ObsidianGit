@@ -464,9 +464,12 @@ title → date → status → type → tags → project → source → author �
 
 | 规则 | 说明 |
 |:---|:---|
-| **位置** | `90_System/92_Attachments/` |
-| **命名** | `{来源缩写}_{原始ID}_{序号}.{ext}` |
-| **链接** | 本地相对路径 `![](../90_System/92_Attachments/filename.ext)` |
+| **位置** | `90_System/Assets/`（全局）或 `10_Projects/{项目}/_attachments/`（项目专属） |
+| **命名** | 系统素材：`sys_简短描述.png`；图床素材：默认时间戳模板 |
+| **链接** | 本地相对路径 `![](../90_System/Assets/filename.ext)` |
+| **图床管理** | 详见 [[04_外部方法论萃取与执行规范#附件与图床分流管理]] |
+
+> `92_Attachments/` 已废弃并合并至 `Assets/`。Obsidian 附件默认存放路径已设为 `90_System/Assets/`。
 
 ### 13.2 首页 CSS 陷阱
 
