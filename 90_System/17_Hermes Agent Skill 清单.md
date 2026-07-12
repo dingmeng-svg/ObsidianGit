@@ -253,7 +253,7 @@ L4 辅助层
 
 - [[01_知识库统一规范总纲]] — 文件格式规范（v3.0）
 - [[20_系统文档依赖关系图]] — 全系统逻辑关系图
-- [[SOP/系统文档版本矩阵]] — 版本信息与依赖关系
+- [[系统文档版本矩阵]] — 版本信息与依赖关系
 - `90_System/Worklogs/` — 逐日工作记录
 - `90_System/91_Templates/` — 5层模板（Daily/Weekly/Monthly/Quarterly/Annual/Future Log）
 - `20_Areas/22_个人成长/Bullet Journal/` — BuJo 体系
