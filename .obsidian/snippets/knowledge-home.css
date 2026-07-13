@@ -1,42 +1,5 @@
-/* ========================================
-   🏠 首页工作台 v4.0 · Hermes 终版
-   配合 cssclass: homepage 使用
-   操作台 + 洞察镜 双层架构
-   ======================================== */
+/* ========== Hermes 首页工作台 v4.0 终版 ========== */
 
-/* ========================================
-   1. 全局变量与基础重置
-   ======================================== */
-.homepage {
-  --homepage-radius: 10px;
-  --homepage-transition: 0.2s ease;
-  --homepage-hover-lift: -2px;
-}
-
-/* 首页 H2 标题样式 */
-.homepage .markdown-preview-section h2 {
-  margin-top: 32px;
-  margin-bottom: 12px;
-  font-size: 1.25rem;
-  color: var(--text-normal);
-  border-bottom: 2px solid var(--background-modifier-border);
-  padding-bottom: 6px;
-}
-
-/* 首页引用块（定位声明）微调 */
-.homepage .markdown-preview-section > blockquote {
-  background: var(--background-secondary);
-  border-left: 4px solid var(--background-modifier-border);
-  border-radius: 0 6px 6px 0;
-  padding: 10px 16px;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  margin: 8px 0 24px 0;
-}
-
-/* ========================================
-   2. 顶部横幅 · 绿植工作台
-   ======================================== */
 .homepage .home-header {
   display: flex;
   justify-content: space-between;
@@ -93,9 +56,7 @@
 .homepage .home-header-date { font-size: 16px; font-weight: 600; color: #2d3a2d; margin-bottom: 8px; }
 .homepage .home-header-stats { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #6b7d6b; }
 
-/* ========================================
-   3. 今日行动 · 四色卡片
-   ======================================== */
+/* --- 今日行动卡片 --- */
 .homepage .action-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -116,7 +77,6 @@
 .homepage .action-card .card-desc { font-size: 12px; color: #8b9a8b; margin-bottom: 12px; }
 .homepage .action-card .card-link { font-size: 13px; font-weight: 600; text-decoration: none; }
 .homepage .action-card .card-link:hover { text-decoration: underline; }
-
 /* 四色语义 */
 .homepage .card-journal { border-left-color: #9e9e9e; }
 .homepage .card-journal .card-link { color: #616161; }
@@ -127,9 +87,14 @@
 .homepage .card-raw { border-left-color: #bdbdbd; }
 .homepage .card-raw .card-link { color: #757575; }
 
-/* ========================================
-   4. 快速导航胶囊
-   ======================================== */
+/* --- 洞察镜 --- */
+.homepage .callout[data-callout="important"] {
+  background: #f1f8e9;
+  border-color: #c8e6c9;
+  border-radius: 12px;
+}
+
+/* --- 快速导航胶囊 --- */
 .homepage .quick-nav {
   display: flex;
   flex-wrap: wrap;
@@ -157,70 +122,60 @@
   background: #f1f8e9;
 }
 
-/* ========================================
-   5. 洞察镜通用
-   ======================================== */
-.homepage .callout[data-callout="important"] {
-  background: #f1f8e9;
-  border-color: #c8e6c9;
-  border-radius: 12px;
-}
-
-/* ========================================
-   6. 规范体系网格
-   ======================================== */
-.homepage .callout[data-callout="spec-grid"] {
+/* ========== Callout 网格布局 ========== */
+/* 1. 规范体系网格 */
+.homepage .callout[data-callout="spec-grid"] .callout-content {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 16px !important;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e0e0e0;
-  margin: 12px 0 24px;
 }
-.homepage .callout[data-callout="spec-grid"] .callout-title { display: none; }
-.homepage .callout[data-callout="spec-grid"] .callout-content { padding: 0; }
-.homepage .callout[data-callout="spec-grid"] ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 8px; }
-.homepage .callout[data-callout="spec-grid"] li {
+.homepage .callout[data-callout="spec-grid"] .callout-content ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.homepage .callout[data-callout="spec-grid"] .callout-content li {
   padding: 10px 14px;
   border-radius: 6px;
   background: #f1f8e9;
   transition: all 0.2s;
   font-size: 13px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #c8e6c9;
 }
-.homepage .callout[data-callout="spec-grid"] li:hover {
+.homepage .callout[data-callout="spec-grid"] .callout-content li:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.homepage .callout[data-callout="spec-grid"] .list-bullet { display: none; }
 
-/* ========================================
-   7. 快捷创建胶囊
-   ======================================== */
-.homepage .callout[data-callout="quick-grid"] {
+/* 2. 快速创建胶囊 */
+.homepage .callout[data-callout="quick-grid"] .callout-content {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  padding: 16px;
+  padding: 16px !important;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e0e0e0;
-  margin: 12px 0 24px;
 }
-.homepage .callout[data-callout="quick-grid"] .callout-title { display: none; }
-.homepage .callout[data-callout="quick-grid"] .callout-content { padding: 0; }
-.homepage .callout[data-callout="quick-grid"] ul {
+.homepage .callout[data-callout="quick-grid"] .callout-content ul {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   list-style: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 }
-.homepage .callout[data-callout="quick-grid"] li {
+.homepage .callout[data-callout="quick-grid"] .callout-content li {
   padding: 8px 14px;
   border-radius: 20px;
   background: #f1f8e9;
@@ -229,86 +184,48 @@
   white-space: nowrap;
   transition: all 0.2s;
 }
-.homepage .callout[data-callout="quick-grid"] li:hover {
+.homepage .callout[data-callout="quick-grid"] .callout-content li:hover {
   transform: translateY(-1px);
   border-color: #4a7c59;
 }
-.homepage .callout[data-callout="quick-grid"] .list-bullet { display: none; }
 
-/* ========================================
-   8. 系统维护
-   ======================================== */
-.homepage .callout[data-callout="maint-grid"] {
+/* 3. 系统维护网格 */
+.homepage .callout[data-callout="maint-grid"] .callout-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 10px;
-  padding: 16px;
+  padding: 16px !important;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   border: 1px solid #e0e0e0;
-  margin: 12px 0 24px;
 }
-.homepage .callout[data-callout="maint-grid"] .callout-title { display: none; }
-.homepage .callout[data-callout="maint-grid"] .callout-content { padding: 0; }
-.homepage .callout[data-callout="maint-grid"] ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr; gap: 8px; }
-.homepage .callout[data-callout="maint-grid"] li {
+.homepage .callout[data-callout="maint-grid"] .callout-content ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.homepage .callout[data-callout="maint-grid"] .callout-content li {
   padding: 10px 14px;
   border-radius: 6px;
   background: #f1f8e9;
   transition: all 0.2s;
   font-size: 13px;
+  border: 1px solid #c8e6c9;
 }
-.homepage .callout[data-callout="maint-grid"] li:hover {
+.homepage .callout[data-callout="maint-grid"] .callout-content li:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.homepage .callout[data-callout="maint-grid"] .list-bullet { display: none; }
 
-/* ========================================
-   9. Dataview 表格精修
-   ======================================== */
-.homepage .table-view-table,
-.homepage .dataview.table-view-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  border-radius: var(--homepage-radius);
-  overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  margin: 10px 0 28px 0;
-}
-.homepage .table-view-table th,
-.homepage .dataview.table-view-table th {
-  background: var(--background-secondary);
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--background-modifier-border);
-  text-align: left;
-}
-.homepage .table-view-table td,
-.homepage .dataview.table-view-table td {
-  padding: 8px 14px;
-  font-size: 0.88rem;
-  color: var(--text-normal);
-  border-bottom: 1px solid var(--background-modifier-border);
-}
-.homepage .table-view-table tr:last-child td,
-.homepage .dataview.table-view-table tr:last-child td {
-  border-bottom: none;
-}
-.homepage .table-view-table tr:hover td,
-.homepage .dataview.table-view-table tr:hover td {
-  background: var(--background-modifier-hover);
+/* --- 积压预警空状态 --- */
+.homepage .dataview.table-empty,
+.homepage .dataview.result-empty {
+  display: none;
 }
 
-/* ========================================
-   10. 响应式断点
-   ======================================== */
+/* --- 响应式 --- */
 @media (max-width: 900px) {
   .homepage .action-grid { grid-template-columns: repeat(2, 1fr); }
   .homepage .home-header { flex-direction: column; }
@@ -321,49 +238,4 @@
   .homepage .home-header-subtitle { font-size: 18px; }
   .homepage .home-header { padding: 20px; }
   .homepage .quick-nav { flex-direction: column; }
-}
-
-/* 【关键修复】规范体系网格：改为自适应多行，禁止水平滚动 */
-.homepage .callout[data-callout="spec-grid"] {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
-  padding: 16px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid #e0e0e0;
-}
-.homepage .callout[data-callout="spec-grid"] ul {
-  display: contents;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.homepage .callout[data-callout="spec-grid"] li {
-  padding: 10px 14px;
-  border-radius: 6px;
-  background: #f1f8e9;
-  transition: all 0.2s;
-  font-size: 13px;
-  display: flex;
-  align-items: center;
-}
-.homepage .callout[data-callout="spec-grid"] li:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-
-/* 系统维护网格：同样修复 */
-.homepage .callout[data-callout="maint-grid"] ul {
-  display: contents;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 积压预警空状态 */
-.homepage .dataview.table-empty,
-.homepage .dataview.result-empty {
-  display: none;
 }
