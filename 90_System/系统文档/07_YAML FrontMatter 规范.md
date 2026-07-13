@@ -155,8 +155,8 @@ tags: [营销, 品牌]
 
 | 字段分类 | 特化字段清单 | 适用范围 |
 |:---|:---|:---|:---|
-| 食谱笔记 | `cuisine, dish_type, prep_time, cook_time, servings, difficulty, ingredients_main, diet_type, difficulty_display, temperature, rating` | 仅 `23_生活与健康/食物/` |
-| 健身方案 | `fit_type, fit_cycle, target_muscle, fit_level, train_duration, train_frequency, fit_goal, rest_rule, equipment, injury_note, diet_strategy, demo_gif, training_date` | 仅 `23_生活与健康/健身/` |
+| 食谱笔记 | `cuisine, dish_type, prep_time, cook_time, servings, difficulty, ingredients_main, diet_type, difficulty_display, temperature, rating` | 仅 `20_Areas/23_生活与健康/食物/` |
+| 健身方案 | `fit_type, fit_cycle, target_muscle, fit_level, train_duration, train_frequency, fit_goal, rest_rule, equipment, injury_note, diet_strategy, demo_gif, training_date` | 仅 `20_Areas/23_生活与健康/健身/` |
 
 ### 溯源字段标准化
 
