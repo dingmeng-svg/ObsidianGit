@@ -30,7 +30,7 @@ tags:
 
 ## 二、新增 Skill 时间线
 
-| 日期 | Skill | 说明 |
+|| 日期 | Skill | 说明 |
 |:----|:------|:-----|
 | 2026-06-09 | `dogfood` | QA 测试 skill |
 | 2026-06-09 | `yuanbao` | 元宝群组通讯 |
@@ -49,6 +49,7 @@ tags:
 | 2026-07-11 | `atomic-note-extraction` v2.7.0 | 新增 `related_system_docs` 字段，建立与系统文档的双向引用 |
 | 2026-07-11 | `vault-management` v1.1.0 | 新增 `related_system_docs` 字段，建立与系统文档的双向引用 |
 | 2026-07-12 | `image-bed-sync` | 图床与多端同步基础设施规范（对应 21 号系统文档） |
+| 2026-07-13 | `fitness-writing-standard` | 健身方案编写标准 Skill |
 
 ---
 
@@ -73,10 +74,12 @@ tags:
 
 **Skill 与系统文档双向引用：**
 
-| Skill | 对应系统文档 |
+|| Skill | 对应系统文档 |
 |:---|:---|
-| `atomic-note-extraction` | 02_原子笔记炼金术, 09_Inbox 编译与归档流程, 19_外部方法论关系声明规范 |
-| `vault-management` | 05_Vault Management 操作规范, 08_双链维护规范, 10_MOC 索引维护规范 |
+|| `atomic-note-extraction` | 02_原子笔记炼金术, 09_Inbox 编译与归档流程, 19_外部方法论关系声明规范 |
+|| `vault-management` | 05_Vault Management 操作规范, 08_双链维护规范, 10_MOC 索引维护规范 |
+|| `recipe-writing-standard` | 14_食谱编写标准 | 规则在文档，执行在 Skill |
+| `fitness-writing-standard` | 16_健身方案编写标准 | 规则在文档，执行在 Skill |
 
 > 系统文档分层体系与 Skill 映射详见 [[18_系统文档总索引]]。
 
