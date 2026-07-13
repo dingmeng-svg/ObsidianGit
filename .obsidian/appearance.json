@@ -4,6 +4,7 @@
   "enabledCssSnippets": [
     "reading-enhance",
     "homepage-styles",
-    "homepage"
+    "homepage",
+    "knowledge-home"
   ]
 }

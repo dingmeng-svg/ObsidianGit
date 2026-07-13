@@ -9,7 +9,7 @@ aliases:
   - "FrontMatter 规范"
 related:
   - "[[01_知识库统一规范总纲]]"
-  - "[[05_Vault Management 操作规范]]"
+  - "[[05_Vault Management 全流程操作规范]]"
 ---
 
 # 16_Obsidian YAML FrontMatter 规范
@@ -21,7 +21,7 @@ related:
 >
 > **相关规范**：
 > - [[01_知识库统一规范总纲]] — 元数据规范（META-01~03）
-> - [[05_Vault Management 操作规范]] — 归档操作流程
+> - [[05_Vault Management 全流程操作规范]] — 归档操作流程
 > - [[14_知识库规范速查卡]] — 核心规则摘要
 
 ---
