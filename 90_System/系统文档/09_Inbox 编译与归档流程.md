@@ -9,7 +9,7 @@ aliases:
   - "Ingest 流程"
   - "Inbox 处理"
 related:
-  - "[[06_Hermes Ingest 编译 SOP]]"
+  - "[[06_Inbox 素材处理全流程规范]]"
   - "[[05_Vault Management 操作规范]]"
   - "[[02_原子笔记炼金术·终局版]]"
 ---
