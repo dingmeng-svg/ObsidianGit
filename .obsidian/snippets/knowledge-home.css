@@ -322,3 +322,48 @@
   .homepage .home-header { padding: 20px; }
   .homepage .quick-nav { flex-direction: column; }
 }
+
+/* 【关键修复】规范体系网格：改为自适应多行，禁止水平滚动 */
+.homepage .callout[data-callout="spec-grid"] {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid #e0e0e0;
+}
+.homepage .callout[data-callout="spec-grid"] ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.homepage .callout[data-callout="spec-grid"] li {
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #f1f8e9;
+  transition: all 0.2s;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.homepage .callout[data-callout="spec-grid"] li:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* 系统维护网格：同样修复 */
+.homepage .callout[data-callout="maint-grid"] ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 积压预警空状态 */
+.homepage .dataview.table-empty,
+.homepage .dataview.result-empty {
+  display: none;
+}
