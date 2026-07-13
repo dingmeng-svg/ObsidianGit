@@ -22,7 +22,7 @@ related:
 > **相关规范**：
 > - [[01_知识库统一规范总纲]] — 元数据规范（META-01~03）
 > - [[05_Vault Management 操作规范]] — 归档操作流程
-> - [[15_知识库规范速查]] — 核心规则摘要
+> - [[14_知识库规范速查卡]] — 核心规则摘要
 
 ---
 
@@ -136,31 +136,31 @@ tags: [营销, 品牌]
 
 `modified` 字段由 Obsidian 文件系统元数据（`file.mtime`）自动维护，**无需手动填写，禁止手动编辑**。Agent 进行陈旧检测时以此为准。
 
-|| 字段 | 适用笔记类型 | 说明 |
+| 字段 | 适用笔记类型 | 说明 |
 |:---|:---|:---|:---|
-|| `human_edited` | 全库 | AI 写入权限锁。`true` = 禁止 Agent 覆盖正文。若笔记 YAML 中无此字段，视为 `false` |
-|| `deep_reviewed` | 仅语言组块笔记 | 是否完成至少一轮人工深回流修正 |
-|| `ai_generated` | AI 编译产物 | 标记 AI 生成 |
-|| `last_ai_edit` | Agent 修改过的笔记 | 最近 AI 修改日期 |
-|| `ai_edit_summary` | Agent 修改过的笔记 | AI 修改内容简述 |
-|| `extraction_context` | 从项目萃取的原子笔记 | 一句话记录提炼动机和原始语境（可选字段） |
-|| `extraction_decision` | 项目主文档 | 结项萃取决策记录。格式：`["extracted: 笔记A", "project_only: 文件C", "pending: 文件D"]` |
-|| `doc_level` | 系统文档 | 文档层级标识。固定取值 L0/L1/L2/L3/L4。无此字段不认定为正式系统文档 |
-|| `version` | 系统文档 | 语义化版本号。`v0.0.0` 为草稿，正式启用须升级至 `v1.0.0` |
-|| `last_sync` | 系统文档 | 最后与上游真值源规则对齐的日期，非文件修改时间 |
-|| `related_docs` | 系统文档 | 关联文档的双链列表 |
-|| `dependent_skills` | 系统文档 | 依赖本文档的 Skill 列表 |
+| `human_edited` | 全库 | AI 写入权限锁。`true` = 禁止 Agent 覆盖正文。若笔记 YAML 中无此字段，视为 `false` |
+| `deep_reviewed` | 仅语言组块笔记 | 是否完成至少一轮人工深回流修正 |
+| `ai_generated` | AI 编译产物 | 标记 AI 生成 |
+| `last_ai_edit` | Agent 修改过的笔记 | 最近 AI 修改日期 |
+| `ai_edit_summary` | Agent 修改过的笔记 | AI 修改内容简述 |
+| `extraction_context` | 从项目萃取的原子笔记 | 一句话记录提炼动机和原始语境（可选字段） |
+| `extraction_decision` | 项目主文档 | 结项萃取决策记录。格式：`["extracted: 笔记A", "project_only: 文件C", "pending: 文件D"]` |
+| `doc_level` | 系统文档 | 文档层级标识。固定取值 L0/L1/L2/L3/L4。无此字段不认定为正式系统文档 |
+| `version` | 系统文档 | 语义化版本号。`v0.0.0` 为草稿，正式启用须升级至 `v1.0.0` |
+| `last_sync` | 系统文档 | 最后与上游真值源规则对齐的日期，非文件修改时间 |
+| `related_docs` | 系统文档 | 关联文档的双链列表 |
+| `dependent_skills` | 系统文档 | 依赖本文档的 Skill 列表 |
 
 ### 4.5 全局字段白名单
 
-|| 字段分类 | 特化字段清单 | 适用范围 |
+| 字段分类 | 特化字段清单 | 适用范围 |
 |:---|:---|:---|:---|
-|| 食谱笔记 | `cuisine, dish_type, prep_time, cook_time, servings, difficulty, ingredients_main, diet_type, difficulty_display, temperature, rating` | 仅 `23_生活与健康/食物/` |
-|| 健身方案 | `fit_type, fit_cycle, target_muscle, fit_level, train_duration, train_frequency, fit_goal, rest_rule, equipment, injury_note, diet_strategy, demo_gif, training_date` | 仅 `23_生活与健康/健身/` |
+| 食谱笔记 | `cuisine, dish_type, prep_time, cook_time, servings, difficulty, ingredients_main, diet_type, difficulty_display, temperature, rating` | 仅 `23_生活与健康/食物/` |
+| 健身方案 | `fit_type, fit_cycle, target_muscle, fit_level, train_duration, train_frequency, fit_goal, rest_rule, equipment, injury_note, diet_strategy, demo_gif, training_date` | 仅 `23_生活与健康/健身/` |
 
 ### 溯源字段标准化
 
-|| 字段 | 适用场景 | 格式 | 是否必填 |
+| 字段 | 适用场景 | 格式 | 是否必填 |
 |:---|:---|:---|:---|
 | `source` | 原始出处 | 单一来源名称或数组 `["来源A", "来源B"]` | 推荐 |
 | `extraction_context` | 萃取动机 | 一句话描述提炼原因 | 回流/萃取产物必填 |
@@ -171,7 +171,7 @@ tags: [营销, 品牌]
 
 ### 4.5 非标准字段（禁止使用）
 
-|| 禁止 | 原因 |
+| 禁止 | 原因 |
 |:---|:---|
 | ❌ `version` | 不是标准字段 |
 | ❌ `priority` | 不是标准字段 |

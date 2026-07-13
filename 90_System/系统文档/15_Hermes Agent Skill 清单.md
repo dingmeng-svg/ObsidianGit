@@ -30,7 +30,7 @@ tags:
 
 ## 二、新增 Skill 时间线
 
-|| 日期 | Skill | 说明 |
+| 日期 | Skill | 说明 |
 |:----|:------|:-----|
 | 2026-06-09 | `dogfood` | QA 测试 skill |
 | 2026-06-09 | `yuanbao` | 元宝群组通讯 |
@@ -74,14 +74,14 @@ tags:
 
 **Skill 与系统文档双向引用：**
 
-|| Skill | 对应系统文档 |
-|:---|:---|
-|| `atomic-note-extraction` | 02_原子笔记炼金术, 09_Inbox 编译与归档流程, 19_外部方法论关系声明规范 |
-|| `vault-management` | 05_Vault Management 操作规范, 08_双链维护规范, 10_MOC 索引维护规范 |
-|| `recipe-writing-standard` | 14_食谱编写标准 | 规则在文档，执行在 Skill |
-| `fitness-writing-standard` | 16_健身方案编写标准 | 规则在文档，执行在 Skill |
+| Skill                      | 对应系统文档                                             |                 |
+| :------------------------- | :------------------------------------------------- | --------------- |
+| `atomic-note-extraction`   | 02_原子笔记炼金术, 09_Inbox 编译与归档流程, 19_外部方法论关系声明规范       |                 |
+| `vault-management`         | 05_Vault Management 操作规范, 08_双链维护规范, 10_MOC 索引维护规范 |                 |
+| `recipe-writing-standard`  | 12_食谱编写标准                                          | 规则在文档，执行在 Skill |
+| `fitness-writing-standard` | 13_健身方案编写标准                                        | 规则在文档，执行在 Skill |
 
-> 系统文档分层体系与 Skill 映射详见 [[18_系统文档总索引]]。
+> 系统文档分层体系与 Skill 映射详见 [[16_系统文档总索引]]。
 
 **对应的 Worklog：** `90_System/Worklogs/2026-07/2026-07-11.md`
 
@@ -169,7 +169,7 @@ tags:
 
 ## 六、核心项目状态
 
-|| 项目 | 最新进展 | 日期 |
+| 项目 | 最新进展 | 日期 |
 |:----|:--------|:----|
 | 知→行→进化 9.9元入门包 | 闲鱼已上架（6张主图+文案重修） | 2026-07-07 |
 | 知→行→进化 99元基础版 | 未启动（待排期） | — |
@@ -200,7 +200,7 @@ tags:
 
 ### Skill 关键外部依赖清单
 
-|| Skill | 关键外部依赖 | 最后验证日期 |
+| Skill | 关键外部依赖 | 最后验证日期 |
 |:---|:---|:---|
 | `getnote-obsidian` | 得到 API 接口、双 Key 配置 | 2026-07-08 |
 | `multi-platform-content-sync` | 微信小程序接口、WebSocket | — |
