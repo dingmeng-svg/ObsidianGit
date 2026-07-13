@@ -42,7 +42,7 @@ Ingest 编译的目标不是"整理信息"，而是生产能够持续对话的�
 | 字段 | 用途 | 适用 |
 |:-----|:------|:-----|
 | `ai_generated: true` | 标记 AI 编译产物 | 原子笔记/摘要 |
-| `human_edited: true` | 人类编辑保护锁，AI 禁止覆盖正文 | 原子笔记（存量默认 true） |
+| `human_edited: true` | 人类编辑保护锁，AI 禁止覆盖正文 | 原子笔记（若 YAML 中无此字段，视为 `false`） |
 | `last_ai_edit: YYYY-MM-DD` | 最近 AI 增量修改日期 | 被更新的原子笔记 |
 | `ai_edit_summary: "..."` | AI 修改内容简述 | 被更新的原子笔记 |
 | `audit: "high: ..."` | 反馈信号 | 全库 |

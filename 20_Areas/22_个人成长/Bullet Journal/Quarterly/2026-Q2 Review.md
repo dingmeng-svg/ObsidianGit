@@ -7,14 +7,14 @@ tags:
 type: quarterly-review
 aliases: []
 related:
-  - "[[2026 Annual Compass]]"
+  - "[[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]]"
   - "[[2026 Future Log]]"
 ---
 
 # 📅 2026 Q2 (04月 ~ 06月) 季度复盘
 
 > 🎯 年度战略与月度执行之间的校准层。季度末用 2 小时完成。
-> 完成后请手动勾选 [[2026 Annual Compass]] 中的对应季度检查点。
+> 完成后请手动勾选 [[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]] 中的对应季度检查点。
 
 ---
 
@@ -117,7 +117,7 @@ if (data.length === 0) {
 
 ## 6. 年度进度校准
 
-> 年度目标详见 [[2026 Annual Compass]]
+> 年度目标详见 [[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]]
 
 | 年度关键成果 | 本季推进 | 全年进度判断                |
 | :----------- | :------- | :-------------------------- |
