@@ -239,3 +239,58 @@
   .homepage .home-header { padding: 20px; }
   .homepage .quick-nav { flex-direction: column; }
 }
+
+/* ========== 视觉统一与布局升级 ========== */
+
+/* 1. 修复按钮和Dataview表格链接的字号问题 */
+.home-btn, .action-card .card-link {
+    font-size: 13px;
+}
+.dataview.table-view-table .internal-link {
+    font-size: 0.95em;
+    font-weight: normal;
+}
+
+/* 2. 通用网格卡片Callout */
+.callout[data-callout="grid-card"] .callout-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)) !important;
+    gap: 12px !important;
+    padding: 16px !important;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid #e0e0e0;
+}
+
+/* 3. 网格内卡片通用样式 */
+.callout[data-callout="grid-card"] .callout-content ul {
+    display: contents;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.callout[data-callout="grid-card"] .callout-content li,
+.callout[data-callout="grid-card"] .callout-content a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #f1f8e9;
+    border: 1px solid #c8e6c9;
+    text-decoration: none;
+    color: #2d3a2d;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+.callout[data-callout="grid-card"] .callout-content li:hover,
+.callout[data-callout="grid-card"] .callout-content a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #4a7c59;
+    background: #fff;
+}
