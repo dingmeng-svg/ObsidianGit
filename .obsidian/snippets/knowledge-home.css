@@ -132,6 +132,7 @@
    4. 洞察镜
    ============================================================ */
 .homepage .callout[data-callout="faq"] {
+  background: #f4f8f4 !important;
   border-left: 4px solid var(--h-color-green);
   border-radius: 12px;
   padding: 0.8rem 1.5rem;
@@ -191,8 +192,8 @@
 
 /* 深色 · 洞察镜 */
 .theme-dark .homepage .callout[data-callout="faq"] {
-  background: #1a221a;
-  border-color: #4a7c59;
+  background: #1a221a !important;
+  border-left: 4px solid #6b9e7b;
 }
 .theme-dark .homepage .callout[data-callout="faq"] .callout-title { color: #cde2cd; }
 .theme-dark .homepage .callout[data-callout="faq"] .callout-content { color: #cde2cd; }
