@@ -1,4 +1,10 @@
-/* ========== Hermes 首页 v6.0 纯原生重构版 ========== */
+/* ========== Hermes 首页 v6.0.1-final 封板版 ========== */
+
+/* --- 统一间距变量 --- */
+.homepage {
+  --module-margin: 1.5rem;
+  --module-padding: 0.75rem;
+}
 
 /* --- 彻底隐藏 YAML 属性表 --- */
 .homepage .frontmatter-container,
@@ -17,7 +23,6 @@
   padding: 1.5rem 2rem;
   margin-bottom: 1.5rem;
 }
-
 .homepage .callout[data-callout="info"] .callout-title {
   font-size: 1.3rem;
   font-weight: 700;
@@ -26,87 +31,131 @@
   margin-bottom: 0.5rem;
   display: block;
 }
-
 .homepage .callout[data-callout="info"] .callout-title .callout-icon {
   display: none;
 }
-
 .homepage .callout[data-callout="info"] .callout-content {
   font-size: 1rem;
   color: #4a7c59;
   font-weight: 600;
 }
-
 .homepage .callout[data-callout="info"] .callout-content p {
   margin: 0;
 }
 
-/* --- 今日行动表格（卡片化） --- */
-.homepage table {
-  border-collapse: separate;
-  border-spacing: 0.5rem;
-  width: 100%;
-  margin: 1rem 0;
-  background: transparent;
+/* =========================================
+   【主方案】今日行动 → Callout 网格布局
+   ========================================= */
+.homepage .callout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0.75rem;
+  margin: var(--module-margin) 0;
 }
-
-.homepage th {
-  background: #f1f8e9;
-  font-weight: 700;
-  text-align: center;
-  padding: 0.5rem;
-  border-radius: 6px;
-  width: 25%;
-}
-
-.homepage td {
-  background: #fff;
+.homepage .callout-grid .callout {
+  margin: 0 !important;
   border-radius: 10px;
   border: 1px solid #e0e0e0;
-  padding: 0.75rem;
-  text-align: center;
-  width: 25%;
+  background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s, box-shadow 0.2s;
+  padding: 0.75rem;
 }
-
-.homepage td:hover {
+.homepage .callout-grid .callout:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
-
-.homepage td a.internal-link {
-  text-decoration: none !important;
+.homepage .callout-grid .callout .callout-title {
+  font-size: 0.95rem;
   font-weight: 600;
+  padding: 0;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.homepage .callout-grid .callout .callout-title .callout-icon {
+  display: inline-block;
+}
+.homepage .callout-grid .callout .callout-content {
   font-size: 0.85rem;
+  color: #6b7d6b;
+  padding: 0;
+}
+.homepage .callout-grid .callout .callout-content p {
+  margin: 0.25rem 0;
 }
 
-.homepage td:nth-child(1) {
+/* 四色左侧边框 */
+.homepage .callout-grid .callout:nth-child(1) {
   border-left: 4px solid #9e9e9e;
 }
-.homepage td:nth-child(1) a {
+.homepage .callout-grid .callout:nth-child(1) a {
   color: #616161;
 }
-
-.homepage td:nth-child(2) {
+.homepage .callout-grid .callout:nth-child(2) {
   border-left: 4px solid #4caf50;
 }
-.homepage td:nth-child(2) a {
+.homepage .callout-grid .callout:nth-child(2) a {
   color: #2e7d32;
 }
-
-.homepage td:nth-child(3) {
+.homepage .callout-grid .callout:nth-child(3) {
   border-left: 4px solid #2196f3;
 }
-.homepage td:nth-child(3) a {
+.homepage .callout-grid .callout:nth-child(3) a {
   color: #1565c0;
 }
-
-.homepage td:nth-child(4) {
+.homepage .callout-grid .callout:nth-child(4) {
   border-left: 4px solid #bdbdbd;
 }
-.homepage td:nth-child(4) a {
+.homepage .callout-grid .callout:nth-child(4) a {
   color: #757575;
+}
+
+.homepage .callout-grid .callout a.internal-link {
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   【主方案】Dataview 表格 → 纯净平铺样式
+   ========================================= */
+.homepage .dataview.table-view-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+.homepage .dataview.table-view-table th {
+  background: #f5f7f5;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  padding: 0.5rem 0.6rem;
+  color: #4a5a4a;
+  font-weight: 600;
+}
+.homepage .dataview.table-view-table td {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.homepage .dataview.table-view-table tr:hover td {
+  background: #f9fcf9 !important;
+}
+.homepage .dataview.table-view-table a {
+  font-size: 0.9rem;
+}
+
+/* --- Dataview 空状态 --- */
+.homepage .dataview span {
+  color: #6b7d6b;
+  font-style: italic;
+  padding: 0.5rem 0;
+  display: inline-block;
 }
 
 /* --- 双链全局清除下划线 --- */
@@ -128,7 +177,6 @@
   font-weight: 600;
   font-size: 0.9rem;
 }
-
 .homepage p a.internal-link:hover {
   border-color: #4a7c59;
   background: #f1f8e9;
@@ -139,16 +187,14 @@
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   padding: 0.75rem 1rem;
-  margin-top: 1.5rem;
+  margin-top: var(--module-margin);
   background: #fff;
 }
-
 .homepage .callout[data-callout="example"] .callout-title {
   font-size: 1rem;
   font-weight: 700;
   color: #2d3a2d;
 }
-
 .homepage .callout[data-callout="example"] .callout-content {
   padding-top: 0.5rem;
 }
@@ -163,32 +209,82 @@
   color: #9e9e9e;
 }
 
-/* --- Dataview 表格与空状态 --- */
-.homepage .dataview.table-view-table {
-  font-size: 0.9rem;
-}
-
-.homepage .dataview.table-view-table a {
-  font-size: 0.9rem;
-}
-
-.homepage .dataview span {
-  color: #6b7d6b;
-  font-style: italic;
-  padding: 0.5rem 0;
-  display: inline-block;
-}
-
 /* --- 响应式 --- */
 @media (max-width: 900px) {
   .homepage .callout[data-callout="info"] {
     padding: 1rem;
   }
 }
-
 @media (max-width: 700px) {
-  .homepage table {
-    display: block;
-    overflow-x: auto;
+  .homepage .callout-grid {
+    grid-template-columns: 1fr 1fr;
   }
+}
+@media (max-width: 480px) {
+  .homepage .callout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   【回退方案】行动表格卡片化（严格排除 Dataview）
+   仅当 Callout 网格失效时启用
+   ========================================= */
+.homepage table:not(.dataview) {
+  border-collapse: separate;
+  border-spacing: 0.5rem;
+  width: 100%;
+  margin: 1rem 0;
+  background: transparent;
+}
+.homepage table:not(.dataview) th {
+  background: #f1f8e9;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  width: 25%;
+}
+.homepage table:not(.dataview) td {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 0.75rem;
+  text-align: center;
+  width: 25%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.homepage table:not(.dataview) td:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.homepage table:not(.dataview) td a {
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.homepage table:not(.dataview) td:nth-child(1) {
+  border-left: 4px solid #9e9e9e;
+}
+.homepage table:not(.dataview) td:nth-child(1) a {
+  color: #616161;
+}
+.homepage table:not(.dataview) td:nth-child(2) {
+  border-left: 4px solid #4caf50;
+}
+.homepage table:not(.dataview) td:nth-child(2) a {
+  color: #2e7d32;
+}
+.homepage table:not(.dataview) td:nth-child(3) {
+  border-left: 4px solid #2196f3;
+}
+.homepage table:not(.dataview) td:nth-child(3) a {
+  color: #1565c0;
+}
+.homepage table:not(.dataview) td:nth-child(4) {
+  border-left: 4px solid #bdbdbd;
+}
+.homepage table:not(.dataview) td:nth-child(4) a {
+  color: #757575;
 }
