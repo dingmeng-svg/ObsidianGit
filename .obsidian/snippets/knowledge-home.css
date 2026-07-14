@@ -198,9 +198,14 @@
 .theme-dark .homepage .callout[data-callout="faq"] .callout-title { color: #cde2cd; }
 .theme-dark .homepage .callout[data-callout="faq"] .callout-content { color: #cde2cd; }
 
+.homepage .callout[data-callout="example"] {
+  background: #f4f8f4 !important;
+  border-left: 4px solid #4a7c59 !important;
+}
+
 .theme-dark .homepage .callout[data-callout="example"] {
   background: #1a221a;
-  border-color: #333;
+  border-left: 4px solid #6b9e7b;
 }
 
 /* ============================================================
@@ -739,4 +744,37 @@
 .theme-dark .homepage .insight-card table th,
 .theme-dark .homepage .insight-card table td {
   border: 1px solid #333;
+}/* ============================================================
+   v3.0 · 页脚 Apple 极简风格
+   ============================================================ */
+
+.homepage .home-footer {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e5ea;
 }
+
+.homepage .footer-main {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3a2d;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.homepage .footer-sub {
+  font-size: 0.85rem;
+  color: #6b7d6b;
+  margin-bottom: 0.2rem;
+}
+
+.homepage .footer-meta {
+  font-size: 0.7rem;
+  color: #b0b0b0;
+}
+
+.theme-dark .homepage .footer-main { color: #e1efe1; }
+.theme-dark .homepage .footer-sub { color: #9ca3af; }
+.theme-dark .homepage .footer-meta { color: #7a8a7a; }
+.theme-dark .homepage .home-footer { border-top-color: #3a4a3a; }
