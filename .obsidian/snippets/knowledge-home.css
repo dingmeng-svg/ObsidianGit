@@ -165,6 +165,8 @@
 }
 
 /* --- 快速导航胶囊 --- */
+/* 已废弃：改用 ul.nav-capsules 方案，保留此段作为回退参考 */
+/* 
 .homepage p a.internal-link {
   display: inline-block;
   margin-right: 0.5rem;
@@ -181,6 +183,7 @@
   border-color: #4a7c59;
   background: #f1f8e9;
 }
+*/
 
 /* --- 折叠 Callout --- */
 .homepage .callout[data-callout="example"] {
@@ -287,4 +290,41 @@
 }
 .homepage table:not(.dataview) td:nth-child(4) a {
   color: #757575;
+}
+/* =========================================
+   【议题 A】导航胶囊 - 原生 ul 容器方案
+   基于封板裁决 v6.0.1-final 执行
+   日期：2026-07-14
+   ========================================= */
+
+.homepage ul.nav-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 1.5rem 0;
+}
+
+.homepage ul.nav-capsules li {
+  margin: 0;
+}
+
+.homepage ul.nav-capsules a.internal-link {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.homepage ul.nav-capsules a.internal-link:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-1px);
 }
