@@ -3,13 +3,14 @@ title: "🏠 首页"
 cssclasses:
   - homepage
 doc_level: L0
-version: v6.0.5
+version: v6.0.4
 last_sync: 2026-07-14
 changelog:
-  - 2026-07-14 v6.0.5 紧急稳定性修复
-    1. 废弃操作台原生表格结构，替换为 grid div 容器，解决 td 单元格双链源码裸露、点击失效问题
-    2. 移除热力图暴力 all:initial 重置 CSS，改用温和隔离规则，修复插件完全空白不渲染故障
-    3. 保留 v6.0.4 Green Foundation 整体架构，仅修复两大底层渲染冲突
+  - 2026-07-14 v6.0.4 Green Foundation 重构
+    1. 删除所有 HTML 容器，回归纯原生 Markdown 骨架
+    2. 数据外移：复杂洞察移至 AI 洞察目录
+    3. 热力图：启用 Heatmap Calendar 官方插件
+    4. CSS 降级：基于设计令牌，纯净命名空间隔离
 related_docs: ["系统文档/01_知识库统一规范总纲", "系统文档/16_系统文档总索引"]
 dependent_skills: []
 ---
@@ -39,24 +40,10 @@ dependent_skills: []
 
 ## ⚙️ 操作台
 
-<div class="home-grid-four">
-  <div class="grid-item">
-    <p>📝 今日日记</p>
-    <p>[[20_Areas/22_个人成长/Bullet Journal/Daily|进入 →]]</p>
-  </div>
-  <div class="grid-item">
-    <p>✅ 习惯记分卡</p>
-    <p>[[20_Areas/22_个人成长/Habit Tracking/Habit Scorecard|进入 →]]</p>
-  </div>
-  <div class="grid-item">
-    <p>📥 加工区</p>
-    <p>[[00_Inbox/processing|进入 →]]</p>
-  </div>
-  <div class="grid-item">
-    <p>🗄 原料仓</p>
-    <p>[[00_Inbox/_raw|进入 →]]</p>
-  </div>
-</div>
+| 今日日记 | 习惯记分卡 | 加工区 | 原料仓 |
+|:---|:---|:---|:---|
+| 📝 一键跳转到今天的日记 | ✅ 今日待打卡习惯 | 📥 待提炼素材（7天内处理） | 🗄 原始素材，只读不改 |
+| [[20_Areas/22_个人成长/Bullet Journal/Daily|进入 →]] | [[20_Areas/22_个人成长/Habit Tracking/Habit Scorecard|进入 →]] | [[00_Inbox/processing|进入 →]] | [[00_Inbox/_raw|进入 →]] |
 
 ---
 
@@ -177,4 +164,4 @@ try {
 ---
 
 ***
-<p style="text-align: center; color: var(--color-text-muted); font-size: 0.75rem;">Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.5 · 数据由 Dataview 自动计算</p>
+<p style="text-align: center; color: var(--color-text-muted); font-size: 0.75rem;">Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.4 · 数据由 Dataview 自动计算</p>
