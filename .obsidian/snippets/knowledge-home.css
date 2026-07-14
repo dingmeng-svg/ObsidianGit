@@ -34,169 +34,87 @@
 }
 
 /* ============================================================
-   1. 顶部视觉横幅
+   顶部横幅纯 Markdown 样式
    ============================================================ */
-.home-banner {
-  background: linear-gradient(135deg, #ffffff 0%, var(--h-color-green-bg) 100%);
-  border-radius: var(--h-radius-card);
-  border: 1px solid var(--h-color-border);
-  padding: 2rem 2.5rem;
-  margin-bottom: var(--h-spacing-module);
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  box-shadow: var(--h-shadow-card);
-  position: relative;
-  overflow: hidden;
-  min-height: 220px;
+
+.homepage .top-banner {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
 }
 
-.banner-left {
-  flex: 1;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.banner-tag {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--h-color-green);
-  font-weight: 800;
-  margin-bottom: 0.3rem;
-}
-
-.banner-title {
+.homepage .top-banner h2 {
   font-size: 1.8rem;
   font-weight: 800;
   color: #1a221a;
-  margin-bottom: 0.3rem;
-  line-height: 1.2;
+  margin: 0 0 0.2rem 0;
+  border: none;
 }
 
-.banner-desc {
+.homepage .top-banner .banner-sub {
   font-size: 0.95rem;
-  color: var(--h-color-text-muted);
-  margin-bottom: 1.2rem;
-  line-height: 1.5;
-  min-height: 1.8rem;
+  color: #6b7d6b;
+  margin: 0 0 0.5rem 0;
 }
 
-/* 统计区域 */
-.stats-area {
-  margin-bottom: 1.2rem;
-  font-size: 0.85rem;
-  background: rgba(74, 124, 89, 0.06);
-  padding: 0.4rem 1rem;
-  border-radius: 8px;
+.homepage .top-banner .banner-nav {
+  margin: 0.5rem 0 0.8rem 0;
+  line-height: 2;
+}
+.homepage .top-banner .banner-nav a {
   display: inline-block;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  min-height: 2rem;
-  max-width: 100%;
-}
-
-.stats-area .stats-loading { color: var(--h-color-text-muted); font-weight: 400; }
-.stats-area .stats-error { color: #c62828; font-weight: 500; }
-.stats-area .stats-loaded { color: var(--h-color-green); }
-
-/* PARA 导航胶囊 */
-.banner-capsules {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-
-.banner-capsules .capsule {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 1rem;
-  border-radius: var(--h-radius-capsule);
-  background: #ffffff;
-  border: 1px solid var(--h-color-border);
-  color: var(--h-color-text);
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
   font-size: 0.82rem;
   font-weight: 600;
   text-decoration: none !important;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  margin: 0.1rem 0.1rem;
+}
+.homepage .top-banner .banner-nav a:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-1px);
 }
 
-.banner-capsules .capsule:hover {
-  border-color: var(--h-color-green);
-  background: var(--h-color-green-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
-}
-
-.banner-capsules .capsule:focus {
-  outline: 2px solid var(--h-color-green);
-  outline-offset: 3px;
-}
-
-/* 三个快捷按钮 */
-.banner-actions {
+.homepage .top-banner .banner-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 0.3rem;
 }
-
-.banner-actions .btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 1.4rem;
-  border-radius: var(--h-radius-capsule);
+.homepage .top-banner .banner-actions a {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none !important;
   transition: all 0.2s ease;
-  cursor: pointer;
 }
-
-.banner-actions .btn:focus {
-  outline: 2px solid var(--h-color-green);
-  outline-offset: 3px;
+.homepage .top-banner .banner-actions a.btn-primary {
+  background: #4a7c59;
+  color: #fff !important;
+  border: 1px solid #4a7c59;
 }
-
-.banner-actions .btn-primary {
-  background: var(--h-color-green);
-  color: #ffffff !important;
-  border: 1px solid var(--h-color-green);
-  box-shadow: 0 4px 14px rgba(74, 124, 89, 0.25);
-}
-
-.banner-actions .btn-primary:hover {
+.homepage .top-banner .banner-actions a.btn-primary:hover {
   background: #3a6a49;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(74, 124, 89, 0.35);
 }
-
-.banner-actions .btn-outline {
-  background: #ffffff;
-  color: var(--h-color-green) !important;
-  border: 1px solid var(--h-color-green);
+.homepage .top-banner .banner-actions a.btn-outline {
+  background: #fff;
+  color: #4a7c59 !important;
+  border: 1px solid #4a7c59;
 }
-
-.banner-actions .btn-outline:hover {
-  background: var(--h-color-green-bg);
+.homepage .top-banner .banner-actions a.btn-outline:hover {
+  background: #f1f8e9;
   transform: translateY(-2px);
-}
-
-/* 右侧背景图（带兜底渐变） */
-.banner-right {
-  flex: 0 0 240px;
-  min-height: 160px;
-  border-radius: 12px;
-  background-color: var(--h-color-green-bg);
-  background-image:
-    url("90_System/assets/green_workstation_banner.png"),
-    linear-gradient(135deg, var(--h-color-green-light), var(--h-color-green-bg));
-  background-position: right bottom;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 /* ============================================================
@@ -334,33 +252,33 @@
   --h-color-text-muted: #9ca3af;
 }
 
-.theme-dark .home-banner {
+/* 深色 · 顶部横幅 */
+.theme-dark .homepage .top-banner {
   background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
-  border-color: var(--h-color-border);
+  border-color: #3a4a3a;
 }
-.theme-dark .banner-title { color: #ffffff; }
-.theme-dark .banner-desc { color: #9ca3af; }
-.theme-dark .stats-area { color: #81c784; background: rgba(129, 199, 132, 0.1); }
-
-.theme-dark .banner-capsules .capsule {
+.theme-dark .homepage .top-banner h2 { color: #ffffff; }
+.theme-dark .homepage .top-banner .banner-sub { color: #9ca3af; }
+.theme-dark .homepage .top-banner .banner-nav a {
   background: #1f2e1f;
   border-color: #333;
-  color: #e1efe1;
+  color: #e1efe1 !important;
 }
-.theme-dark .banner-capsules .capsule:hover { background: #2d3d2d; }
-
-.theme-dark .banner-actions .btn-outline {
+.theme-dark .homepage .top-banner .banner-nav a:hover { background: #2d3d2d; }
+.theme-dark .homepage .top-banner .banner-actions a.btn-outline {
   background: #1f2e1f;
   color: #81c784 !important;
   border-color: #4a7c59;
 }
-.theme-dark .banner-actions .btn-outline:hover { background: #2d3d2d; }
+.theme-dark .homepage .top-banner .banner-actions a.btn-outline:hover { background: #2d3d2d; }
 
+/* 深色 · 卡片 */
 .theme-dark .card-action,
 .theme-dark .card-output { background: #1a221a; border-color: #333; }
 .theme-dark .card-title { color: #ffffff; }
 .theme-dark .card-desc { color: #888; }
 
+/* 深色 · Dataview */
 .theme-dark .homepage .dataview.table-view-table th {
   background: #2a332a;
   border-bottom-color: #444;
@@ -369,6 +287,7 @@
 .theme-dark .homepage .dataview.table-view-table td { border-bottom-color: #333; }
 .theme-dark .homepage .dataview.table-view-table tr:hover td { background: #2a332a !important; }
 
+/* 深色 · 洞察镜 */
 .theme-dark .homepage .callout[data-callout="info"] {
   background: #1a221a;
   border-color: #4a7c59;
@@ -382,42 +301,30 @@
 }
 
 /* ============================================================
-   7. 响应式（含窄屏胶囊压缩）
+   7. 响应式
    ============================================================ */
 @media screen and (max-width: 768px) {
-  .home-banner { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
-  .banner-right { display: none; }
-  .banner-left { max-width: 100%; }
-  .banner-title { font-size: 1.4rem; }
   .grid-2x2, .grid-2x1 { grid-template-columns: 1fr; gap: 0.7rem; }
-  .banner-capsules { gap: 0.4rem; }
-  .banner-actions { width: 100%; }
-  .banner-actions .btn { flex: 1; justify-content: center; padding: 0.4rem 0.8rem; font-size: 0.78rem; }
   .card-action, .card-output { min-height: 80px; padding: 0.8rem; }
 }
 
 @media screen and (max-width: 480px) {
   .homepage { padding-inline: 0.6rem; }
-  .home-banner { padding: 1rem; border-radius: 12px; }
-  .banner-title { font-size: 1.1rem; }
-  .banner-desc { font-size: 0.82rem; }
-  .banner-capsules .capsule { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
-  .stats-area { font-size: 0.7rem; padding: 0.3rem 0.7rem; display: block; word-break: break-word; }
-  .banner-actions .btn { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+  .homepage .top-banner { padding: 1rem; }
+  .homepage .top-banner h2 { font-size: 1.3rem; }
+  .homepage .top-banner .banner-actions a { padding: 0.3rem 0.8rem; font-size: 0.75rem; }
+  .homepage .top-banner .banner-nav a { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
 }
 
 /* ============================================================
    v6.0.11 视觉优化补丁 · 卡片底色 + 虚线分割
-   2026-07-14
    ============================================================ */
 
-/* --- 今日行动 · 四色卡片底 --- */
 .card-action-1 { background: #fdf8ee !important; }
 .card-action-2 { background: #eef5fa !important; }
 .card-action-3 { background: #f3effa !important; }
 .card-action-4 { background: #eef7f1 !important; }
 
-/* --- 卡片内虚线分割 --- */
 .card-action .card-divider,
 .card-output .card-divider {
   width: 60%;
@@ -427,18 +334,14 @@
   border-bottom: 1px dashed #e0e0e0;
 }
 
-/* 深色主题适配 */
 .theme-dark .card-action-1 { background: #3d3a2a !important; }
 .theme-dark .card-action-2 { background: #1a2a3a !important; }
 .theme-dark .card-action-3 { background: #2a1a3a !important; }
 .theme-dark .card-action-4 { background: #1a2a2a !important; }
 
 .theme-dark .card-action .card-divider,
-.theme-dark .card-output .card-divider {
-  border-bottom-color: #444;
-}
+.theme-dark .card-output .card-divider { border-bottom-color: #444; }
 
-/* --- 今日输出 · 标签 --- */
 .card-output .output-tag {
   font-size: 0.6rem;
   font-weight: 700;
@@ -449,11 +352,4 @@
   align-self: flex-start;
 }
 
-.theme-dark .card-output .output-tag {
-  color: #777;
-}
-
-/* ============================================================
-   8. 废弃样式归档
-   ============================================================ */
-/* v6.0.10 及之前所有 + 相邻选择器、div 网格、{.class} 标记已下线 */
+.theme-dark .card-output .output-tag { color: #777; }
