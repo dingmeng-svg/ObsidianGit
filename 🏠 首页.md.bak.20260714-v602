@@ -3,7 +3,7 @@ title: "🏠 首页"
 cssclasses:
   - homepage
 doc_level: L0
-version: v6.0.2
+version: v6.0.1-final
 last_sync: 2026-07-14
 related_docs: ["系统文档/01_知识库统一规范总纲", "系统文档/16_系统文档总索引"]
 dependent_skills: []
@@ -27,14 +27,14 @@ dependent_skills: []
 
 ---
 
-<p class="nav-capsules-paragraph">
-[[00_Inbox|📥 收件箱]]
-[[10_Projects|🚀 项目]]
-[[20_Areas|🌱 领域]]
-[[30_Resources|🧠 资源库]]
-[[40_Archive|📦 归档]]
-[[90_System/系统文档|⚙️ 系统规范库]]
-</p>
+<ul class="nav-capsules">
+- [[00_Inbox|📥 收件箱]]
+- [[10_Projects|🚀 项目]]
+- [[20_Areas|🌱 领域]]
+- [[30_Resources|🧠 资源库]]
+- [[40_Archive|📦 归档]]
+- [[90_System/系统文档|⚙️ 系统规范库]]
+</ul>
 
 ---
 
@@ -106,6 +106,9 @@ try {
 }
 ```
 
+[[00_Inbox|📥 收件箱]] [[10_Projects|🚀 项目]] [[20_Areas|🌱 领域]] [[30_Resources|🧠 资源库]] [[40_Archive|📦 归档]] [[90_System/系统文档|⚙️ 系统规范库]]
+
+
 ---
 
 ## 🔍 知识库体检
@@ -158,63 +161,6 @@ try {
 
 ---
 
-## 🔥 注意力热力图
-
-```dataviewjs
-try {
-    const now = dv.date("now");
-    const days = 90;
-    const start = now.minus({days: days});
-    
-    const pages = dv.pages().where(p => p.file.ctime >= start);
-    const heatmap = {};
-    pages.forEach(p => {
-        const date = dv.date(p.file.ctime).toFormat("yyyy-MM-dd");
-        heatmap[date] = (heatmap[date] || 0) + 1;
-    });
-    
-    if (Object.keys(heatmap).length === 0) {
-        dv.span("🌱 最近 90 天暂无笔记记录，开始你的第一篇吧");
-    } else {
-        const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
-        let result = "";
-        result += "    日  一  二  三  四  五  六\n";
-        result += "    ────────────────────────\n";
-        
-        let current = start;
-        let firstDayOfWeek = current.weekday % 7;
-        let week = [];
-        for (let i = 0; i < firstDayOfWeek; i++) {
-            week.push("  ");
-        }
-        
-        while (current.ts <= now.ts) {
-            const key = current.toFormat("yyyy-MM-dd");
-            const count = heatmap[key] || 0;
-            let char = "·";
-            if (count > 0 && count < 3) char = "░";
-            else if (count >= 3 && count < 6) char = "▒";
-            else if (count >= 6) char = "▓";
-            week.push(char);
-            
-            if (week.length === 7 || current.ts === now.ts) {
-                while (week.length < 7) week.push("  ");
-                result += week.join("  ") + "\n";
-                week = [];
-            }
-            current = current.plus({days: 1});
-        }
-        result += "\n█ 密度示意：· 无记录  ░ 低  ▒ 中  ▓ 高";
-        dv.span(result);
-    }
-} catch(e) {
-    console.log("热力图渲染异常：", e);
-    dv.span("⚠️ 热力图渲染计算失败");
-}
-```
-
----
-
 ## 📚 系统与规范
 
 > [!example]- 点击展开：系统规范与文档索引
@@ -235,5 +181,5 @@ try {
 ---
 
 <div class="home-footer">
-  Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.2 · 数据由 Dataview 自动计算
+  Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.1-final · 数据由 Dataview 自动计算
 </div>

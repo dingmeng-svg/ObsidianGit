@@ -1,4 +1,4 @@
-/* ========== Hermes 首页 v6.0.1-final 封板版 ========== */
+/* ========== Hermes 首页 v6.0.2 稳定终版 ========== */
 
 /* --- 统一间距变量 --- */
 .homepage {
@@ -41,6 +41,61 @@
 }
 .homepage .callout[data-callout="info"] .callout-content p {
   margin: 0;
+}
+
+/* =========================================
+   【议题 A】导航胶囊 - 纯段落 + CSS 胶囊化
+   选择器限定 .nav-capsules-paragraph，不污染其他双链
+   日期：2026-07-14
+   ========================================= */
+
+.homepage .nav-capsules-paragraph {
+  margin: 0.75rem 0 2rem 0;
+  padding: 0.25rem 0;
+  line-height: 2.4;
+}
+
+.homepage .nav-capsules-paragraph a.internal-link {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin: 0.15rem 0.2rem;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+
+.homepage .nav-capsules-paragraph a.internal-link:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-1px);
+}
+
+/* 窄屏适配 */
+@media screen and (max-width: 480px) {
+  .homepage .nav-capsules-paragraph {
+    line-height: 2;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+  .homepage .nav-capsules-paragraph a.internal-link {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* 深色主题适配 */
+.theme-dark .homepage .nav-capsules-paragraph a.internal-link {
+  background: #242e24;
+  border: 1px solid #3a4a3a;
+  color: #e1efe1 !important;
+}
+.theme-dark .homepage .nav-capsules-paragraph a.internal-link:hover {
+  background: #2d3d2d;
+  border-color: #6b9e7b;
 }
 
 /* =========================================
@@ -87,30 +142,14 @@
 }
 
 /* 四色左侧边框 */
-.homepage .callout-grid .callout:nth-child(1) {
-  border-left: 4px solid #9e9e9e;
-}
-.homepage .callout-grid .callout:nth-child(1) a {
-  color: #616161;
-}
-.homepage .callout-grid .callout:nth-child(2) {
-  border-left: 4px solid #4caf50;
-}
-.homepage .callout-grid .callout:nth-child(2) a {
-  color: #2e7d32;
-}
-.homepage .callout-grid .callout:nth-child(3) {
-  border-left: 4px solid #2196f3;
-}
-.homepage .callout-grid .callout:nth-child(3) a {
-  color: #1565c0;
-}
-.homepage .callout-grid .callout:nth-child(4) {
-  border-left: 4px solid #bdbdbd;
-}
-.homepage .callout-grid .callout:nth-child(4) a {
-  color: #757575;
-}
+.homepage .callout-grid .callout:nth-child(1) { border-left: 4px solid #9e9e9e; }
+.homepage .callout-grid .callout:nth-child(1) a { color: #616161; }
+.homepage .callout-grid .callout:nth-child(2) { border-left: 4px solid #4caf50; }
+.homepage .callout-grid .callout:nth-child(2) a { color: #2e7d32; }
+.homepage .callout-grid .callout:nth-child(3) { border-left: 4px solid #2196f3; }
+.homepage .callout-grid .callout:nth-child(3) a { color: #1565c0; }
+.homepage .callout-grid .callout:nth-child(4) { border-left: 4px solid #bdbdbd; }
+.homepage .callout-grid .callout:nth-child(4) a { color: #757575; }
 
 .homepage .callout-grid .callout a.internal-link {
   text-decoration: none !important;
@@ -150,40 +189,46 @@
   font-size: 0.9rem;
 }
 
-/* --- Dataview 空状态 --- */
+/* =========================================
+   【议题 B】字符画热力图样式
+   纯文本渲染，零 DOM 注入
+   ========================================= */
+
 .homepage .dataview span {
-  color: #6b7d6b;
-  font-style: italic;
-  padding: 0.5rem 0;
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.7rem;
+  line-height: 1.8;
+  white-space: pre;
   display: inline-block;
+  background: #f8faf8;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  color: #3a4a3a;
+  font-style: normal;
+  max-width: 100%;
+  overflow-x: auto;
 }
+
+/* 横向滚动条美化 */
+.homepage .dataview span::-webkit-scrollbar { height: 4px; }
+.homepage .dataview span::-webkit-scrollbar-thumb { background: #c8d8c8; border-radius: 4px; }
+.homepage .dataview span::-webkit-scrollbar-track { background: #eee; }
+
+/* 深色主题适配 */
+.theme-dark .homepage .dataview span {
+  background: #1f271f;
+  border: 1px solid #333;
+  color: #cde2cd;
+}
+.theme-dark .homepage .dataview span::-webkit-scrollbar-thumb { background: #4a5a4a; }
+.theme-dark .homepage .dataview span::-webkit-scrollbar-track { background: #2a2a2a; }
 
 /* --- 双链全局清除下划线 --- */
 .homepage a.internal-link {
   text-decoration: none !important;
   border-bottom: none !important;
 }
-
-/* --- 快速导航胶囊 --- */
-/* 已废弃：改用 ul.nav-capsules 方案，保留此段作为回退参考 */
-/* 
-.homepage p a.internal-link {
-  display: inline-block;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  color: #2d3a2d !important;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-.homepage p a.internal-link:hover {
-  border-color: #4a7c59;
-  background: #f1f8e9;
-}
-*/
 
 /* --- 折叠 Callout --- */
 .homepage .callout[data-callout="example"] {
@@ -214,117 +259,11 @@
 
 /* --- 响应式 --- */
 @media (max-width: 900px) {
-  .homepage .callout[data-callout="info"] {
-    padding: 1rem;
-  }
+  .homepage .callout[data-callout="info"] { padding: 1rem; }
 }
 @media (max-width: 700px) {
-  .homepage .callout-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+  .homepage .callout-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 480px) {
-  .homepage .callout-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* =========================================
-   【回退方案】行动表格卡片化（严格排除 Dataview）
-   仅当 Callout 网格失效时启用
-   ========================================= */
-.homepage table:not(.dataview) {
-  border-collapse: separate;
-  border-spacing: 0.5rem;
-  width: 100%;
-  margin: 1rem 0;
-  background: transparent;
-}
-.homepage table:not(.dataview) th {
-  background: #f1f8e9;
-  font-weight: 700;
-  text-align: center;
-  padding: 0.5rem;
-  border-radius: 6px;
-  width: 25%;
-}
-.homepage table:not(.dataview) td {
-  background: #fff;
-  border-radius: 10px;
-  border: 1px solid #e0e0e0;
-  padding: 0.75rem;
-  text-align: center;
-  width: 25%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.homepage table:not(.dataview) td:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-.homepage table:not(.dataview) td a {
-  text-decoration: none !important;
-  font-weight: 600;
-  font-size: 0.85rem;
-}
-.homepage table:not(.dataview) td:nth-child(1) {
-  border-left: 4px solid #9e9e9e;
-}
-.homepage table:not(.dataview) td:nth-child(1) a {
-  color: #616161;
-}
-.homepage table:not(.dataview) td:nth-child(2) {
-  border-left: 4px solid #4caf50;
-}
-.homepage table:not(.dataview) td:nth-child(2) a {
-  color: #2e7d32;
-}
-.homepage table:not(.dataview) td:nth-child(3) {
-  border-left: 4px solid #2196f3;
-}
-.homepage table:not(.dataview) td:nth-child(3) a {
-  color: #1565c0;
-}
-.homepage table:not(.dataview) td:nth-child(4) {
-  border-left: 4px solid #bdbdbd;
-}
-.homepage table:not(.dataview) td:nth-child(4) a {
-  color: #757575;
-}
-/* =========================================
-   【议题 A】导航胶囊 - 原生 ul 容器方案
-   基于封板裁决 v6.0.1-final 执行
-   日期：2026-07-14
-   ========================================= */
-
-.homepage ul.nav-capsules {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  list-style: none;
-  padding-left: 0;
-  margin: 0.75rem 0 1.5rem 0;
-}
-
-.homepage ul.nav-capsules li {
-  margin: 0;
-}
-
-.homepage ul.nav-capsules a.internal-link {
-  display: inline-block;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  color: #2d3a2d !important;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-}
-
-.homepage ul.nav-capsules a.internal-link:hover {
-  border-color: #4a7c59;
-  background: #f1f8e9;
-  transform: translateY(-1px);
+  .homepage .callout-grid { grid-template-columns: 1fr; }
 }
