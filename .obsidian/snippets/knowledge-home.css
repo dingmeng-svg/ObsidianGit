@@ -291,18 +291,7 @@
   margin-bottom: 0.4rem;
 }
 
-.homepage .home-banner .stats-area {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #4a7c59;
-  background: rgba(74, 124, 89, 0.06);
-  padding: 0.3rem 1rem;
-  border-radius: 8px;
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  min-height: 1.8rem;
-  max-width: 100%;
-}
+/* 统计（已迁移至下方 .dataview 样式） */
 
 .homepage .home-banner .banner-capsules {
   display: flex;
@@ -355,7 +344,8 @@
   border-color: #3a4a3a;
 }
 .theme-dark .homepage .home-banner .banner-tag { color: #81c784; }
-.theme-dark .homepage .home-banner .stats-area { color: #81c784; background: rgba(129, 199, 132, 0.1); }
+/* 深色 · 统计（已迁移至下方 .dataview 样式） */
+.theme-dark .homepage .home-banner .dataview { color: #81c784; background: rgba(129, 199, 132, 0.1); }
 .theme-dark .homepage .home-banner .banner-capsules .capsule {
   background: #1f2e1f;
   border-color: #333;
