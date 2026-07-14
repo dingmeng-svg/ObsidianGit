@@ -1,10 +1,10 @@
 ---
-title: "{{date:YYYY年MM月DD日}} 知识洞察"
+title: "{{date:YYYY年MM月DD日}} Insight"
 date: {{date:YYYY-MM-DD}}
-tags: [AI洞察, 七维分析]
+tags: [Insight, 七维分析]
 ---
 
-# 🧠 {{date:YYYY年MM月DD日}} · 知识洞察
+# 🧠 {{date:YYYY年MM月DD日}} · Insight
 
 > **生成时间**：{{date:YYYY-MM-DD HH:mm:ss}}
 > **执行者**：Hermes Agent
