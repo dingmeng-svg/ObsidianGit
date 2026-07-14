@@ -325,7 +325,7 @@
   outline-offset: 2px;
 }
 
-.homepage .home-banner .banner-right {
+/* .homepage .home-banner .banner-right { -- 已下线 v3.0
   flex: 0 0 200px;
   min-height: 120px;
   background-position: right bottom;
@@ -335,7 +335,7 @@
   background-image:
     url("90_System/assets/green_workstation_banner.png"),
     linear-gradient(135deg, #e8f5e9, #f1f8e9);
-}
+} */
 
 /* --- 深色主题 --- */
 .theme-dark .homepage .home-banner {
@@ -355,7 +355,7 @@
 /* --- 移动端响应式 --- */
 @media screen and (max-width: 768px) {
   .homepage .home-banner { flex-direction: column; padding: 1.2rem; }
-  .homepage .home-banner .banner-right { display: none; }
+  /* .homepage .home-banner .banner-right { display: none; } -- 已下线 v3.0 */
   .homepage .home-banner .banner-capsules { gap: 0.4rem; }
   .homepage .home-banner .banner-capsules .capsule { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
   .homepage .home-banner .dataview { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; word-break: break-word; }
@@ -666,4 +666,28 @@
   .homepage .callout[data-callout="info"] .callout-content p { font-size: 0.8rem; }
   .homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; }
   .homepage .callout[data-callout="info"] .banner-capsules .capsule { font-size: 0.6rem; padding: 0.2rem 0.6rem; }
+}
+
+/* ============================================================
+   v3.0 · 2×3 卡片网格 + 卡片 5-6 底色
+   ============================================================ */
+
+.grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0.5rem 0 var(--h-spacing-module) 0;
+}
+
+.card-action-5 { background: #fef3e2 !important; border-left: 4px solid #ff9800; }
+.card-action-6 { background: #fce4ec !important; border-left: 4px solid #e91e63; }
+
+.theme-dark .card-action-5 { background: #3a2a1a !important; }
+.theme-dark .card-action-6 { background: #3a1a2a !important; }
+
+@media screen and (max-width: 768px) {
+  .grid-2x3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 480px) {
+  .grid-2x3 { grid-template-columns: 1fr; }
 }
