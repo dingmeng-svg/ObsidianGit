@@ -3,17 +3,10 @@ title: "🏠 首页"
 cssclasses:
   - homepage
 doc_level: L0
-version: v6.0.3-revised
+version: v6.0.2
 last_sync: 2026-07-14
 related_docs: ["系统文档/01_知识库统一规范总纲", "系统文档/16_系统文档总索引"]
 dependent_skills: []
-changelog:
-  - 2026-07-14 v6.0.3-revised 终极稳定封板
-    1. 架构修正：放弃 p 标签 HTML 容器，改用原生隐形 Callout 导航
-    2. CSS 精准优化：替换泛表格选择器为专属 table-view-table
-    3. 设备适配完善：移动端 480px 以下自动隐藏热力图
-    4. 全场景容错补齐：空数据无空白渲染、样式独占防污染
-    5. 深浅主题、双视图、边界场景全部兼容锁死
 ---
 
 > [!info] OBSIDIAN · Hermes 工作台
@@ -34,8 +27,14 @@ changelog:
 
 ---
 
-> [!nav]-
-[[00_Inbox|📥 收件箱]] [[10_Projects|🚀 项目]] [[20_Areas|🌱 领域]] [[30_Resources|🧠 资源库]] [[40_Archive|📦 归档]] [[90_System/系统文档|⚙️ 系统规范库]]
+<p class="nav-capsules-paragraph">
+[[00_Inbox|📥 收件箱]]
+[[10_Projects|🚀 项目]]
+[[20_Areas|🌱 领域]]
+[[30_Resources|🧠 资源库]]
+[[40_Archive|📦 归档]]
+[[90_System/系统文档|⚙️ 系统规范库]]
+</p>
 
 ---
 
@@ -164,7 +163,7 @@ try {
 ```dataviewjs
 try {
     const now = dv.date("now");
-    const days = 60;
+    const days = 90;
     const start = now.minus({days: days});
     
     const pages = dv.pages().where(p => p.file.ctime >= start);
@@ -175,7 +174,7 @@ try {
     });
     
     if (Object.keys(heatmap).length === 0) {
-        return;  // 不渲染任何内容，彻底隐藏模块
+        dv.span("🌱 最近 90 天暂无笔记记录，开始你的第一篇吧");
     } else {
         const weekdays = ["日", "一", "二", "三", "四", "五", "六"];
         let result = "";
@@ -236,5 +235,5 @@ try {
 ---
 
 <div class="home-footer">
-  Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.3 · 数据由 Dataview 自动计算
+  Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.2 · 数据由 Dataview 自动计算
 </div>
