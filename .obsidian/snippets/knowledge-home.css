@@ -690,4 +690,52 @@
 }
 @media screen and (max-width: 480px) {
   .grid-2x3 { grid-template-columns: 1fr; }
+}/* ============================================================
+   v3.0 · Insight 卡片样式
+   仅作用于洞察模块，不影响统计数据表格
+   ============================================================ */
+
+.homepage .insight-card {
+  background: #fafcfa !important;
+  border: none !important;
+  border-left: 4px solid #4a7c59 !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 1.5rem !important;
+  margin: 0 0 1rem 0 !important;
+  box-shadow: none !important;
+}
+
+.homepage .insight-card h3,
+.homepage .insight-card h4 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.homepage .insight-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0;
+  font-size: 0.9rem;
+}
+.homepage .insight-card table th,
+.homepage .insight-card table td {
+  border: 1px solid #d0d0d0;
+  padding: 0.4rem 0.7rem;
+}
+
+.homepage .insight-card ul,
+.homepage .insight-card ol {
+  margin: 0.3rem 0;
+  padding-left: 1.5rem;
+}
+
+.theme-dark .homepage .insight-card {
+  background: #1a221a !important;
+  border-left: 4px solid #6b9e7b !important;
+}
+.theme-dark .homepage .insight-card table th,
+.theme-dark .homepage .insight-card table td {
+  border: 1px solid #333;
 }
