@@ -383,3 +383,32 @@
   color: #81c784;
   background: rgba(129, 199, 132, 0.1);
 }
+
+/* ============================================================
+   v6.0.11-final · 顶部横幅阅读模式兼容
+   修复：去除 div 包裹 dataviewjs 后的样式与卡片完整性
+   ============================================================ */
+
+.homepage .home-banner .banner-left .dataview {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.theme-dark .homepage .home-banner .banner-left .dataview {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+  .homepage .home-banner .banner-left .dataview {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    display: block;
+  }
+}
