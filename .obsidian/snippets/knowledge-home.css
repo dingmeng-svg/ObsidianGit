@@ -353,3 +353,127 @@
 }
 
 .theme-dark .card-output .output-tag { color: #777; }
+
+/* ============================================================
+   v6.0.11-hotfix · 顶部横幅结构重组 + 导航胶囊药丸化
+   日期：2026-07-14
+   ============================================================ */
+
+/* --- 顶部横幅大容器 --- */
+.homepage .home-banner {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  padding: 1.8rem 2.2rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage .home-banner .banner-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.homepage .home-banner .banner-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a7c59;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+.homepage .home-banner .stats-area {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  min-height: 1.8rem;
+  max-width: 100%;
+}
+
+.homepage .home-banner .banner-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.homepage .home-banner .banner-capsules .capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.homepage .home-banner .banner-capsules .capsule:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
+}
+
+.homepage .home-banner .banner-capsules .capsule:focus {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+
+.homepage .home-banner .banner-right {
+  flex: 0 0 200px;
+  min-height: 120px;
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  background-image:
+    url("90_System/assets/green_workstation_banner.png"),
+    linear-gradient(135deg, #e8f5e9, #f1f8e9);
+}
+
+/* --- 深色主题 --- */
+.theme-dark .homepage .home-banner {
+  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
+  border-color: #3a4a3a;
+}
+.theme-dark .homepage .home-banner .banner-tag { color: #81c784; }
+.theme-dark .homepage .home-banner .stats-area { color: #81c784; background: rgba(129, 199, 132, 0.1); }
+.theme-dark .homepage .home-banner .banner-capsules .capsule {
+  background: #1f2e1f;
+  border-color: #333;
+  color: #e1efe1 !important;
+}
+.theme-dark .homepage .home-banner .banner-capsules .capsule:hover { background: #2d3d2d; border-color: #6b9e7b; }
+
+/* --- 移动端响应式 --- */
+@media screen and (max-width: 768px) {
+  .homepage .home-banner { flex-direction: column; padding: 1.2rem; }
+  .homepage .home-banner .banner-right { display: none; }
+  .homepage .home-banner .banner-capsules { gap: 0.4rem; }
+  .homepage .home-banner .banner-capsules .capsule { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
+  .homepage .home-banner .stats-area { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; word-break: break-word; }
+}
+@media screen and (max-width: 480px) {
+  .homepage .home-banner { padding: 1rem; border-radius: 12px; }
+  .homepage .home-banner .banner-tag { font-size: 0.6rem; }
+  .homepage .home-banner .banner-capsules .capsule { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
+}
