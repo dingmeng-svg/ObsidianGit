@@ -407,6 +407,53 @@
 }
 
 /* ============================================================
+   v6.0.11 视觉优化补丁 · 卡片底色 + 虚线分割
+   2026-07-14
+   ============================================================ */
+
+/* --- 今日行动 · 四色卡片底 --- */
+.card-action-1 { background: #fdf8ee !important; }
+.card-action-2 { background: #eef5fa !important; }
+.card-action-3 { background: #f3effa !important; }
+.card-action-4 { background: #eef7f1 !important; }
+
+/* --- 卡片内虚线分割 --- */
+.card-action .card-divider,
+.card-output .card-divider {
+  width: 60%;
+  height: 0;
+  margin: 0.5rem auto;
+  border: none;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+/* 深色主题适配 */
+.theme-dark .card-action-1 { background: #3d3a2a !important; }
+.theme-dark .card-action-2 { background: #1a2a3a !important; }
+.theme-dark .card-action-3 { background: #2a1a3a !important; }
+.theme-dark .card-action-4 { background: #1a2a2a !important; }
+
+.theme-dark .card-action .card-divider,
+.theme-dark .card-output .card-divider {
+  border-bottom-color: #444;
+}
+
+/* --- 今日输出 · 标签 --- */
+.card-output .output-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.2rem;
+  align-self: flex-start;
+}
+
+.theme-dark .card-output .output-tag {
+  color: #777;
+}
+
+/* ============================================================
    8. 废弃样式归档
    ============================================================ */
 /* v6.0.10 及之前所有 + 相邻选择器、div 网格、{.class} 标记已下线 */
