@@ -3,15 +3,13 @@ title: "🏠 首页"
 cssclasses:
   - homepage
 doc_level: L0
-version: v6.0.6
+version: v6.0.5
 last_sync: 2026-07-14
 changelog:
-  - 2026-07-14 v6.0.6 LTS 永久封板重构
-    1. 底层修正：彻底弃用div/table，采用原生ul+li列表实现操作台四宫格，根治双链裸文本解析硬伤
-    2. CSS兼容：移除高风险:has()选择器，改用h2 + ul通用相邻选择器，全端兼容
-    3. 视觉优化：li内<br>强制分行，min-height统一高度，新增键盘Tab无障碍聚焦
-    4. 热力图：修正插件错误用法，使用renderHeatmapCalendar主动注入数据，修复空白不渲染问题
-    5. 清理历史技术债：归档v6.0.4~v6.0.5全部失效CSS
+  - 2026-07-14 v6.0.5 紧急稳定性修复
+    1. 废弃操作台原生表格结构，替换为 grid div 容器，解决 td 单元格双链源码裸露、点击失效问题
+    2. 移除热力图暴力 all:initial 重置 CSS，改用温和隔离规则，修复插件完全空白不渲染故障
+    3. 保留 v6.0.4 Green Foundation 整体架构，仅修复两大底层渲染冲突
 related_docs: ["系统文档/01_知识库统一规范总纲", "系统文档/16_系统文档总索引"]
 dependent_skills: []
 ---
@@ -41,10 +39,24 @@ dependent_skills: []
 
 ## ⚙️ 操作台
 
-- 📝 **今日日记**<br>[[20_Areas/22_个人成长/Bullet Journal/Daily|进入 →]]
-- ✅ **习惯记分卡**<br>[[20_Areas/22_个人成长/Habit Tracking/Habit Scorecard|进入 →]]
-- 📥 **加工区**<br>[[00_Inbox/processing|进入 →]]
-- 🗄 **原料仓**<br>[[00_Inbox/_raw|进入 →]]
+<div class="home-grid-four">
+  <div class="grid-item">
+    <p>📝 今日日记</p>
+    <p>[[20_Areas/22_个人成长/Bullet Journal/Daily|进入 →]]</p>
+  </div>
+  <div class="grid-item">
+    <p>✅ 习惯记分卡</p>
+    <p>[[20_Areas/22_个人成长/Habit Tracking/Habit Scorecard|进入 →]]</p>
+  </div>
+  <div class="grid-item">
+    <p>📥 加工区</p>
+    <p>[[00_Inbox/processing|进入 →]]</p>
+  </div>
+  <div class="grid-item">
+    <p>🗄 原料仓</p>
+    <p>[[00_Inbox/_raw|进入 →]]</p>
+  </div>
+</div>
 
 ---
 
@@ -138,30 +150,7 @@ try {
 
 ## 🔥 注意力热力图
 
-```dataviewjs
-try {
-    const pages = dv.pages('"00_Inbox" or "10_Projects" or "20_Areas" or "30_Resources"')
-        .where(p => p.file.day);
-    
-    const entries = pages.map(p => ({
-        date: p.file.day.toFormat("yyyy-MM-dd"),
-        intensity: 1
-    }));
-    
-    const calendarData = {
-        colors: "githubGreen",
-        entries: entries
-    };
-    
-    renderHeatmapCalendar(this.container, calendarData);
-    
-} catch(e) {
-    if(e.message && e.message.includes("renderHeatmapCalendar")){
-        dv.span("⚠️ 热力图加载失败：请确认 Heatmap Calendar 插件已开启");
-    } else {
-        dv.span("⚠️ 暂无带日期标记的笔记，无法生成热力图（请确保笔记文件名含日期或frontmatter有 date: 字段）");
-    }
-}
+```heatmap
 ```
 
 [[90_System/AI洞察/今日知识洞察|🧠 今日知识洞察]]
@@ -188,4 +177,4 @@ try {
 ---
 
 ***
-<p style="text-align: center; color: var(--color-text-muted); font-size: 0.75rem;">Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.6 · 数据由 Dataview 自动计算</p>
+<p style="text-align: center; color: var(--color-text-muted); font-size: 0.75rem;">Vault L0 顶层入口 · Hermes 知识库宪法 v1.1.0 · 首页 v6.0.5 · 数据由 Dataview 自动计算</p>
