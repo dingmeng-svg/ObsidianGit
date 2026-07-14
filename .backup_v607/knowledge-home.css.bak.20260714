@@ -1,0 +1,263 @@
+/* =============================================
+   v6.0.6.1 LTS · Green Foundation 最终封板
+   日期：2026-07-14
+   核心：~ 容错选择器 + 显式 class 作用域锁定
+   ============================================= */
+
+/* --- 1. 设计令牌 --- */
+.homepage {
+  --color-green: #4a7c59;
+  --color-green-light: #e8f5e9;
+  --color-green-bg: #f1f8e9;
+  --color-border: #e0e0e0;
+  --color-text: #2d3a2d;
+  --color-text-muted: #6b7d6b;
+  --radius-card: 12px;
+  --radius-capsule: 20px;
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --spacing-module: 1.5rem;
+}
+
+/* --- 2. 极窄屏全局留白 --- */
+@media screen and (max-width: 480px) {
+  .homepage { padding-inline: 0.6rem; }
+}
+
+/* --- 3. 隐藏 YAML --- */
+.homepage .frontmatter-container,
+.homepage .metadata-container {
+  display: none !important;
+}
+
+/* --- 4. 顶部横幅 --- */
+.homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, var(--color-green-light) 0%, var(--color-green-bg) 100%);
+  border: 1px solid #c8e6c9;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: var(--spacing-module);
+}
+.homepage .callout[data-callout="info"] .callout-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text);
+  display: block;
+}
+.homepage .callout[data-callout="info"] .callout-title .callout-icon {
+  display: none;
+}
+.homepage .callout[data-callout="info"] .callout-content {
+  font-size: 1rem;
+  color: var(--color-green);
+  font-weight: 600;
+}
+.homepage .callout[data-callout="info"] .callout-content p {
+  margin: 0;
+}
+
+/* --- 5. 导航胶囊（~ 容错 + 作用域锁定） --- */
+.homepage .callout[data-callout="info"] ~ p {
+  margin: 0.5rem 0 var(--spacing-module) 0;
+  line-height: 2.2;
+  word-break: keep-all;
+}
+.homepage .callout[data-callout="info"] ~ p a.internal-link {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  margin: 0.1rem 0.2rem;
+  border-radius: var(--radius-capsule);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+  word-break: keep-all;
+}
+.homepage .callout[data-callout="info"] ~ p a.internal-link:hover {
+  border-color: var(--color-green);
+  background: var(--color-green-bg);
+  transform: translateY(-1px);
+}
+.homepage .callout[data-callout="info"] ~ p a.internal-link:focus {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+@media screen and (max-width: 480px) {
+  .homepage .callout[data-callout="info"] ~ p {
+    line-height: 2;
+    margin: 0.3rem 0 1rem 0;
+  }
+  .homepage .callout[data-callout="info"] ~ p a.internal-link {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+.theme-dark .homepage .callout[data-callout="info"] ~ p a.internal-link {
+  background: #242e24;
+  border: 1px solid #3a4a3a;
+  color: #e1efe1 !important;
+}
+.theme-dark .homepage .callout[data-callout="info"] ~ p a.internal-link:hover {
+  background: #2d3d2d;
+  border-color: #6b9e7b;
+}
+
+/* --- 6. 操作台四宫格（~ 容错 + 显式 class 作用域锁定） --- */
+.homepage h2 ~ ul.home-grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.5rem 0 var(--spacing-module) 0;
+  padding: 0;
+  list-style: none !important;
+}
+.homepage h2 ~ ul.home-grid-four li {
+  background: #fff;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  padding: 0.8rem 0.5rem;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.homepage h2 ~ ul.home-grid-four li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  opacity: 0.98;
+}
+.homepage h2 ~ ul.home-grid-four li strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+.homepage h2 ~ ul.home-grid-four li a.internal-link {
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.homepage h2 ~ ul.home-grid-four li a.internal-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+.homepage h2 ~ ul.home-grid-four li a.internal-link:focus {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+/* 四色左边框 */
+.homepage h2 ~ ul.home-grid-four li:nth-child(1) { border-left: 4px solid #9e9e9e; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(1) a { color: #616161; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(2) { border-left: 4px solid #4caf50; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(2) a { color: #2e7d32; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(3) { border-left: 4px solid #2196f3; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(3) a { color: #1565c0; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(4) { border-left: 4px solid #bdbdbd; }
+.homepage h2 ~ ul.home-grid-four li:nth-child(4) a { color: #757575; }
+/* 响应式 */
+@media screen and (max-width: 700px) {
+  .homepage h2 ~ ul.home-grid-four { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 480px) {
+  .homepage h2 ~ ul.home-grid-four { grid-template-columns: 1fr; gap: 0.5rem; }
+}
+/* 深色主题 */
+.theme-dark .homepage h2 ~ ul.home-grid-four li {
+  background: #1a221a;
+  border-color: #333;
+}
+.theme-dark .homepage h2 ~ ul.home-grid-four li strong { color: #cde2cd; }
+.theme-dark .homepage h2 ~ ul.home-grid-four li a.internal-link { color: #81c784 !important; }
+.theme-dark .homepage h2 ~ ul.home-grid-four li a.internal-link:hover { background: rgba(255, 255, 255, 0.05); }
+
+/* --- 7. 老旧客户端兜底 class --- */
+.homepage .grid-four-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0.5rem 0 var(--spacing-module) 0;
+  padding: 0;
+  list-style: none !important;
+}
+
+/* --- 8. 热力图间距统一 --- */
+.homepage .heatmap-calendar {
+  margin: 0.5rem 0 var(--spacing-module) 0;
+}
+
+/* --- 9. Dataview 表格交互 --- */
+.homepage .dataview.table-view-table tr:hover td {
+  background: var(--color-green-light);
+}
+.theme-dark .homepage .dataview.table-view-table tr:hover td {
+  background: #2a332a;
+}
+.homepage .dataview span {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* --- 10. 双链清除下划线 --- */
+.homepage a.internal-link {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* --- 11. 折叠 Callout --- */
+.homepage .callout[data-callout="example"] {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 0.75rem 1rem;
+  margin-top: var(--spacing-module);
+  background: #fff;
+}
+.homepage .callout[data-callout="example"] .callout-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+.homepage .callout[data-callout="example"] .callout-content { padding-top: 0.5rem; }
+.homepage .callout[data-callout="example"]:hover { opacity: 0.98; }
+.theme-dark .homepage .callout[data-callout="example"] {
+  background: #1a221a;
+  border-color: #333;
+}
+.theme-dark .homepage .callout[data-callout="example"] .callout-title { color: #cde2cd; }
+
+/* --- 12. 页脚 --- */
+.homepage .home-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* --- 13. 移动端全局适配 --- */
+@media screen and (max-width: 480px) {
+  .homepage .callout[data-callout="info"] { padding: 1rem; }
+  .homepage .callout[data-callout="info"] .callout-title { font-size: 1.1rem; }
+  .homepage .callout[data-callout="info"] .callout-content { font-size: 0.85rem; }
+  .homepage .home-footer { font-size: 0.65rem; }
+}
+
+/* =============================================
+   废弃样式归档区（回滚溯源用）
+   ============================================= */
+/* v6.0.6 相邻兄弟选择器 + | 下线：DOM插入空行/注释即失效 */
+/* .homepage h2 + ul { ... } */
+/* .homepage .callout[data-callout="info"] + p { ... } */
+/* v6.0.5 div网格四宫格 | 下线：HTML容器内双链解析失效 */
