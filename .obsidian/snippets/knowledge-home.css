@@ -34,88 +34,8 @@
 }
 
 /* ============================================================
-   顶部横幅纯 Markdown 样式
+   顶部横幅（已迁移至下方 home-banner 样式块）
    ============================================================ */
-
-.homepage .top-banner {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
-  border-radius: 16px;
-  border: 1px solid #e0e0e0;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.8rem;
-  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
-}
-
-.homepage .top-banner h2 {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #1a221a;
-  margin: 0 0 0.2rem 0;
-  border: none;
-}
-
-.homepage .top-banner .banner-sub {
-  font-size: 0.95rem;
-  color: #6b7d6b;
-  margin: 0 0 0.5rem 0;
-}
-
-.homepage .top-banner .banner-nav {
-  margin: 0.5rem 0 0.8rem 0;
-  line-height: 2;
-}
-.homepage .top-banner .banner-nav a {
-  display: inline-block;
-  padding: 0.25rem 0.8rem;
-  border-radius: 20px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  color: #2d3a2d !important;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-  margin: 0.1rem 0.1rem;
-}
-.homepage .top-banner .banner-nav a:hover {
-  border-color: #4a7c59;
-  background: #f1f8e9;
-  transform: translateY(-1px);
-}
-
-.homepage .top-banner .banner-actions {
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-  margin-top: 0.3rem;
-}
-.homepage .top-banner .banner-actions a {
-  display: inline-block;
-  padding: 0.4rem 1.2rem;
-  border-radius: 30px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
-}
-.homepage .top-banner .banner-actions a.btn-primary {
-  background: #4a7c59;
-  color: #fff !important;
-  border: 1px solid #4a7c59;
-}
-.homepage .top-banner .banner-actions a.btn-primary:hover {
-  background: #3a6a49;
-  transform: translateY(-2px);
-}
-.homepage .top-banner .banner-actions a.btn-outline {
-  background: #fff;
-  color: #4a7c59 !important;
-  border: 1px solid #4a7c59;
-}
-.homepage .top-banner .banner-actions a.btn-outline:hover {
-  background: #f1f8e9;
-  transform: translateY(-2px);
-}
 
 /* ============================================================
    2. 操作台网格
@@ -253,24 +173,7 @@
 }
 
 /* 深色 · 顶部横幅 */
-.theme-dark .homepage .top-banner {
-  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
-  border-color: #3a4a3a;
-}
-.theme-dark .homepage .top-banner h2 { color: #ffffff; }
-.theme-dark .homepage .top-banner .banner-sub { color: #9ca3af; }
-.theme-dark .homepage .top-banner .banner-nav a {
-  background: #1f2e1f;
-  border-color: #333;
-  color: #e1efe1 !important;
-}
-.theme-dark .homepage .top-banner .banner-nav a:hover { background: #2d3d2d; }
-.theme-dark .homepage .top-banner .banner-actions a.btn-outline {
-  background: #1f2e1f;
-  color: #81c784 !important;
-  border-color: #4a7c59;
-}
-.theme-dark .homepage .top-banner .banner-actions a.btn-outline:hover { background: #2d3d2d; }
+/* 深色 · 顶部横幅（已迁移至 home-banner） */
 
 /* 深色 · 卡片 */
 .theme-dark .card-action,
@@ -310,10 +213,6 @@
 
 @media screen and (max-width: 480px) {
   .homepage { padding-inline: 0.6rem; }
-  .homepage .top-banner { padding: 1rem; }
-  .homepage .top-banner h2 { font-size: 1.3rem; }
-  .homepage .top-banner .banner-actions a { padding: 0.3rem 0.8rem; font-size: 0.75rem; }
-  .homepage .top-banner .banner-nav a { font-size: 0.7rem; padding: 0.2rem 0.6rem; }
 }
 
 /* ============================================================
