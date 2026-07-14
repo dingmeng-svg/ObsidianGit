@@ -504,4 +504,115 @@
   .homepage .callout[data-callout="info"] .callout-title { font-size: 0.6rem; }
   .homepage .callout[data-callout="info"] .callout-content .dataview { font-size: 0.7rem; padding: 0.2rem 0.7rem; display: block; }
   .homepage .callout[data-callout="info"] .banner-capsules .capsule { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
+}/* ============================================================
+   v6.0.11-final-pro · 顶部 Callout 完整样式
+   包含：日期行 / 副标题 / 分区说明 / 引用脚注 / 统计 / 胶囊
+   ============================================================ */
+
+.homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
+  box-sizing: border-box;
+}
+
+.homepage .callout[data-callout="info"] .callout-icon { display: none; }
+
+.homepage .callout[data-callout="info"] .callout-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2d3a2d;
+  padding: 0;
+  margin-bottom: 0.25rem;
+  display: block;
+  border: none;
+}
+.homepage .callout[data-callout="info"] .callout-title-inner {
+  font-size: inherit; font-weight: inherit; color: inherit;
+}
+
+.homepage .callout[data-callout="info"] .callout-content { padding: 0; margin: 0; }
+
+.homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type {
+  display: block;
+  margin-bottom: 0.4rem;
+  margin-top: 0.1rem;
+  font-weight: 500;
+  color: #4a7c59;
+  font-size: 0.85rem;
+}
+
+.homepage .callout[data-callout="info"] .callout-content p {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+.homepage .callout[data-callout="info"] .callout-content strong { color: #2d3a2d; }
+
+.homepage .callout[data-callout="info"] .callout-content > blockquote {
+  margin: 0.75rem 0 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid #c8e6c9;
+  background: transparent;
+  color: #6b7d6b;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 1rem 0 0.8rem 0;
+}
+
+.homepage .callout[data-callout="info"] .banner-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
+}
+
+.theme-dark .homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
+  border-color: #3a4a3a;
+}
+.theme-dark .homepage .callout[data-callout="info"] .callout-title { color: #e1efe1; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content strong { color: #e1efe1; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type { color: #81c784; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type { color: #81c784; background: rgba(129, 199, 132, 0.1); }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content > blockquote { color: #9ca3af; border-left-color: #4a7c59; }
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule { background: #1f2e1f; border-color: #333; color: #e1efe1 !important; }
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule:hover { background: #2d3d2d; border-color: #6b9e7b; }
+
+@media screen and (max-width: 480px) {
+  .homepage .callout[data-callout="info"] { padding: 1.2rem; }
+  .homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type { font-size: 0.75rem; }
+  .homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type { font-size: 0.7rem; padding: 0.2rem 0.7rem; display: block; margin: 0.6rem 0; }
+  .homepage .callout[data-callout="info"] .banner-capsules .capsule { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
 }
