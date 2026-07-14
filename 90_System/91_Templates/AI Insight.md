@@ -1,7 +1,12 @@
 ---
 title: "{{date:YYYY年MM月DD日}} Insight"
 date: {{date:YYYY-MM-DD}}
-tags: [Insight, 七维分析]
+status: active
+type: moc
+tags: [Insight, 系统文档]
+source: 原创
+aliases:
+  - "{{date:YYYY-MM-DD}} 洞察"
 ---
 
 # 🧠 {{date:YYYY年MM月DD日}} · Insight
