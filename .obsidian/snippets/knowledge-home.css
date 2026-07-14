@@ -369,10 +369,27 @@
   .homepage .home-banner .banner-right { display: none; }
   .homepage .home-banner .banner-capsules { gap: 0.4rem; }
   .homepage .home-banner .banner-capsules .capsule { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
-  .homepage .home-banner .stats-area { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; word-break: break-word; }
+  .homepage .home-banner .dataview { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; word-break: break-word; }
 }
 @media screen and (max-width: 480px) {
   .homepage .home-banner { padding: 1rem; border-radius: 12px; }
   .homepage .home-banner .banner-tag { font-size: 0.6rem; }
   .homepage .home-banner .banner-capsules .capsule { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
+}
+
+/* 统计数字纯文本样式（无 HTML 容器包裹） */
+.homepage .home-banner .dataview {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.theme-dark .homepage .home-banner .dataview {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.1);
 }
