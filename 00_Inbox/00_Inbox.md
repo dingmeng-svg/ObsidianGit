@@ -58,8 +58,8 @@ dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${ext
 
 ## 相关文档
 
-- [[_raw MOC|📦 _raw 素材 MOC]]
-- [[外部导入 MOC|📥 外部导入 MOC]]
+- [[_raw|📦 _raw 素材 MOC]]
+- [[外部导入|📥 外部导入 MOC]]
 - [[90_System/10_日工作流操作手册|日工作流操作手册]]
 
 ---
