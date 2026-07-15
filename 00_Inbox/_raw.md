@@ -25,15 +25,6 @@ WHERE file.name != "_raw 素材总MOC" AND status != "archived"
 SORT file.ctime ASC
 ```
 
-## 🟢 已处理（Ingest 完成）
-
-```dataview
-LIST FROM "00_Inbox/_raw"
-WHERE status = "archived"
-SORT file.mtime DESC
-LIMIT 10
-```
-
 ## 📦 全部原始素材
 
 ```dataview
@@ -47,8 +38,7 @@ SORT file.ctime DESC
 ```dataviewjs
 const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
 const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "archived").length;
-const archivedToday = dv.pages('"00_Inbox/_raw"').where(p => p.status == "archived" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
-dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}  ·  🟢 今日已处理 ${archivedToday}`);
+dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}`);
 ```
 
 ---
