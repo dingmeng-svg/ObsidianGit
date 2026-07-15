@@ -10,6 +10,13 @@ aliases:
   - Raw 素材 MOC
 ---
 
+```dataviewjs
+const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
+const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.ingest_status != "ingested").length;
+const done = total - pending;
+dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}  ·  🟢 已处理 ${done}`);
+```
+
 # 🗄️ 原料仓总览
 
 > 系统自动 Ingest 的原始素材。只读不改，永久存档。
@@ -40,14 +47,6 @@ LIMIT 10
 LIST FROM "00_Inbox/_raw"
 WHERE file.name != "_raw 素材总MOC"
 SORT file.ctime DESC
-```
-
-## 📊 统计
-
-```dataviewjs
-const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
-const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.ingest_status != "ingested").length;
-dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}`);
 ```
 
 ---

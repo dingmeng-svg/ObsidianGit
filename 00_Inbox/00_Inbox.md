@@ -9,6 +9,17 @@ aliases:
   - Inbox MOC
 ---
 
+```dataviewjs
+const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
+const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.ingest_status != "ingested").length;
+const rawDone = rawTotal - rawPending;
+const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
+const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
+const extDone = extTotal - extPending;
+dv.span(`📊 总计 ${rawTotal + extTotal} 篇  ·  🔴 待处理 ${rawPending + extPending}  ·  🟢 已处理 ${rawDone + extDone}`);
+dv.span(`  ·  🗄️ _raw ${rawDone}/${rawTotal}  ·  📥 外部导入 ${extDone}/${extTotal}`);
+```
+
 # 📥 Inbox 总览
 
 > 所有外部信息的统一入口，按处理方式分流至 `_raw/`（系统自动 Ingest）或 `外部导入/`（人工处理）。
@@ -22,6 +33,16 @@ WHERE status != "archived" AND (ingest_status != "ingested" OR ingest_status = n
 SORT file.mtime ASC
 ```
 
+## 🟢 已处理
+
+```dataview
+TABLE WITHOUT ID file.link AS "文件", file.mtime AS "处理时间"
+FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
+WHERE ingest_status = "ingested" OR status = "archived"
+SORT file.mtime DESC
+LIMIT 10
+```
+
 ## 📝 最近更新
 
 ```dataview
@@ -30,22 +51,6 @@ FROM "00_Inbox"
 WHERE file.name != "00_Inbox"
 SORT file.mtime DESC
 LIMIT 15
-```
-
-## 📊 统计
-
-```dataviewjs
-const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
-const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "archived").length;
-const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
-
-dv.table(
-  ["", "待处理 / 总计"],
-  [
-    ["🗄️ _raw", `${rawPending} / ${rawTotal}`],
-    ["📥 外部导入", `${extPending}`],
-  ]
-);
 ```
 
 ## 目录结构

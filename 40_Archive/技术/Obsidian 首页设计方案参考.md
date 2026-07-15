@@ -1,7 +1,13 @@
 ---
-title: "Obsidian 自定义个人工作台首页全指南：从设计思路到AI落地实现"
-author: "Get达人"
-date: "2026-07-13"
+title: "Obsidian 首页设计方案参考"
+date: 2026-07-13
+status: archived
+tags: [技术]
+source: 微信公众号「Obsidian达人」
+author: Get达人
+related:
+  - "[[40_Archive/工程记录/Hermes 首页 Dashboard 工程全记录（2026-07-15版）]]"
+  - "[[40_Archive/系统文档/Obsidian Dashboard 开发实战报告（2026-07-15版）]]"
 ---
 
 # 🎯 定制首页的核心动因
