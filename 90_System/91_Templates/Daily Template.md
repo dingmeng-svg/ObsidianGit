@@ -9,8 +9,9 @@ month: <% tp.date.now("YYYY-MM") %>
 ---
 <%*
 let fileName = tp.date.now("YYYY-MM-DD");
+let month = tp.date.now("YYYY-MM");
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Daily/" + fileName);
+await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Daily/" + month + "/" + fileName);
 _%>
 # <% fileName %>
 
