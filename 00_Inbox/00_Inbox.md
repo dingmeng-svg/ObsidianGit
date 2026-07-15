@@ -18,7 +18,7 @@ aliases:
 ```dataview
 TABLE WITHOUT ID file.link AS "文件", file.mtime AS "更新时间"
 FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
-WHERE status != "archived" AND status != "mature"
+WHERE status != "archived" AND (ingest_status != "ingested" OR ingest_status = null)
 SORT file.mtime ASC
 ```
 
@@ -35,11 +35,17 @@ LIMIT 15
 ## 📊 统计
 
 ```dataviewjs
-const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
-const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.status != "archived").length;
-const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
+const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
+const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "archived").length;
 const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
-dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${extPending}/${extTotal} 待处理`);
+
+dv.table(
+  ["", "待处理 / 总计"],
+  [
+    ["🗄️ _raw", `${rawPending} / ${rawTotal}`],
+    ["📥 外部导入", `${extPending}`],
+  ]
+);
 ```
 
 ## 目录结构

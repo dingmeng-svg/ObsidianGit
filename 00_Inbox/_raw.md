@@ -21,7 +21,7 @@ aliases:
 ```dataview
 TABLE file.ctime AS "创建时间", file.mtime AS "修改时间"
 FROM "00_Inbox/_raw"
-WHERE file.name != "_raw 素材总MOC" AND status != "mature" AND status != "archived"
+WHERE file.name != "_raw 素材总MOC" AND (ingest_status != "ingested" OR ingest_status = null)
 SORT file.ctime ASC
 ```
 
@@ -29,7 +29,7 @@ SORT file.ctime ASC
 
 ```dataview
 LIST FROM "00_Inbox/_raw"
-WHERE status = "mature"
+WHERE ingest_status = "ingested"
 SORT file.mtime DESC
 LIMIT 10
 ```
@@ -46,10 +46,10 @@ SORT file.ctime DESC
 
 ```dataviewjs
 const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
-const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "mature").length;
+const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.ingest_status != "ingested").length;
 dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}`);
 ```
 
 ---
 
-*💡 使用 `status: mature` 标记已 Ingest 的素材。文件只读不改，Ingest 产物写入 `31_Atomic_Notes/`。*
+*💡 使用 `ingest_status: ingested` 标记已 Ingest 的素材。文件只读不改，Ingest 产物写入 `31_Atomic_Notes/`。*

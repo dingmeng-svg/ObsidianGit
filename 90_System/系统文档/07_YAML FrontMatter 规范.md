@@ -145,6 +145,7 @@ tags: [营销, 品牌]
 | `ai_generated` | AI 编译产物 | 标记 AI 生成 |
 | `last_ai_edit` | Agent 修改过的笔记 | 最近 AI 修改日期 |
 | `ai_edit_summary` | Agent 修改过的笔记 | AI 修改内容简述 |
+| `ingest_status` | `00_Inbox/_raw/` 原素材 | 编译状态。取值：`ingested`（已被 Ingest 编译处理）。不计入 META-02 配额 |
 | `extraction_context` | 从项目萃取的原子笔记 | 一句话记录提炼动机和原始语境（可选字段） |
 | `extraction_decision` | 项目主文档 | 结项萃取决策记录。格式：`["extracted: 笔记A", "project_only: 文件C", "pending: 文件D"]` |
 | `doc_level` | 系统文档 | 文档层级标识。固定取值 L0/L1/L2/L3/L4。无此字段不认定为正式系统文档 |
