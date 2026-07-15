@@ -1,0 +1,85 @@
+/* ========== Hermes 首页 v5.1 原生融合终局版 ========== */
+
+/* --- 彻底隐藏 YAML 属性表（兼容新旧版本） --- */
+.homepage .frontmatter-container,
+.homepage .metadata-container,
+.markdown-reading-view .homepage .frontmatter { display: none !important; }
+
+/* --- 顶部横幅代码块边距消隐 --- */
+.homepage .block-language-dataviewjs:has(.home-header) { margin: 0; }
+
+/* --- 顶部横幅 --- */
+.homepage .home-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border: 1px solid #c8e6c9; border-radius: 16px;
+  padding: 1.5rem 2rem; margin-bottom: 1.5rem; gap: 1rem; flex-wrap: wrap;
+  box-shadow: 0 4px 20px rgba(46,125,50,0.08);
+}
+.homepage .home-header-left { flex: 1; min-width: 260px; }
+.homepage .home-header-title { font-size: 0.85rem; font-weight: 600; color: #4a7c59; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.5rem; opacity: 0.8; }
+.homepage .home-header-subtitle { font-size: 1.2rem; font-weight: 700; color: #2d3a2d; }
+.homepage .home-header-right { text-align: right; min-width: 200px; }
+.homepage .home-header-date { font-size: 1.1rem; font-weight: 600; color: #2d3a2d; margin-bottom: 0.5rem; }
+.homepage .home-header-stats { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; color: #6b7d6b; }
+
+/* --- 今日行动表格（卡片化增强） --- */
+.homepage table { border-collapse: separate; border-spacing: 0.5rem; width: 100%; margin: 1rem 0; background: transparent; }
+.homepage th, .homepage td { width: 25%; }
+.homepage th { background: #f1f8e9; font-weight: 700; text-align: center; padding: 0.5rem; border-radius: 6px; }
+.homepage td {
+  background: #fff; border-radius: 10px; border: 1px solid #e0e0e0;
+  padding: 0.75rem; text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03); transition: transform 0.2s, box-shadow 0.2s;
+}
+.homepage td:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+.homepage td a.internal-link { text-decoration: none !important; font-weight: 600; font-size: 0.85rem; }
+/* 四列语义色 */
+.homepage td:nth-child(1) { border-left: 4px solid #9e9e9e; } .homepage td:nth-child(1) a { color: #616161; }
+.homepage td:nth-child(2) { border-left: 4px solid #4caf50; } .homepage td:nth-child(2) a { color: #2e7d32; }
+.homepage td:nth-child(3) { border-left: 4px solid #2196f3; } .homepage td:nth-child(3) a { color: #1565c0; }
+.homepage td:nth-child(4) { border-left: 4px solid #bdbdbd; } .homepage td:nth-child(4) a { color: #757575; }
+
+/* --- 双链全局清除下划线 --- */
+.homepage a.internal-link { text-decoration: none !important; border-bottom: none !important; }
+
+/* --- 快速导航容器 --- */
+.homepage .quick-nav-wrapper { margin: 1rem 0; }
+.homepage .quick-nav-wrapper p { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.homepage .quick-nav-wrapper a.internal-link {
+  display: inline-block; margin-right: 0.5rem; margin-bottom: 0.5rem;
+  padding: 0.4rem 0.8rem; border-radius: 8px; background: #fff;
+  border: 1px solid #e0e0e0; color: #2d3a2d !important; font-weight: 600; font-size: 0.9rem;
+}
+.homepage .quick-nav-wrapper a.internal-link:hover { border-color: #4a7c59; background: #f1f8e9; }
+
+/* --- 折叠 Callout --- */
+.homepage .callout[data-callout="example"] { border: 1px solid #e0e0e0; border-radius: 12px; padding: 0.75rem 1rem; margin-top: 1.5rem; background: #fff; }
+.homepage .callout[data-callout="example"] .callout-title { font-size: 1rem; font-weight: 700; color: #2d3a2d; }
+.homepage .callout[data-callout="example"] .callout-content { padding-top: 0.5rem; }
+
+/* --- 空状态 --- */
+.homepage .empty-state {
+  text-align: center; padding: 1rem; background: #fafcfa;
+  border: 1px dashed #c8e6c9; border-radius: 12px; color: #8b9a8b; margin: 0.5rem 0;
+}
+.homepage .empty-state.empty-success { background: #f1f8e9; border-color: #a5d6a7; color: #2e7d32; }
+
+/* --- 页脚 --- */
+.homepage .home-footer { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; text-align: center; font-size: 0.75rem; color: #9e9e9e; }
+
+/* --- Dataview 表格 --- */
+.homepage .dataview.table-view-table { font-size: 0.9rem; }
+.homepage .dataview.table-view-table a { font-size: 0.9rem; }
+.homepage .dataview.table-empty, .homepage .dataview.result-empty { display: none; }
+
+/* --- 响应式 --- */
+@media (max-width: 900px) {
+  .homepage .home-header { flex-direction: column; }
+  .homepage .home-header-right { text-align: left; }
+}
+@media (max-width: 700px) {
+  .homepage .home-header { padding: 1rem; }
+  .homepage .home-header-subtitle { font-size: 1rem; }
+  .homepage table { display: block; overflow-x: auto; }
+}

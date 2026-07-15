@@ -1,0 +1,390 @@
+/* ========================================
+   🏠 首页专属主题 · Homepage Theme v1.2
+   配合 cssclass: homepage 使用
+   基于 Obsidian Callout 实现，Wikilink 完全可点击
+   ======================================== */
+
+/* ========================================
+   1. 全局变量与基础重置
+   ======================================== */
+.homepage {
+  --homepage-radius: 10px;
+  --homepage-transition: 0.2s ease;
+  --homepage-hover-lift: -2px;
+}
+
+/* 首页 H2 标题样式 */
+.homepage .markdown-preview-section h2 {
+  margin-top: 32px;
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+  color: var(--text-normal);
+  border-bottom: 2px solid var(--background-modifier-border);
+  padding-bottom: 6px;
+}
+
+/* 首页引用块（定位声明）微调 */
+.homepage .markdown-preview-section > blockquote {
+  background: var(--background-secondary);
+  border-left: 4px solid var(--background-modifier-border);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 16px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin: 8px 0 24px 0;
+}
+
+/* ========================================
+   2. PARA 三列卡片网格
+   ======================================== */
+/* 让三个 callout 排成一行 */
+.homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(33.33% - 12px);
+  margin-right: 12px;
+  box-sizing: border-box;
+}
+
+.homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout + .callout {
+  margin-right: 12px;
+}
+
+.homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout + .callout + .callout {
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout {
+    width: calc(50% - 8px);
+    margin-right: 8px;
+  }
+  .homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout + .callout {
+    margin-right: 0;
+  }
+  .homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout + .callout + .callout {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .homepage .markdown-preview-section h2[data-heading="📥 工作区入口"] + .callout {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+
+/* 卡片基础样式 */
+.homepage .callout[data-callout="para-input"],
+.homepage .callout[data-callout="para-active"],
+.homepage .callout[data-callout="para-cool"] {
+  border-radius: var(--homepage-radius);
+  padding: 18px 16px 14px 16px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  min-width: 140px;
+  transition: transform var(--homepage-transition), box-shadow var(--homepage-transition);
+  margin: 0 0 16px 0;
+}
+
+.homepage .callout[data-callout="para-input"]:hover,
+.homepage .callout[data-callout="para-active"]:hover,
+.homepage .callout[data-callout="para-cool"]:hover {
+  transform: translateY(var(--homepage-hover-lift));
+  box-shadow: var(--shadow-s, 0 4px 12px rgba(0,0,0,0.1));
+}
+
+/* 卡片配色 */
+.homepage .callout[data-callout="para-input"] {
+  background: rgba(165, 180, 252, 0.12);
+}
+
+.homepage .callout[data-callout="para-active"] {
+  background: rgba(110, 231, 183, 0.12);
+}
+
+.homepage .callout[data-callout="para-cool"] {
+  background: var(--background-secondary);
+}
+
+/* 卡片标题 */
+.homepage .callout[data-callout="para-input"] .callout-title,
+.homepage .callout[data-callout="para-active"] .callout-title,
+.homepage .callout[data-callout="para-cool"] .callout-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-normal);
+  margin-bottom: 6px;
+}
+
+/* 隐藏 callout 的折叠图标 */
+.homepage .callout[data-callout="para-input"] .callout-fold,
+.homepage .callout[data-callout="para-active"] .callout-fold,
+.homepage .callout[data-callout="para-cool"] .callout-fold {
+  display: none;
+}
+
+/* 卡片内链接样式 */
+.homepage .callout[data-callout="para-input"] .callout-content .internal-link,
+.homepage .callout[data-callout="para-active"] .callout-content .internal-link,
+.homepage .callout[data-callout="para-cool"] .callout-content .internal-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: color var(--homepage-transition), background var(--homepage-transition);
+  display: block;
+}
+
+.homepage .callout[data-callout="para-input"] .callout-content .internal-link:hover,
+.homepage .callout[data-callout="para-active"] .callout-content .internal-link:hover,
+.homepage .callout[data-callout="para-cool"] .callout-content .internal-link:hover {
+  color: var(--text-accent);
+  background: var(--background-modifier-hover);
+}
+
+/* ========================================
+   3. 规范体系入口
+   ======================================== */
+.homepage .callout[data-callout="spec-grid"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 12px 0 28px 0;
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-title {
+  display: none;
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .homepage .callout[data-callout="spec-grid"] .callout-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .homepage .callout[data-callout="spec-grid"] .callout-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-secondary);
+  border-radius: var(--homepage-radius);
+  padding: 16px 10px;
+  text-align: center;
+  border: 1px solid var(--background-modifier-border);
+  min-width: 140px;
+  transition: background var(--homepage-transition), border-color var(--homepage-transition), transform var(--homepage-transition);
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content li:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--text-accent);
+  transform: translateY(var(--homepage-hover-lift));
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content .internal-link {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-normal);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: background var(--homepage-transition);
+}
+
+.homepage .callout[data-callout="spec-grid"] .callout-content .internal-link:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* 隐藏列表标记 */
+.homepage .callout[data-callout="spec-grid"] .callout-content .list-bullet {
+  display: none;
+}
+
+/* ========================================
+   4. 系统维护按钮区
+   ======================================== */
+.homepage .callout[data-callout="maint-grid"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 12px 0 28px 0;
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-title {
+  display: none;
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content ul {
+  display: contents;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-secondary);
+  border-radius: var(--homepage-radius);
+  padding: 14px 10px;
+  text-align: center;
+  border: 1px solid var(--background-modifier-border);
+  min-width: 140px;
+  transition: background var(--homepage-transition), border-color var(--homepage-transition), transform var(--homepage-transition);
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content li:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+  transform: translateY(var(--homepage-hover-lift));
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content .internal-link {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-normal);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 6px;
+  transition: background var(--homepage-transition);
+}
+
+.homepage .callout[data-callout="maint-grid"] .callout-content .internal-link:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* 隐藏列表标记 */
+.homepage .callout[data-callout="maint-grid"] .callout-content .list-bullet {
+  display: none;
+}
+
+/* ========================================
+   5. 快速创建胶囊标签
+   ======================================== */
+.homepage .callout[data-callout="quick-grid"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 10px 0 8px 0;
+}
+
+.homepage .callout[data-callout="quick-grid"] .callout-title {
+  display: none;
+}
+
+.homepage .callout[data-callout="quick-grid"] .callout-content ul {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.homepage .callout[data-callout="quick-grid"] .callout-content li {
+  display: inline-block;
+  min-width: 140px;
+}
+
+.homepage .callout[data-callout="quick-grid"] .callout-content .internal-link {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: var(--homepage-radius);
+  background: var(--background-secondary);
+  color: var(--text-accent);
+  font-size: 0.88rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--background-modifier-border);
+  transition: background var(--homepage-transition), border-color var(--homepage-transition), transform var(--homepage-transition);
+}
+
+.homepage .callout[data-callout="quick-grid"] .callout-content .internal-link:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--text-accent);
+  transform: translateY(var(--homepage-hover-lift));
+  color: var(--text-accent);
+}
+
+/* 隐藏列表标记 */
+.homepage .callout[data-callout="quick-grid"] .callout-content .list-bullet {
+  display: none;
+}
+
+/* ========================================
+   6. Dataview 表格精修
+   ======================================== */
+.homepage .table-view-table,
+.homepage .dataview.table-view-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: var(--homepage-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  margin: 10px 0 28px 0;
+}
+
+.homepage .table-view-table th,
+.homepage .dataview.table-view-table th {
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  text-align: left;
+}
+
+.homepage .table-view-table td,
+.homepage .dataview.table-view-table td {
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  color: var(--text-normal);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.homepage .table-view-table tr:last-child td,
+.homepage .dataview.table-view-table tr:last-child td {
+  border-bottom: none;
+}
+
+.homepage .table-view-table tr:hover td,
+.homepage .dataview.table-view-table tr:hover td {
+  background: var(--background-modifier-hover);
+}
