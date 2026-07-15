@@ -1,8 +1,12 @@
 ---
-title: "Inbox MOC"
+title: 00_Inbox
 date: 2026-07-09
-tags: [MOC, Inbox]
+tags:
+  - MOC
+  - Inbox
 doc_level: L4
+aliases:
+  - Inbox MOC
 ---
 
 # 📥 Inbox 总览

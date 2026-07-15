@@ -1,8 +1,13 @@
 ---
-title: "Raw 素材 MOC"
+title: _raw
 date: 2026-07-09
-tags: [MOC, Inbox, Raw]
+tags:
+  - MOC
+  - Inbox
+  - Raw
 doc_level: L4
+aliases:
+  - Raw 素材 MOC
 ---
 
 # 🗄️ 原料仓总览
