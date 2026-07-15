@@ -18,7 +18,7 @@ aliases:
 ```dataview
 TABLE WITHOUT ID file.link AS "文件", file.mtime AS "更新时间"
 FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
-WHERE status != "done"
+WHERE status != "archived"
 SORT file.mtime ASC
 ```
 
@@ -27,7 +27,7 @@ SORT file.mtime ASC
 ```dataview
 TABLE WITHOUT ID file.link AS "文件", file.mtime AS "处理时间"
 FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
-WHERE status = "done"
+WHERE status = "archived"
 SORT file.mtime DESC
 LIMIT 10
 ```
@@ -46,9 +46,9 @@ LIMIT 15
 
 ```dataviewjs
 const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
-const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.status != "done").length;
+const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.status != "archived").length;
 const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
-const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "done").length;
+const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
 const doneToday = dv.pages('"00_Inbox"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
 dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${extPending}/${extTotal} 待处理  ·  🟢 今日已处理 ${doneToday}`);
 ```
@@ -68,4 +68,4 @@ dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${ext
 
 ---
 
-*💡 使用 `status: done` 标记已处理的素材。*
+*💡 使用 `status: archived` 标记已处理的素材。*

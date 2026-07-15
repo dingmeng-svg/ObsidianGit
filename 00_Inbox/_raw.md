@@ -21,7 +21,7 @@ aliases:
 ```dataview
 TABLE file.ctime AS "创建时间", file.mtime AS "修改时间"
 FROM "00_Inbox/_raw"
-WHERE file.name != "_raw 素材总MOC" AND status != "done"
+WHERE file.name != "_raw 素材总MOC" AND status != "archived"
 SORT file.ctime ASC
 ```
 
@@ -29,7 +29,7 @@ SORT file.ctime ASC
 
 ```dataview
 LIST FROM "00_Inbox/_raw"
-WHERE status = "done"
+WHERE status = "archived"
 SORT file.mtime DESC
 LIMIT 10
 ```
@@ -46,11 +46,11 @@ SORT file.ctime DESC
 
 ```dataviewjs
 const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
-const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "done").length;
+const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "archived").length;
 const doneToday = dv.pages('"00_Inbox/_raw"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
 dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}  ·  🟢 今日已处理 ${doneToday}`);
 ```
 
 ---
 
-*💡 使用 `status: done` 标记已 Ingest 的素材。文件只读不改，Ingest 产物写入 `31_Atomic_Notes/`。*
+*💡 使用 `status: archived` 标记已 Ingest 的素材。文件只读不改，Ingest 产物写入 `31_Atomic_Notes/`。*
