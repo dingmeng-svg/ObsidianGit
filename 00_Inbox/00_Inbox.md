@@ -18,7 +18,7 @@ aliases:
 ```dataview
 TABLE WITHOUT ID file.link AS "文件", file.mtime AS "更新时间"
 FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
-WHERE status != "archived"
+WHERE status != "archived" AND status != "mature"
 SORT file.mtime ASC
 ```
 
