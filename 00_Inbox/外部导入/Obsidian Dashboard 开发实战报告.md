@@ -231,6 +231,7 @@
 | ❌ CSS 写死 `px` 字号 | 破坏用户主题默认字号 |
 | ❌ `$= dv...` 内联查询在 Callout 内 | 被当作普通代码块，不执行 |
 | ❌ HTML 标签内包裹 ` ```dataviewjs` 代码块 | 被当作纯文本渲染，源码裸露 |
+| ❌ 试图用 `querySelector` 跨容器注入数据到卡片内 | DataviewJS 代码块的 `this.container` 看不到外部 DOM，无法跨容器操作 |
 | ❌ 堆砌非必要第三方插件 | 日期类/热力图插件与 Dataview 共享 Luxon，存在版本冲突 |
 
 
@@ -379,6 +380,7 @@
 | 21 | `$= dv...` 内联查询在 Callout 内报 `(disabled; enable in settings)` | Callout 内的 `$=` 语法被 Obsidian 当作普通代码块处理，不执行 Dataview 查询 | 改用独立 ` ```dataviewjs` 代码块 + `dv.span()` 输出 |
 | 22 | 卡片 HTML 内包裹 ` ```dataviewjs` 代码块导致阅读模式源码裸露 | HTML `<div>` 容器内的代码块被 Obsidian 当作纯文本渲染，不解释为 Dataview 代码 | 禁止在 HTML 标签内写代码块，公共代码块放在卡片容器外部 |
 | 23 | `this.container.querySelectorAll('.card-desc')` 跨容器定位失败 | `this.container` 是 DataviewJS 代码块自身的容器，看不到代码块外部的 DOM | 放弃 DOM 注入，直接 `dv.span()` 输出汇总行 |
+| 23b | **卡片内动态数字最终只能写死静态文字** | 卡片 HTML 内不能放代码块（源码裸露），代码块在卡片外又无法用 DOM 注入写入卡片内部（`querySelectorAll` 跨容器失败），`dv.span()` 只能在卡片下方输出，数字进不了卡片内部 | **最终结论：卡片内的统计数据只能写死静态文字，无法用 Dataview 实时抓取填入。** 如需展示动态数据，在卡片下方用公共 `dv.span()` 代码块输出汇总行 |
 | 24 | `![[嵌入#emoji标题]]` 分段嵌入不稳定 | 含中文 emoji 的 H2 标题在 Obsidian 嵌入语法中锚点解析不一致 | 直接嵌入整个文件，或用纯文本标题（无 emoji） |
 | 25 | `[!info]` Callout 与洞察镜的 `[!info]` 冲突 | 两个模块用了同一个 Callout 类型，样式互相覆盖 | 顶部横幅用 `[!info]`，洞察镜用 `[!faq]`，系统规范用 `[!example]` |
 | 26 | `dv.pages('"10_Projects"').where(p => p.status == "active").length` 返回 159 | 统计的是所有 `status=active` 的文件数，而非项目文件夹数 | 改用 `p.file.folder.startsWith("10_Projects/") && p.file.folder.split("/").length === 3` 按子目录去重 |
@@ -411,6 +413,7 @@
 6. **嵌入文件用 `![[完整路径]]`，不要分段嵌入 `#emoji标题`**：含中文 emoji 的锚点解析不稳定，直接嵌入整个文件，让 Agent 控制今日入口的内容。
 7. **统计「活跃项目」按文件夹去重，不是按文件数**：`status=active` 匹配的是项目目录下所有 `.md` 文件，不是你真正想要的项目数。用 `p.file.folder.split("/").length === 3` 按子目录统计。
 8. **Callout 类型要区分，不能共用**：顶部横幅 `[!info]`、洞察镜 `[!faq]`、系统规范 `[!example]`，各占一个，互不冲突。
+9. **卡片内的统计数据只能写死静态文字**：HTML 卡片内不能放代码块，代码块在卡片外又无法 DOM 注入进卡片内部。这是 Obsidian 渲染引擎的物理限制，无法绕过。需要展示动态数据时，在卡片下方用公共 `dv.span()` 输出汇总行。
 
 
 ## 十、关键文件留存（封板版本）
