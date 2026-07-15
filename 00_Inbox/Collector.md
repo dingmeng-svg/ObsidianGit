@@ -1,7 +1,7 @@
 ---
 title: Collector
 date: 2026-07-15
-tags: [MOC, Inbox, 个人成长]
+tags: [MOC, Inbox, 系统文档]
 doc_level: L4
 ---
 
@@ -102,3 +102,11 @@ doc_level: L4
 ## 捕获区
 
 （以下为行为念想记录区，随时追加，无需整理）
+
+- [ ] [T] 自动化：Hermes Agent 每日扫描 `Collector`，按前缀自动分流至 BuJo / 习惯记分卡
+- [ ] [T] Insight 全自动化：每日扫描全库，按七维框架生成当日洞察，写入 `Insight/每日洞察/YYYY-MM/YYYY-MM-DD-Insight.md`
+- [ ] [T] 洞察周期模板：周度/月度/季度复盘模板，与 Insight 七维框架和 Periodic Notes 集成
+- [ ] [T] 系统信息流整合：「知」+「行」+「检」三流合一，统一仪表盘展示
+- [ ] [T] Projects 项目模板去重整合：检查 `10_Projects/` 下各项目目录中的模板文件
+- [ ] [Q] 待阅读：`00_Inbox/外部导入/Obsidian 第一层设计思路（原子笔记炼金源）.md`
+- [ ] [Q] 待阅读：`00_Inbox/外部导入/硅谷顶级VC共识（原子笔记炼金源）.md`

@@ -1,7 +1,13 @@
 ---
-tags: [体系]
-related: ["darwin-skill", "skill-self-evolution", "skill-evolver"]
-source: "Hermes Agent 3 批 8 个 Skill Darwin 评分归档（2026-07-04）"
+title: "Darwin Skill 评分归档"
+date: 2026-07-04
+tags: [系统文档]
+status: archived
+source: "Hermes Agent 3 批 8 个 Skill Darwin 评分归档"
+related:
+  - "[[darwin-skill]]"
+  - "[[skill-self-evolution]]"
+  - "[[skill-evolver]]"
 ---
 
 # Darwin Skill 评分归档（2026-07-04）

@@ -388,6 +388,7 @@
 | 27 | `obsidian://open?file=路径` 与 `obsidian://open?vault=Hermes&file=路径` 行为不同 | 无 vault 参数时自动匹配当前打开 vault；有 vault 参数时需精确匹配 Vault 名称 | 统一使用 `obsidian://open?vault=Hermes&file=` 格式 |
 | 28 | `renderHeatmapCalendar()` 在 DataviewJS 代码块中可能因插件未启用而报错 | Heatmap Calendar 插件与 Dataview 共享 Luxon 库，版本冲突时静默失败 | 包裹 `try/catch`，插件未启用时显示友好提示 |
 | 29 | 多维嵌入文件时 frontmatter 和元数据行也被渲染 | `![[嵌入]]` 会显示文件全部内容，包括 YAML 头部和数据范围说明 | 让 `今日知识洞察.md` 只包含展示内容，Agent 每日覆盖写入 |
+| 30 | `dv.span()` 多行数据无法换行 | `dv.span()` 输出内联文本，`\n` 在 Obsidian 渲染中无效 | 多行输出用 `dv.paragraph()` 替代第二个及后续的 `dv.span()` |
 | 30 | 数据文件路径写死导致多处修改 | 多个 DataviewJS 代码块中硬编码了 `"日记/BuJo"` 等路径，路径变更时需逐处修改 | 使用 Dataview 变量复用路径，或统一写在首页顶部常量区 |
 
 
