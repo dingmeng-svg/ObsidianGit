@@ -1,8 +1,8 @@
 
 
 > **项目名称**：Hermes 知识库 · 首页 Dashboard（`🏠 首页.md`）
-> **迭代周期**：2026-07-13 ~ 2026-07-14
-> **终局版本**：v6.0.1-final（已封板冻结）
+> **迭代周期**：2026-07-13 ~ 2026-07-15
+> **终局版本**：v3.0（知行合一重构）
 > **报告用途**：未来任何 Obsidian Dashboard 项目的可复用经验库，避免重复踩坑
 
 
@@ -229,6 +229,8 @@
 | ❌ `<details>` 标签内嵌套 Callout | 解析冲突，语法外露 |
 | ❌ `obsidian://advanced-uri` 协议 | 依赖第三方插件，无插件时失效 |
 | ❌ CSS 写死 `px` 字号 | 破坏用户主题默认字号 |
+| ❌ `$= dv...` 内联查询在 Callout 内 | 被当作普通代码块，不执行 |
+| ❌ HTML 标签内包裹 ` ```dataviewjs` 代码块 | 被当作纯文本渲染，源码裸露 |
 | ❌ 堆砌非必要第三方插件 | 日期类/热力图插件与 Dataview 共享 Luxon，存在版本冲突 |
 
 
@@ -374,6 +376,16 @@
 | 18 | CSS 写死 `14px` 导致用户反馈"太小" | 强制覆盖了用户主题默认字号 | 改用 `rem` 相对单位 |
 | 19 | `obsidian://advanced-uri` 链接静默失效 | 未安装 `Advanced URI` 插件 | 改用原生 `[[双链]]` |
 | 20 | 实时预览通过但阅读模式崩 | 两套引擎行为不同 | **必须双模式验证** |
+| 21 | `$= dv...` 内联查询在 Callout 内报 `(disabled; enable in settings)` | Callout 内的 `$=` 语法被 Obsidian 当作普通代码块处理，不执行 Dataview 查询 | 改用独立 ` ```dataviewjs` 代码块 + `dv.span()` 输出 |
+| 22 | 卡片 HTML 内包裹 ` ```dataviewjs` 代码块导致阅读模式源码裸露 | HTML `<div>` 容器内的代码块被 Obsidian 当作纯文本渲染，不解释为 Dataview 代码 | 禁止在 HTML 标签内写代码块，公共代码块放在卡片容器外部 |
+| 23 | `this.container.querySelectorAll('.card-desc')` 跨容器定位失败 | `this.container` 是 DataviewJS 代码块自身的容器，看不到代码块外部的 DOM | 放弃 DOM 注入，直接 `dv.span()` 输出汇总行 |
+| 24 | `![[嵌入#emoji标题]]` 分段嵌入不稳定 | 含中文 emoji 的 H2 标题在 Obsidian 嵌入语法中锚点解析不一致 | 直接嵌入整个文件，或用纯文本标题（无 emoji） |
+| 25 | `[!info]` Callout 与洞察镜的 `[!info]` 冲突 | 两个模块用了同一个 Callout 类型，样式互相覆盖 | 顶部横幅用 `[!info]`，洞察镜用 `[!faq]`，系统规范用 `[!example]` |
+| 26 | `dv.pages('"10_Projects"').where(p => p.status == "active").length` 返回 159 | 统计的是所有 `status=active` 的文件数，而非项目文件夹数 | 改用 `p.file.folder.startsWith("10_Projects/") && p.file.folder.split("/").length === 3` 按子目录去重 |
+| 27 | `obsidian://open?file=路径` 与 `obsidian://open?vault=Hermes&file=路径` 行为不同 | 无 vault 参数时自动匹配当前打开 vault；有 vault 参数时需精确匹配 Vault 名称 | 统一使用 `obsidian://open?vault=Hermes&file=` 格式 |
+| 28 | `renderHeatmapCalendar()` 在 DataviewJS 代码块中可能因插件未启用而报错 | Heatmap Calendar 插件与 Dataview 共享 Luxon 库，版本冲突时静默失败 | 包裹 `try/catch`，插件未启用时显示友好提示 |
+| 29 | 多维嵌入文件时 frontmatter 和元数据行也被渲染 | `![[嵌入]]` 会显示文件全部内容，包括 YAML 头部和数据范围说明 | 让 `今日知识洞察.md` 只包含展示内容，Agent 每日覆盖写入 |
+| 30 | 数据文件路径写死导致多处修改 | 多个 DataviewJS 代码块中硬编码了 `"日记/BuJo"` 等路径，路径变更时需逐处修改 | 使用 Dataview 变量复用路径，或统一写在首页顶部常量区 |
 
 
 ## 八、快速复刻流程（从零开始，按顺序执行）
@@ -395,19 +407,23 @@
 1. **Obsidian 表格存在物理级双链解析限制**：永远不要用表格做功能入口容器。表格只能承载数据，不能承载交互。
 2. **CSS 不隔离是 90% 视觉错乱的根源**：Dataview 表格与手动表格必须用不同选择器，否则必打架。
 3. **首页稳定的核心不是功能多，是依赖少、结构纯、渲染原生**：每多一个 `dv.el()`，崩溃风险指数级上升。
-4. **双方案兜底才是工程化首页**：主方案 + 回退方案并存，CSS 互不干扰。主方案失效时 2 分钟切换，无需整页回滚。
+5. **绝对不要在 HTML 标签内写代码块**：无论是 `$= dv...` 还是 ` ```dataviewjs`，在 HTML 容器内都不会被渲染，只会源码裸露。代码块必须放在 Markdown 层级。
+6. **嵌入文件用 `![[完整路径]]`，不要分段嵌入 `#emoji标题`**：含中文 emoji 的锚点解析不稳定，直接嵌入整个文件，让 Agent 控制今日入口的内容。
+7. **统计「活跃项目」按文件夹去重，不是按文件数**：`status=active` 匹配的是项目目录下所有 `.md` 文件，不是你真正想要的项目数。用 `p.file.folder.split("/").length === 3` 按子目录统计。
+8. **Callout 类型要区分，不能共用**：顶部横幅 `[!info]`、洞察镜 `[!faq]`、系统规范 `[!example]`，各占一个，互不冲突。
 
 
 ## 十、关键文件留存（封板版本）
 
 | 文件 | 路径 | 说明 |
 |:---|:---|:---|
-| 首页 | `🏠 首页.md` | v6.0.1-final 封板版本 |
-| 样式片段 | `.obsidian/snippets/knowledge-home.css` | 完整 CSS，含主方案 + 回退方案 |
-| 备份 | `🏠 首页.md.bak.20260714` | 部署前备份，用于灾难回滚 |
+| 首页 | `🏠 首页.md` | v3.0（知行合一重构） |
+| 样式片段 | `.obsidian/snippets/knowledge-home.css` | 780 行，含 2×3 卡片网格 + Insight 卡片 + 页脚 Apple 极简 |
+| 洞察模板 | `90_System/91_Templates/AI Insight.md` | 七维知行循环框架 |
+| 开发实战报告 | `00_Inbox/外部导入/Obsidian Dashboard 开发实战报告.md` | 完整踩坑清单 30 条 |
 
 
-**报告版本**：v1.0
-**报告日期**：2026-07-14
-**对应 Dashboard 版本**：v6.0.1-final
-**状态**：✅ 已封板冻结，可永久复用
+**报告版本**：v2.0
+**报告日期**：2026-07-15
+**对应 Dashboard 版本**：v3.0（知行合一重构）
+**状态**：✅ 持续演化，按需追加
