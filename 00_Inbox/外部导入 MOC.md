@@ -1,13 +1,33 @@
 ---
 title: "外部导入 MOC"
+date: 2026-07-09
 tags: [MOC, Inbox]
+doc_level: L4
 ---
 
 # 📥 外部导入总览
 
-> 人工手动处理的外部导入素材。所有新建导入统一走 `_raw/`（系统自动 Ingest），本目录仅保留存量文件。
+> 人工手动处理的外部导入素材。需要系统自动 Ingest 的走 `_raw/`，其余保留在本目录人工处理。
 >
-> 处理流程：外部导入 → 人工审核 → 提炼为原子笔记或归档。
+> 处理流程：外部导入 → 人工审核判断 →（人工发出指令后）Hermes Agent 归档或提炼。
+
+## 🔴 待处理（需人工审核）
+
+```dataview
+TABLE file.mtime AS "修改时间"
+FROM "00_Inbox/外部导入"
+WHERE file.name != "_说明" AND status != "done"
+SORT file.mtime ASC
+```
+
+## 🟢 已处理（沉淀至资源库）
+
+```dataview
+LIST FROM "00_Inbox/外部导入"
+WHERE status = "done"
+SORT file.mtime DESC
+LIMIT 10
+```
 
 ## 📂 全部外部导入文件
 
@@ -20,9 +40,13 @@ SORT file.mtime DESC
 
 ## 📊 统计
 
-- 总文件数：`$= dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length`
-- 最新导入：`$= dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").sort(p => p.file.mtime, "desc")[0].file.name`
+```dataviewjs
+const total = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
+const pending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "done").length;
+const doneToday = dv.pages('"00_Inbox/外部导入"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
+dv.span(`📊 总文件 ${total}  ·  🔴 待处理 ${pending}  ·  🟢 今日已处理 ${doneToday}`);
+```
 
 ---
 
-*💡 存量文件处理完毕后，本目录可归档至 `40_Archive/`。*
+*💡 使用 `status: done` 标记已处理的素材。存量文件处理完毕后，本目录可归档至 `40_Archive/`。*
