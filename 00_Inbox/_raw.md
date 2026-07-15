@@ -47,7 +47,7 @@ SORT file.ctime DESC
 ```dataviewjs
 const total = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC").length;
 const pending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw 素材总MOC" && p.status != "archived").length;
-const archivedToday = dv.pages('"00_Inbox/_raw"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
+const archivedToday = dv.pages('"00_Inbox/_raw"').where(p => p.status == "archived" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
 dv.span(`📊 总素材 ${total}  ·  🔴 待处理 ${pending}  ·  🟢 今日已处理 ${archivedToday}`);
 ```
 

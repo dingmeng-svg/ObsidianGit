@@ -49,7 +49,7 @@ const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC
 const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.status != "archived").length;
 const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
 const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
-const archivedToday = dv.pages('"00_Inbox"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
+const archivedToday = dv.pages('"00_Inbox"').where(p => p.status == "archived" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
 dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${extPending}/${extTotal} 待处理  ·  🟢 今日已处理 ${archivedToday}`);
 ```
 
