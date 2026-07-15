@@ -1,38 +1,67 @@
 ---
-title: 收件箱
+title: "Inbox MOC"
 date: 2026-07-09
-tags: [MOC]
+tags: [MOC, Inbox]
+doc_level: L4
 ---
 
-# 📥 收件箱
+# 📥 Inbox 总览
 
-待处理内容入口，所有外部信息先进入这里。
+> 所有外部信息的统一入口，按处理方式分流至 `_raw/`（系统自动 Ingest）或 `外部导入/`（人工处理）。
+
+## 🔴 待处理
+
+```dataview
+TABLE WITHOUT ID file.link AS "文件", file.mtime AS "更新时间"
+FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
+WHERE status != "done"
+SORT file.mtime ASC
+```
+
+## 🟢 已处理
+
+```dataview
+TABLE WITHOUT ID file.link AS "文件", file.mtime AS "处理时间"
+FROM "00_Inbox/_raw" OR "00_Inbox/外部导入"
+WHERE status = "done"
+SORT file.mtime DESC
+LIMIT 10
+```
 
 ## 📝 最近更新
 
 ```dataview
 TABLE WITHOUT ID file.link AS "文件", file.mtime AS "更新时间"
 FROM "00_Inbox"
-WHERE !startswith(file.name, "_") AND file.name != "00_Inbox"
+WHERE file.name != "00_Inbox"
 SORT file.mtime DESC
+LIMIT 15
 ```
 
----
+## 📊 统计
+
+```dataviewjs
+const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
+const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.status != "done").length;
+const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
+const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "done").length;
+const doneToday = dv.pages('"00_Inbox"').where(p => p.status == "done" && p.file.mtime.toFormat("yyyy-MM-dd") == dv.date("now").toFormat("yyyy-MM-dd")).length;
+dv.span(`📊 _raw: ${rawPending}/${rawTotal} 待处理  ·  外部导入: ${extPending}/${extTotal} 待处理  ·  🟢 今日已处理 ${doneToday}`);
+```
 
 ## 目录结构
 
-| 目录      | 说明                  |
-| :------ | :------------------ |
-| `_raw/` | 原始素材暂存，等待 Ingest 处理 |
-| `外部导入/` | 外部剪藏内容              |
-
----
+| 目录 | 说明 | 处理方式 |
+|:---|:---|:---|
+| `_raw/` | 原始素材暂存 | 系统自动 Ingest |
+| `外部导入/` | 外部剪藏内容 | 人工处理 |
 
 ## 相关文档
 
-- [[90_System/10_日工作流操作手册|日工作流操作手册]] — Inbox 处理流程
-- [[90_System/09_数据流全景图|数据流全景图]] — 信息流入路径
+- [[_raw MOC|📦 _raw 素材 MOC]]
+- [[外部导入 MOC|📥 外部导入 MOC]]
+- [[90_System/10_日工作流操作手册|日工作流操作手册]]
 
 ---
 
-*最后更新于 2026-07-09*
+*💡 使用 `status: done` 标记已处理的素材。*
