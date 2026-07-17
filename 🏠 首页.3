@@ -2,12 +2,17 @@
 title: "🏠 首页"
 cssclasses:
   - homepage
-version: v6.1.3
+version: v6.1.2
 last_sync: 2026-07-16
 changelog:
-  - v6.1.3 核心问题修复·永久封板
-    1. 功能卡片移除左侧彩色边框，统一16px大圆角+弥散悬浮阴影
-    2. 知识统计区删除「运动」项，固定4项适配原生4列网格，彻底解决换行错乱
+  - v6.1.2 苹果Dashboard视觉系统永久封板
+    1. Banner：Apple Hero居中极简海报区，进度胶囊无边框网格5列
+    2. 功能卡片：彻底去除左侧彩色边框，16px大圆角+弥散悬浮阴影
+    3. 统计区块：Grid固定等分布局（4/5项自适应），彻底解决换行错乱
+    4. 图标：放大至2.1rem，色彩承接原左侧边框识别功能
+    5. 无障碍：键盘聚焦轮廓匹配卡片圆角
+    6. 全站留白模数统一（1.8rem），深浅主题完整适配
+    7. 移动端响应式：三档断点自适应
 ---
 
 > [!info]
@@ -177,26 +182,30 @@ dv.span(`
 const all = dv.pages('"30_Resources/31_Atomic_Notes"')
   .where(p => p.status && p.status != "deprecated" && p.status != "archived");
 const total = all.length;
+const monthStart = dv.date("now").startOf("month");
+const monthNew = all.where(p => p.file.ctime && p.file.ctime >= monthStart).length;
 const mocs = dv.pages('"30_Resources/32_MOCs"').length;
 const recipe = dv.pages('"20_Areas/23_生活与健康/食物"').length;
 const lang = dv.pages('"30_Resources/31_Atomic_Notes/语言"').length;
+const fitness = dv.pages('"20_Areas/23_生活与健康/运动"').length;
 
 dv.span(`
   <div class="stat-block-wrapper">
     <div class="stat-grid">
       <div class="stat-item"><span class="num">${total}</span><span class="label">原子</span></div>
-      <div class="stat-item"><span class="num">${lang}</span><span class="label">语言</span></div>
-      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
       <div class="stat-item"><span class="num">${mocs}</span><span class="label">MOC</span></div>
+      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
+      <div class="stat-item"><span class="num">${lang}</span><span class="label">语言</span></div>
+      <div class="stat-item"><span class="num">${fitness}</span><span class="label">运动</span></div>
     </div>
   </div>
 `);
 ```
 
 
-## 🔍 洞见 · 周流不息 <span class="section-en">Insight</span>
+## 🔍 洞见 · Insight
 
-> [!faq]+ 洞微 · 入神 · 破局（点击收起）
+> [!faq]+ 七维注意力分析（点击收起）
 > 
 > ![[90_System/Insight/每日洞察/今日知识洞察]]
 > 

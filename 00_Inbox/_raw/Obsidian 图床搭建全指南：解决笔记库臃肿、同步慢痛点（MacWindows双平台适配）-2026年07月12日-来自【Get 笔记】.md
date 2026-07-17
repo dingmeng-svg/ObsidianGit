@@ -323,6 +323,11 @@ PicGo 有一个插件市场。在 PicGo 的「插件设置」里搜索安装对�
 * [6MB 图片变 100KB？我只用了 2 步](https://mp.weixin.qq.com/s?__biz=Mzk2NDAwMzAzMw==&mid=2247486200&idx=1&sn=1351beebc2815f3f0aee9861131cf593&scene=21#wechat_redirect)
 * [如何快速搭建自己的专属图床(Obsidian - 图床+Picgo+OB插件）](https://mp.weixin.qq.com/s?__biz=Mzk2NDAwMzAzMw==&mid=2247483764&idx=1&sn=d642353b1b8fa7752501ccd33f36e1e6&scene=21#wechat_redirect)
 
+> [!info] 🏷️ ingested — 2026-07-17
+> 已提炼为原子笔记：
+> - [[概念/图床解耦——图片与笔记分离的存储原理]]
+> - [[实践/PicGo + Image Auto Upload 图床链路搭建]]
+
 如果这篇文章对你有帮助，欢迎三连（点赞、转发、推荐）。
 
 我也建了一个 Obsidian 交流群，欢迎你的加入。在 AI 时代，让我们一起做好知识管理。群满200人了，感兴趣的朋友可以加我：linauwawa，我拉你入群。

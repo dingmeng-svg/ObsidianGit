@@ -1,0 +1,796 @@
+/* ============================================================
+   v6.0.11 Green Foundation · 最终封板
+   合并优化：背景图兜底 / 无障碍聚焦 / 窄屏压缩 / 选中配色
+   ============================================================ */
+
+/* --- 设计令牌 --- */
+.homepage {
+  --h-color-green: #4a7c59;
+  --h-color-green-light: #e8f5e9;
+  --h-color-green-bg: #f1f8e9;
+  --h-color-border: #e0e0e0;
+  --h-color-text: #2d3a2d;
+  --h-color-text-muted: #6b7d6b;
+  --h-radius-card: 16px;
+  --h-radius-capsule: 30px;
+  --h-shadow-card: 0 4px 20px rgba(74, 124, 89, 0.08);
+  --h-shadow-hover: 0 8px 30px rgba(74, 124, 89, 0.15);
+  --h-spacing-module: 1.8rem;
+}
+
+/* --- 隐藏 YAML --- */
+.homepage .frontmatter-container,
+.homepage .metadata-container {
+  display: none !important;
+}
+
+/* --- 文字选中配色 --- */
+.homepage ::selection {
+  background: var(--h-color-green-light);
+  color: var(--h-color-text);
+}
+.theme-dark .homepage ::selection {
+  background: rgba(74, 124, 89, 0.3);
+}
+
+/* ============================================================
+   顶部横幅（已迁移至下方 home-banner 样式块）
+   ============================================================ */
+
+/* ============================================================
+   2. 操作台网格
+   ============================================================ */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0.5rem 0 var(--h-spacing-module) 0;
+}
+
+.grid-2x1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0.5rem 0 var(--h-spacing-module) 0;
+}
+
+.card-action,
+.card-output {
+  background: #ffffff;
+  border: 1px solid var(--h-color-border);
+  border-radius: var(--h-radius-card);
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  min-height: 120px;
+  justify-content: center;
+}
+
+.card-action:hover,
+.card-output:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--h-shadow-hover);
+}
+
+.card-action:nth-child(1) { border-left: 4px solid #2196f3; }
+.card-action:nth-child(2) { border-left: 4px solid #4caf50; }
+.card-action:nth-child(3) { border-left: 4px solid #ff9800; }
+.card-action:nth-child(4) { border-left: 4px solid #9e9e9e; }
+
+.card-icon { font-size: 1.8rem; margin-bottom: 0.3rem; }
+.card-title { font-size: 1rem; font-weight: 700; color: var(--h-color-text); margin-bottom: 0.1rem; }
+.card-desc { font-size: 0.78rem; color: var(--h-color-text-muted); margin-bottom: 0.5rem; }
+
+.card-link a {
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--h-color-green);
+  padding: 0.2rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.card-link a:focus { outline: 2px solid var(--h-color-green); outline-offset: 3px; }
+.card-link a:hover { background: var(--h-color-green-bg); }
+
+/* ============================================================
+   3. Dataview 表格
+   ============================================================ */
+.homepage .dataview.table-view-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.homepage .dataview.table-view-table th {
+  background: #f5f7f5;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 2px solid var(--h-color-border);
+  font-weight: 600;
+  color: var(--h-color-text);
+  text-align: left;
+}
+
+.homepage .dataview.table-view-table td {
+  padding: 0.35rem 0.7rem;
+  border-bottom: 1px solid #f0f0f0;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.homepage .dataview.table-view-table tr:hover td {
+  background: var(--h-color-green-bg) !important;
+}
+
+/* ============================================================
+   4. 洞察镜
+   ============================================================ */
+.homepage .callout[data-callout="faq"] {
+  background: #f4f8f4 !important;
+  border-left: 4px solid var(--h-color-green);
+  border-radius: 12px;
+  padding: 0.8rem 1.5rem;
+}
+
+.homepage .callout[data-callout="faq"] .callout-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--h-color-text);
+}
+
+.homepage .callout[data-callout="faq"] .callout-content {
+  font-size: 0.92rem;
+  color: var(--h-color-text);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   5. 热力图
+   ============================================================ */
+.homepage .heatmap-calendar {
+  margin: 0.5rem 0 var(--h-spacing-module) 0;
+  background: transparent;
+}
+
+.homepage .heatmap-calendar table {
+  border-collapse: collapse !important;
+}
+
+/* ============================================================
+   6. 深色主题
+   ============================================================ */
+.theme-dark .homepage {
+  --h-color-border: #3a4a3a;
+  --h-color-green-bg: #242e24;
+  --h-color-text: #e1efe1;
+  --h-color-text-muted: #9ca3af;
+}
+
+/* 深色 · 顶部横幅 */
+/* 深色 · 顶部横幅（已迁移至 home-banner） */
+
+/* 深色 · 卡片 */
+.theme-dark .card-action,
+.theme-dark .card-output { background: #1a221a; border-color: #333; }
+.theme-dark .card-title { color: #ffffff; }
+.theme-dark .card-desc { color: #888; }
+
+/* 深色 · Dataview */
+.theme-dark .homepage .dataview.table-view-table th {
+  background: #2a332a;
+  border-bottom-color: #444;
+  color: #cde2cd;
+}
+.theme-dark .homepage .dataview.table-view-table td { border-bottom-color: #333; }
+.theme-dark .homepage .dataview.table-view-table tr:hover td { background: #2a332a !important; }
+
+/* 深色 · 洞察镜 */
+.theme-dark .homepage .callout[data-callout="faq"] {
+  background: #1a221a !important;
+  border-left: 4px solid #6b9e7b;
+}
+.theme-dark .homepage .callout[data-callout="faq"] .callout-title { color: #cde2cd; }
+.theme-dark .homepage .callout[data-callout="faq"] .callout-content { color: #cde2cd; }
+
+.homepage .callout[data-callout="example"] {
+  background: #f4f8f4 !important;
+  border-left: 4px solid #4a7c59 !important;
+}
+
+.theme-dark .homepage .callout[data-callout="example"] {
+  background: #1a221a;
+  border-left: 4px solid #6b9e7b;
+}
+
+/* ============================================================
+   7. 响应式
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  .grid-2x2, .grid-2x1 { grid-template-columns: 1fr; gap: 0.7rem; }
+  .card-action, .card-output { min-height: 80px; padding: 0.8rem; }
+}
+
+@media screen and (max-width: 480px) {
+  .homepage { padding-inline: 0.6rem; }
+}
+
+/* ============================================================
+   v6.0.11 视觉优化补丁 · 卡片底色 + 虚线分割
+   ============================================================ */
+
+.card-action-1 { background: #fdf8ee !important; }
+.card-action-2 { background: #eef5fa !important; }
+.card-action-3 { background: #f3effa !important; }
+.card-action-4 { background: #eef7f1 !important; }
+
+.card-action .card-divider,
+.card-output .card-divider {
+  width: 60%;
+  height: 0;
+  margin: 0.5rem auto;
+  border: none;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.theme-dark .card-action-1 { background: #3d3a2a !important; }
+.theme-dark .card-action-2 { background: #1a2a3a !important; }
+.theme-dark .card-action-3 { background: #2a1a3a !important; }
+.theme-dark .card-action-4 { background: #1a2a2a !important; }
+
+.theme-dark .card-action .card-divider,
+.theme-dark .card-output .card-divider { border-bottom-color: #444; }
+
+.card-output .output-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 0.2rem;
+  align-self: flex-start;
+}
+
+.theme-dark .card-output .output-tag { color: #777; }
+
+/* ============================================================
+   v6.0.11-hotfix · 顶部横幅结构重组 + 导航胶囊药丸化
+   日期：2026-07-14
+   ============================================================ */
+
+/* --- 顶部横幅大容器 --- */
+.homepage .home-banner {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  padding: 1.8rem 2.2rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+}
+
+.homepage .home-banner .banner-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.homepage .home-banner .banner-tag {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a7c59;
+  font-weight: 800;
+  margin-bottom: 0.4rem;
+}
+
+/* 统计（已迁移至下方 .dataview 样式） */
+
+.homepage .home-banner .banner-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.homepage .home-banner .banner-capsules .capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.homepage .home-banner .banner-capsules .capsule:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
+}
+
+.homepage .home-banner .banner-capsules .capsule:focus {
+  outline: 2px solid #4a7c59;
+  outline-offset: 2px;
+}
+
+/* .homepage .home-banner .banner-right { -- 已下线 v3.0
+  flex: 0 0 200px;
+  min-height: 120px;
+  background-position: right bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  background-image:
+    url("90_System/assets/green_workstation_banner.png"),
+    linear-gradient(135deg, #e8f5e9, #f1f8e9);
+} */
+
+/* --- 深色主题 --- */
+.theme-dark .homepage .home-banner {
+  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
+  border-color: #3a4a3a;
+}
+.theme-dark .homepage .home-banner .banner-tag { color: #81c784; }
+/* 深色 · 统计（已迁移至下方 .dataview 样式） */
+.theme-dark .homepage .home-banner .dataview { color: #81c784; background: rgba(129, 199, 132, 0.1); }
+.theme-dark .homepage .home-banner .banner-capsules .capsule {
+  background: #1f2e1f;
+  border-color: #333;
+  color: #e1efe1 !important;
+}
+.theme-dark .homepage .home-banner .banner-capsules .capsule:hover { background: #2d3d2d; border-color: #6b9e7b; }
+
+/* --- 移动端响应式 --- */
+@media screen and (max-width: 768px) {
+  .homepage .home-banner { flex-direction: column; padding: 1.2rem; }
+  /* .homepage .home-banner .banner-right { display: none; } -- 已下线 v3.0 */
+  .homepage .home-banner .banner-capsules { gap: 0.4rem; }
+  .homepage .home-banner .banner-capsules .capsule { font-size: 0.7rem; padding: 0.25rem 0.7rem; }
+  .homepage .home-banner .dataview { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; word-break: break-word; }
+}
+@media screen and (max-width: 480px) {
+  .homepage .home-banner { padding: 1rem; border-radius: 12px; }
+  .homepage .home-banner .banner-tag { font-size: 0.6rem; }
+  .homepage .home-banner .banner-capsules .capsule { font-size: 0.65rem; padding: 0.2rem 0.6rem; }
+}
+
+/* 统计数字纯文本样式（无 HTML 容器包裹） */
+.homepage .home-banner .dataview {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.theme-dark .homepage .home-banner .dataview {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.1);
+}
+
+/* ============================================================
+   v6.0.11-final · 顶部横幅阅读模式兼容
+   修复：去除 div 包裹 dataviewjs 后的样式与卡片完整性
+   ============================================================ */
+
+.homepage .home-banner .banner-left .dataview {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.theme-dark .homepage .home-banner .banner-left .dataview {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+  .homepage .home-banner .banner-left .dataview {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    display: block;
+  }
+}/* ============================================================
+   v6.0.11-callout · 顶部 Callout 样式统一
+   ============================================================ */
+
+.homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
+  box-sizing: border-box;
+}
+
+.homepage .callout[data-callout="info"] .callout-icon { display: none; }
+
+.homepage .callout[data-callout="info"] .callout-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #4a7c59;
+  font-weight: 800;
+  padding: 0;
+  margin-bottom: 0.4rem;
+  display: block;
+  border: none;
+}
+.homepage .callout[data-callout="info"] .callout-title-inner {
+  font-size: inherit; font-weight: inherit; color: inherit;
+}
+
+.homepage .callout[data-callout="info"] .callout-content { padding: 0; margin: 0; }
+
+.homepage .callout[data-callout="info"] .callout-content .dataview {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.homepage .callout[data-callout="info"] .banner-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
+}
+
+.theme-dark .homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
+  border-color: #3a4a3a;
+}
+.theme-dark .homepage .callout[data-callout="info"] .callout-title { color: #81c784; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content .dataview {
+  color: #81c784;
+  background: rgba(129, 199, 132, 0.1);
+}
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule {
+  background: #1f2e1f;
+  border-color: #333;
+  color: #e1efe1 !important;
+}
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule:hover {
+  background: #2d3d2d;
+  border-color: #6b9e7b;
+}
+
+@media screen and (max-width: 480px) {
+  .homepage .callout[data-callout="info"] { padding: 1rem; }
+  .homepage .callout[data-callout="info"] .callout-title { font-size: 0.6rem; }
+  .homepage .callout[data-callout="info"] .callout-content .dataview { font-size: 0.7rem; padding: 0.2rem 0.7rem; display: block; }
+  .homepage .callout[data-callout="info"] .banner-capsules .capsule { font-size: 0.6rem; padding: 0.2rem 0.5rem; }
+}/* ============================================================
+   v6.0.13 · Apple 极简风格排版重构
+   核心：去分割线 / 留白分层 / 字体权重重组 / 胶囊沉底
+   ============================================================ */
+
+/* ---- 大卡片容器 ---- */
+.homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f8e9 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  padding: 2.5rem 2.8rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.08);
+  box-sizing: border-box;
+}
+
+.homepage .callout[data-callout="info"] .callout-icon { display: none; }
+
+/* ---- 标题行（OBSIDIAN · 今日工作台） ---- */
+.homepage .callout[data-callout="info"] .callout-title {
+  font-size: 1rem !important;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #4a7c59;
+  padding: 0;
+  margin-bottom: 0.3rem;
+  display: block;
+  border: none;
+  text-transform: uppercase;
+}
+.homepage .callout[data-callout="info"] .callout-title-inner {
+  font-size: inherit; font-weight: inherit; color: inherit;
+}
+
+/* ---- 日期行 ---- */
+.homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type {
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 0.1rem;
+  font-weight: 400;
+  color: #6b7d6b;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+/* ---- 核心金句（视觉重心） ---- */
+.homepage .callout[data-callout="info"] .callout-content h2 {
+  margin: 0.8rem 0 0.2rem 0;
+  font-size: 1.8rem !important;
+  font-weight: 700;
+  color: #1a2a1a;
+  border: none;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+/* ---- 副引语（金句的陪衬） ---- */
+.homepage .callout[data-callout="info"] .callout-content blockquote:first-of-type {
+  margin: 0 0 1.2rem 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #6b7d6b;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ---- 行/知 说明（视觉退后） ---- */
+.homepage .callout[data-callout="info"] .callout-content p {
+  margin: 0.25rem 0;
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: #6b7d6b;
+  font-weight: 400;
+}
+.homepage .callout[data-callout="info"] .callout-content p strong {
+  font-weight: 600;
+  color: #2d3a2d;
+  font-size: 0.95rem;
+}
+
+/* ---- Agent 脚注 ---- */
+.homepage .callout[data-callout="info"] .callout-content > blockquote:last-of-type {
+  margin: 1rem 0 0.8rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid #c8e6c9;
+  background: transparent;
+  color: #8b9a8b;
+  font-style: italic;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* ---- 统计数据行 ---- */
+.homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a7c59;
+  background: rgba(74, 124, 89, 0.06);
+  padding: 0.3rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 0.4rem 0 1.2rem 0;
+}
+
+/* ---- 导航胶囊（沉底，分散布局） ---- */
+.homepage .callout[data-callout="info"] .banner-capsules {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(74, 124, 89, 0.1);
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  color: #2d3a2d !important;
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-decoration: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+.homepage .callout[data-callout="info"] .banner-capsules .capsule:hover {
+  border-color: #4a7c59;
+  background: #f1f8e9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 124, 89, 0.12);
+}
+
+/* ---- 深色主题 ---- */
+.theme-dark .homepage .callout[data-callout="info"] {
+  background: linear-gradient(135deg, #242e24 0%, #1a221a 100%);
+  border-color: #3a4a3a;
+}
+.theme-dark .homepage .callout[data-callout="info"] .callout-title { color: #81c784; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type { color: #9ca3af; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content h2 { color: #e1efe1; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content blockquote:first-of-type { color: #9ca3af; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content p { color: #9ca3af; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content p strong { color: #e1efe1; }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type { color: #81c784; background: rgba(129, 199, 132, 0.1); }
+.theme-dark .homepage .callout[data-callout="info"] .callout-content > blockquote:last-of-type { color: #7a8a7a; border-left-color: #4a7c59; }
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules { border-top-color: rgba(129, 199, 132, 0.15); }
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule { background: #1f2e1f; border-color: #333; color: #e1efe1 !important; }
+.theme-dark .homepage .callout[data-callout="info"] .banner-capsules .capsule:hover { background: #2d3d2d; border-color: #6b9e7b; }
+
+/* ---- 移动端 ---- */
+@media screen and (max-width: 480px) {
+  .homepage .callout[data-callout="info"] { padding: 1.5rem; }
+  .homepage .callout[data-callout="info"] .callout-title { font-size: 0.8rem !important; }
+  .homepage .callout[data-callout="info"] .callout-content .dataview:first-of-type { font-size: 0.8rem; }
+  .homepage .callout[data-callout="info"] .callout-content h2 { font-size: 1.4rem !important; }
+  .homepage .callout[data-callout="info"] .callout-content p { font-size: 0.8rem; }
+  .homepage .callout[data-callout="info"] .callout-content .dataview:last-of-type { font-size: 0.75rem; padding: 0.2rem 0.7rem; display: block; }
+  .homepage .callout[data-callout="info"] .banner-capsules .capsule { font-size: 0.6rem; padding: 0.2rem 0.6rem; }
+}
+
+/* ============================================================
+   v3.0 · 2×3 卡片网格 + 卡片 5-6 底色
+   ============================================================ */
+
+.grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin: 0.5rem 0 var(--h-spacing-module) 0;
+}
+
+.card-action-5 { background: #fef3e2 !important; border-left: 4px solid #ff9800; }
+.card-action-6 { background: #fce4ec !important; border-left: 4px solid #e91e63; }
+
+.theme-dark .card-action-5 { background: #3a2a1a !important; }
+.theme-dark .card-action-6 { background: #3a1a2a !important; }
+
+@media screen and (max-width: 768px) {
+  .grid-2x3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 480px) {
+  .grid-2x3 { grid-template-columns: 1fr; }
+}/* ============================================================
+   v3.0 · Insight 卡片样式
+   仅作用于洞察模块，不影响统计数据表格
+   ============================================================ */
+
+.homepage .insight-card {
+  background: #fafcfa !important;
+  border: none !important;
+  border-left: 4px solid #4a7c59 !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 1.5rem !important;
+  margin: 0 0 1rem 0 !important;
+  box-shadow: none !important;
+}
+
+.homepage .insight-card h3,
+.homepage .insight-card h4 {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.homepage .insight-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.6rem 0;
+  font-size: 0.9rem;
+}
+.homepage .insight-card table th,
+.homepage .insight-card table td {
+  border: 1px solid #d0d0d0;
+  padding: 0.4rem 0.7rem;
+}
+
+.homepage .insight-card ul,
+.homepage .insight-card ol {
+  margin: 0.3rem 0;
+  padding-left: 1.5rem;
+}
+
+.theme-dark .homepage .insight-card {
+  background: #1a221a !important;
+  border-left: 4px solid #6b9e7b !important;
+}
+.theme-dark .homepage .insight-card table th,
+.theme-dark .homepage .insight-card table td {
+  border: 1px solid #333;
+}/* ============================================================
+   v3.0 · 页脚 Apple 极简风格
+   ============================================================ */
+
+.homepage .home-footer {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e5ea;
+}
+
+.homepage .footer-main {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2d3a2d;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.02em;
+}
+
+.homepage .footer-sub {
+  font-size: 0.85rem;
+  color: #6b7d6b;
+  margin-bottom: 0.2rem;
+}
+
+.homepage .footer-meta {
+  font-size: 0.7rem;
+  color: #b0b0b0;
+}
+
+.theme-dark .homepage .footer-main { color: #e1efe1; }
+.theme-dark .homepage .footer-sub { color: #9ca3af; }
+.theme-dark .homepage .footer-meta { color: #7a8a7a; }
+.theme-dark .homepage .home-footer { border-top-color: #3a4a3a; }
+
+/* ============================================================
+   标题层级统一 · 行·知·进化区域
+   ============================================================ */
+
+/* 统一四个标题的图标与文字间距 */
+.homepage h3:has(> .emoji, > img) {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* 统计数据与标题间距 */
+.homepage .homepage-stat-row {
+  margin-top: 0.5rem;
+}

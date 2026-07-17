@@ -2,6 +2,11 @@
 title: "Obsidian x AI 第71篇：零摩擦跨端自动日记工作流搭建指南"
 author: "Get达人"
 date: "2026-07-12"
+status: ingested
+ingested_at: 2026-07-17
+ingested_notes:
+  - "[[日记的5标签分类哲学]]"
+  - "[[零摩擦三段式日记流水线（Hermes Skill）]]"
 ---
 
 # 🎯 方案前置适配条件

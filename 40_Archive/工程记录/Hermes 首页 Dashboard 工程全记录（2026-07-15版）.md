@@ -210,3 +210,15 @@ related:
 - 具体逻辑和模块仍需进一步调整
 - 热力图依赖 Heatmap Calendar 插件 + `renderHeatmapCalendar()` API
 - 后续修改参照封板宪章和永久禁区清单
+
+### 6.4 Obsidian Callout 色条无法通过 CSS 片段覆盖
+
+**问题**：`[!faq]` 和 `[!example]` 类型 Callout 的左侧紫色竖条无法通过 CSS 片段清除。
+
+**根因**：Obsidian 的 Callout 左侧色条由 `--callout-color` CSS 变量控制，该变量在 `app.css`（核心样式）中定义。CSS 片段（snippets）的 `!important` 无法覆盖核心样式中的 CSS 变量定义——这是 Obsidian 渲染引擎的已知行为，属于内核层级的限制。
+
+**尝试过的 10 种方案全部失败**：`border-left`、`::before`、`--callout-color`、`outline`、`border-inline-start` 等均无效。
+
+**结论**：无法通过 CSS 片段解决。如需彻底解决，需要修改 Obsidian 主题文件。
+
+**参考**：`90_System/系统文档/17_Obsidian 踩坑记录.md`

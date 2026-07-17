@@ -2,27 +2,38 @@
 title: "🏠 首页"
 cssclasses:
   - homepage
-version: v6.1.3
+version: v6.1-final
 last_sync: 2026-07-16
 changelog:
-  - v6.1.3 核心问题修复·永久封板
-    1. 功能卡片移除左侧彩色边框，统一16px大圆角+弥散悬浮阴影
-    2. 知识统计区删除「运动」项，固定4项适配原生4列网格，彻底解决换行错乱
+  - v6.1-final Apple Hero终局优化
+    1. 隐藏callout原生标题，顶部品牌+日期居中上下堆叠
+    2. 进度胶囊移除边框，数字强化，总量弱化
+    3. 底部脚注极致弱化，加大留白
+    4. 完善深浅主题与移动端适配
+    5. 补充无障碍键盘聚焦支持
 ---
 
-> [!info]
+> [!info] OBSIDIAN · 今日工作台
 >
 > ```dataviewjs
+> // ============================================
+> // 日期渲染（使用 dv.luxon.DateTime.now()，验证稳定）
+> // ============================================
+> try {
 > const now = dv.luxon.DateTime.now();
 > const weekdays = ["周日","周一","周二","周三","周四","周五","周六"];
 > const weekday = weekdays[now.weekday % 7] ?? "未知";
 > const dateStr = `${now.toFormat("yyyy年M月d日")} · ${weekday}`;
 > dv.span(`
 > <div class="banner-header-group">
->   <div class="banner-brand">OBSIDIAN · 今日工作台</div>
+>   <div class="banner-brand">OBSIDIAN · HERMES 今日工作台</div>
 >   <div class="banner-date">🗓️ ${dateStr}</div>
 > </div>
 > `);
+> } catch(e) {
+>     dv.span(`<div class="banner-date">🗓️ 日期加载中...</div>`);
+>     console.error("Date render error:", e);
+> }
 > ```
 >
 > ## 知是行之始，行是知之成。
@@ -30,15 +41,21 @@ changelog:
 > > *循环不息，化育乃生。*
 >
 > ```dataviewjs
+> // ============================================
+> // 进度胶囊统计（使用 dv.span + 安全时间 API）
+> // ============================================
 > try {
+>     // 1. 时间基准（与日期块保持一致）
 >     const now = dv.luxon.DateTime.now();
 >     const todayStr = now.toFormat("yyyy-MM-dd");
 >     const monthStart = now.startOf("month");
 >
+>     // 2. Collector 统计
 >     const collectorFile = dv.page("00_Inbox/Collector");
 >     const cTotal = collectorFile?.file?.tasks?.length || 0;
 >     const cDone = collectorFile?.file?.tasks?.where(t => t.completed).length || 0;
 >
+>     // 3. 今日日记任务统计
 >     const todayDiary = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
 >         .where(p => p.file.day && p.file.day.toFormat("yyyy-MM-dd") === todayStr)
 >         .first();
@@ -53,10 +70,11 @@ changelog:
 >         hDone = hTasks.where(t => t.completed).length;
 >     }
 >
+>
+>     // 4. 本月日记与 Inbox
 >     const mDays = Math.floor(now.diff(monthStart, "days").days) + 1;
 >     const mDiaries = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
 >         .where(p => p.file.name.match(/^\d{4}-\d{2}-\d{2}$/) && p.file.day && p.file.day >= monthStart).length;
->
 >     const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
 >     const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.ingest_status != "ingested").length;
 >     const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
@@ -72,6 +90,7 @@ changelog:
 >         { label: "📥 Inbox", val: `${iPending}/${iTotal}` }
 >     ];
 >
+>     // 6. 渲染进度胶囊（dv.span 安全输出）
 >     let pills = `<div class="ab-stats-wrap">`;
 >     stats.forEach(s => {
 >         const parts = String(s.val).split('/');
@@ -132,20 +151,24 @@ changelog:
   </div>
 </div>
 
-##### 🗺️ 起念 · 落墨 · 践履
+##### 🗺️ 本月行动 · 行
 
 ```dataviewjs
-const bujoTotal = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Weekly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Monthly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Quarterly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Yearly"').length;
+const now = dv.date("now");
+const monthStart = now.startOf("month");
+const bujoTotal = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"').length;
+const dailyThisMonth = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
+  .where(p => p.file.day && p.file.day >= monthStart).length;
 const reviews = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Weekly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Monthly"').length;
-const projectProgress = dv.pages('"10_Projects"').where(p => p.file.mtime && p.file.mtime >= dv.date("now").startOf("month")).length;
+const active = dv.pages('"10_Projects"').where(p => p.file.folder.startsWith("10_Projects/") && p.file.folder.split("/").length === 3 && p.file.name === p.file.folder.split("/").pop() + ".md").length;
 
 dv.span(`
   <div class="stat-block-wrapper">
     <div class="stat-grid">
       <div class="stat-item"><span class="num">${bujoTotal}</span><span class="label">BuJo</span></div>
+      <div class="stat-item"><span class="num">${dailyThisMonth}</span><span class="label">日记</span></div>
       <div class="stat-item"><span class="num">${reviews}</span><span class="label">复盘</span></div>
-      <div class="stat-item"><span class="num">-</span><span class="label">习惯</span></div>
-      <div class="stat-item"><span class="num">${projectProgress}</span><span class="label">项目</span></div>
+      <div class="stat-item"><span class="num">4</span><span class="label">项目</span></div>
     </div>
   </div>
 `);
@@ -171,7 +194,7 @@ dv.span(`
   </div>
 </div>
 
-##### 📡 归壑 · 淬刃 · 成锋
+##### 📡 资产总览 · 知
 
 ```dataviewjs
 const all = dv.pages('"30_Resources/31_Atomic_Notes"')
@@ -179,24 +202,25 @@ const all = dv.pages('"30_Resources/31_Atomic_Notes"')
 const total = all.length;
 const mocs = dv.pages('"30_Resources/32_MOCs"').length;
 const recipe = dv.pages('"20_Areas/23_生活与健康/食物"').length;
+const fitness = dv.pages('"20_Areas/23_生活与健康/运动"').length;
 const lang = dv.pages('"30_Resources/31_Atomic_Notes/语言"').length;
 
 dv.span(`
   <div class="stat-block-wrapper">
     <div class="stat-grid">
-      <div class="stat-item"><span class="num">${total}</span><span class="label">原子</span></div>
-      <div class="stat-item"><span class="num">${lang}</span><span class="label">语言</span></div>
-      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
+      <div class="stat-item"><span class="num">${total}</span><span class="label">原子笔记</span></div>
       <div class="stat-item"><span class="num">${mocs}</span><span class="label">MOC</span></div>
+      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
+      <div class="stat-item"><span class="num">${fitness + lang}</span><span class="label">健康语言</span></div>
     </div>
   </div>
 `);
 ```
 
 
-## 🔍 洞见 · 周流不息 <span class="section-en">Insight</span>
+## 🔍 洞见 · Insight
 
-> [!faq]+ 洞微 · 入神 · 破局（点击收起）
+> [!faq]+ 七维注意力分析（点击收起）
 > 
 > ![[90_System/Insight/每日洞察/今日知识洞察]]
 > 
@@ -235,4 +259,5 @@ dv.span(`
 <div class="home-footer">
   <div class="footer-main">知行合一 · 日新又新</div>
   <div class="footer-sub">知行相济 · 日进无疆</div>
+  <div class="footer-meta">以行证知 · 以知照行 · 周流进化</div>
 </div>

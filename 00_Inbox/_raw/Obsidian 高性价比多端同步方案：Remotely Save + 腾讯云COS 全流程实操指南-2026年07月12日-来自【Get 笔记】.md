@@ -225,7 +225,17 @@ Remotely Save + COS 配好之后，Obsidian 的多端同步就解决了。
 * [Obsidian 入门46：给 Obsidian 搭个图床，图片终于不怕丢了](https://mp.weixin.qq.com/s?__biz=Mzk2NDAwMzAzMw==&mid=2247489946&idx=1&sn=2c40bc78db36cb52faded95ede054c91&scene=21#wechat_redirect)
 * [Obsidian 多端同步保姆级教程](https://mp.weixin.qq.com/s?__biz=Mzk2NDAwMzAzMw==&mid=2247483796&idx=1&sn=f5e4894afa52c89ade024003d4523011&scene=21#wechat_redirect)
 
+> [!info] 🏷️ ingested — 2026-07-17
+> 已提炼为原子笔记：
+> - [[概念/同步与图床的存储桶复用原则]]
+> - [[实践/Remotely Save + COS 同步配置方案]]
+
 如果这篇文章对你有帮助，欢迎三连（点赞、转发、推荐）。
+
+> [!info] 🏷️ ingested — 2026-07-17
+> 已提炼为原子笔记：
+> - [[技术/概念/同步与图床的存储桶复用原则]]
+> - [[技术/实践/Remotely Save + COS 同步配置方案]]
 
 我也建了一个 Obsidian 交流群，欢迎你的加入。在 AI 时代，让我们一起做好知识管理。群满200人了，感兴趣的朋友可以加我：linauwawa，我拉你入群。
 

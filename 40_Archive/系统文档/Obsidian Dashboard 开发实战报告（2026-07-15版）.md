@@ -416,6 +416,7 @@
 7. **统计「活跃项目」按文件夹去重，不是按文件数**：`status=active` 匹配的是项目目录下所有 `.md` 文件，不是你真正想要的项目数。用 `p.file.folder.split("/").length === 3` 按子目录统计。
 8. **Callout 类型要区分，不能共用**：顶部横幅 `[!info]`、洞察镜 `[!faq]`、系统规范 `[!example]`，各占一个，互不冲突。
 9. **卡片内的统计数据只能写死静态文字**：HTML 卡片内不能放代码块，代码块在卡片外又无法 DOM 注入进卡片内部。这是 Obsidian 渲染引擎的物理限制，无法绕过。需要展示动态数据时，在卡片下方用公共 `dv.span()` 输出汇总行。
+10. **Callout 左侧色条无法通过 CSS 片段覆盖**：`--callout-color` CSS 变量在 Obsidian 核心样式 `app.css` 中定义，snippets 的 `!important` 无法覆盖。`border-left`、`::before`、`outline`、`border-inline-start` 等方法均无效。如需消除色条，必须修改主题文件。
 
 
 ## 十、关键文件留存（封板版本）

@@ -2,108 +2,85 @@
 title: "🏠 首页"
 cssclasses:
   - homepage
-version: v6.1.3
-last_sync: 2026-07-16
+version: v6.1-final
+last_sync: 2026-07-14
 changelog:
-  - v6.1.3 核心问题修复·永久封板
-    1. 功能卡片移除左侧彩色边框，统一16px大圆角+弥散悬浮阴影
-    2. 知识统计区删除「运动」项，固定4项适配原生4列网格，彻底解决换行错乱
+  - 2026-07-14 v3.1 修复内联语法 + 纯文本统计
+    1. 顶部横幅：所有 $= 内联替换为独立 dataviewjs 代码块
+    2. 行动卡片：内联统计替换为独立代码块
+    3. 知识资产：8行表格改为纯文本一行
+    4. 本月行动记录：表格改为纯文本一行
+    5. 洞察模块：嵌入整个今日知识洞察文件，替代7个分段嵌入
+    6. 底部系统状态：$= 内联替换为独立代码块
+    7. 新建 AI洞察模板 + 索引文件
 ---
 
-> [!info]
->
+> [!info] OBSIDIAN · 今日工作台
+> 
+> ```dataviewjs
+> const now = dv.date("now");
+> const weekdays = ["周日","周一","周二","周三","周四","周五","周六"];
+> const weekday = weekdays[now.weekday % 7];
+> dv.span(`📅 ${now.toFormat("yyyy年M月d日")} · ${weekday}`);
+> ```
+> 
+> ## 知是行之始，行是知之成。
+> 
+> > 循环不息，化育乃生。
+> 
 > ```dataviewjs
 > const now = dv.luxon.DateTime.now();
-> const weekdays = ["周日","周一","周二","周三","周四","周五","周六"];
-> const weekday = weekdays[now.weekday % 7] ?? "未知";
-> const dateStr = `${now.toFormat("yyyy年M月d日")} · ${weekday}`;
-> dv.span(`
-> <div class="banner-header-group">
->   <div class="banner-brand">OBSIDIAN · 今日工作台</div>
->   <div class="banner-date">🗓️ ${dateStr}</div>
-> </div>
-> `);
-> ```
->
-> ## 知是行之始，行是知之成。
->
-> > *循环不息，化育乃生。*
->
-> ```dataviewjs
-> try {
->     const now = dv.luxon.DateTime.now();
->     const todayStr = now.toFormat("yyyy-MM-dd");
->     const monthStart = now.startOf("month");
->
->     const collectorFile = dv.page("00_Inbox/Collector");
->     const cTotal = collectorFile?.file?.tasks?.length || 0;
->     const cDone = collectorFile?.file?.tasks?.where(t => t.completed).length || 0;
->
->     const todayDiary = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
->         .where(p => p.file.day && p.file.day.toFormat("yyyy-MM-dd") === todayStr)
->         .first();
->
->     let tDone = 0, tTotal = 0, hDone = 0, hTotal = 0;
->     if (todayDiary?.file?.tasks) {
->         const tasks = todayDiary.file.tasks;
->         tTotal = tasks.length;
->         tDone = tasks.where(t => t.completed).length;
->         const hTasks = tasks.where(t => t.text.includes("[habit::"));
->         hTotal = hTasks.length;
->         hDone = hTasks.where(t => t.completed).length;
->     }
->
->     const mDays = Math.floor(now.diff(monthStart, "days").days) + 1;
->     const mDiaries = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
->         .where(p => p.file.name.match(/^\d{4}-\d{2}-\d{2}$/) && p.file.day && p.file.day >= monthStart).length;
->
->     const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
->     const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.ingest_status != "ingested").length;
->     const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
->     const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
->     const iTotal = rawTotal + extTotal;
->     const iPending = rawPending + extPending;
->
->     const stats = [
->         { label: "📬 Nexus", val: `${cDone}/${cTotal}` },
->         { label: "🎯 Tasks", val: `${tDone}/${tTotal}` },
->         { label: "✅ Habits", val: `${hDone}/${hTotal}` },
->         { label: "📝 Daily", val: `${mDiaries}/${mDays}` },
->         { label: "📥 Inbox", val: `${iPending}/${iTotal}` }
->     ];
->
->     let pills = `<div class="ab-stats-wrap">`;
->     stats.forEach(s => {
->         const parts = String(s.val).split('/');
->         const current = parts[0] || '0';
->         const total = parts[1] || '0';
->         pills += `
->             <div class="ab-pill">
->                 <span class="ab-pill-label">${s.label}</span>
->                 <span class="ab-pill-val"><span class="ab-current">${current}</span><span class="ab-total">/${total}</span></span>
->             </div>
->         `;
->     });
->     pills += `</div>`;
->     dv.span(pills);
->
-> } catch (e) {
->     dv.span(`<span class="ab-err">⚠️ 数据加载异常</span>`);
->     console.error("Hermes Banner Error:", e);
+> const todayStr = now.toFormat("yyyy-MM-dd");
+> const monthStart = now.startOf("month");
+> const daysPassed = Math.floor(now.diff(monthStart, "days").days) + 1;
+> 
+> const collectorFile = dv.page("00_Inbox/Collector");
+> const collectorTasks = collectorFile ? collectorFile.file.tasks : [];
+> const collectorTotal = collectorTasks.length;
+> const collectorDone = collectorTasks.where(t => t.completed).length;
+> 
+> const todayDiary = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
+>     .where(p => p.file.day && p.file.day.toFormat("yyyy-MM-dd") === todayStr)
+>     .first();
+> 
+> let mitStr = "0/0", habitStr = "0/0";
+> if (todayDiary) {
+>     const tasks = todayDiary.file.tasks;
+>     const total = tasks.length;
+>     const done = tasks.where(t => t.completed).length;
+>     mitStr = `${done}/${total}`;
+>     const habitTasks = tasks.where(t => t.text.includes("[habit::"));
+>     habitStr = `${habitTasks.where(t => t.completed).length}/${habitTasks.length}`;
 > }
+> 
+> const monthDiaries = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
+>     .where(p => p.file.name.match(/^\d{4}-\d{2}-\d{2}$/) && p.file.day && p.file.day.ts >= monthStart.ts).length;
+> const rawTotal = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC").length;
+> const rawPending = dv.pages('"00_Inbox/_raw"').where(p => p.file.name != "_raw MOC" && p.ingest_status != "ingested").length;
+> const extTotal = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明").length;
+> const extPending = dv.pages('"00_Inbox/外部导入"').where(p => p.file.name != "_说明" && p.status != "archived").length;
+> const inboxTotal = rawTotal + extTotal;
+> const inboxPending = rawPending + extPending;
+> 
+> dv.span(`<span class="homepage-stats-banner">📬 Nexus ${collectorDone}/${collectorTotal} ｜ 🎯 Tasks ${mitStr} ｜ ✅ Habits ${habitStr} ｜ 📝 Daily Log ${monthDiaries}/${daysPassed} days ｜ 📥 Inbox ${inboxPending}/${inboxTotal}</span>`);
 > ```
->
+> 
+> **行 · 以行证知**：起念 · 落墨 · 践履
+> 
+> **知 · 以知照行**：归壑 · 淬刃 · 成锋
+> 
+> **进化 · 周流不息**：洞微 · 入神 · 破局
+> 
 > <div class="banner-capsules">
 >   <a href="obsidian://open?vault=Hermes&file=10_Projects%2F10_Projects.md" class="capsule">📐 Projects</a>
 >   <a href="obsidian://open?vault=Hermes&file=20_Areas%2F20_Areas.md" class="capsule">🌊 Areas</a>
 >   <a href="obsidian://open?vault=Hermes&file=30_Resources%2F30_Resources.md" class="capsule">📚 Resources</a>
 >   <a href="obsidian://open?vault=Hermes&file=40_Archive%2F40_Archive.md" class="capsule">⏳ Archive</a>
 > </div>
->
-> <div class="banner-footer">
->   行生录，录淬知，知照行，周而复始<br>
->   <em>Agent巡微 · Git覆远 · Insight烛幽，皆默然以守</em>
-> </div>
+> 
+> 行生录，录淬知，知照行，周而复始
+> 
+> *Agent巡微 · Git覆远 · Insight烛幽，皆默然以守*
 
 
 ## 🔥 行 · 以行证知 <span class="section-en">Action</span>
@@ -132,20 +109,24 @@ changelog:
   </div>
 </div>
 
-##### 🗺️ 起念 · 落墨 · 践履
+##### 🗺️ 本月行动 · 行
 
 ```dataviewjs
-const bujoTotal = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Weekly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Monthly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Quarterly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Yearly"').length;
+const now = dv.date("now");
+const monthStart = now.startOf("month");
+const bujoTotal = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"').length;
+const dailyThisMonth = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Daily"')
+  .where(p => p.file.day && p.file.day >= monthStart).length;
 const reviews = dv.pages('"20_Areas/22_个人成长/Bullet Journal/Weekly"').length + dv.pages('"20_Areas/22_个人成长/Bullet Journal/Monthly"').length;
-const projectProgress = dv.pages('"10_Projects"').where(p => p.file.mtime && p.file.mtime >= dv.date("now").startOf("month")).length;
+const active = dv.pages('"10_Projects"').where(p => p.file.folder.startsWith("10_Projects/") && p.file.folder.split("/").length === 3 && p.file.name === p.file.folder.split("/").pop() + ".md").length;
 
 dv.span(`
   <div class="stat-block-wrapper">
     <div class="stat-grid">
       <div class="stat-item"><span class="num">${bujoTotal}</span><span class="label">BuJo</span></div>
+      <div class="stat-item"><span class="num">${dailyThisMonth}</span><span class="label">日记</span></div>
       <div class="stat-item"><span class="num">${reviews}</span><span class="label">复盘</span></div>
-      <div class="stat-item"><span class="num">-</span><span class="label">习惯</span></div>
-      <div class="stat-item"><span class="num">${projectProgress}</span><span class="label">项目</span></div>
+      <div class="stat-item"><span class="num">4</span><span class="label">项目</span></div>
     </div>
   </div>
 `);
@@ -171,7 +152,7 @@ dv.span(`
   </div>
 </div>
 
-##### 📡 归壑 · 淬刃 · 成锋
+##### 📡 资产总览 · 知
 
 ```dataviewjs
 const all = dv.pages('"30_Resources/31_Atomic_Notes"')
@@ -179,24 +160,25 @@ const all = dv.pages('"30_Resources/31_Atomic_Notes"')
 const total = all.length;
 const mocs = dv.pages('"30_Resources/32_MOCs"').length;
 const recipe = dv.pages('"20_Areas/23_生活与健康/食物"').length;
+const fitness = dv.pages('"20_Areas/23_生活与健康/运动"').length;
 const lang = dv.pages('"30_Resources/31_Atomic_Notes/语言"').length;
 
 dv.span(`
   <div class="stat-block-wrapper">
     <div class="stat-grid">
-      <div class="stat-item"><span class="num">${total}</span><span class="label">原子</span></div>
-      <div class="stat-item"><span class="num">${lang}</span><span class="label">语言</span></div>
-      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
+      <div class="stat-item"><span class="num">${total}</span><span class="label">原子笔记</span></div>
       <div class="stat-item"><span class="num">${mocs}</span><span class="label">MOC</span></div>
+      <div class="stat-item"><span class="num">${recipe}</span><span class="label">食谱</span></div>
+      <div class="stat-item"><span class="num">${fitness + lang}</span><span class="label">健康语言</span></div>
     </div>
   </div>
 `);
 ```
 
 
-## 🔍 洞见 · 周流不息 <span class="section-en">Insight</span>
+## 🔍 洞见 · Insight
 
-> [!faq]+ 洞微 · 入神 · 破局（点击收起）
+> [!faq]+ 七维注意力分析（点击收起）
 > 
 > ![[90_System/Insight/每日洞察/今日知识洞察]]
 > 
@@ -235,4 +217,5 @@ dv.span(`
 <div class="home-footer">
   <div class="footer-main">知行合一 · 日新又新</div>
   <div class="footer-sub">知行相济 · 日进无疆</div>
+  <div class="footer-meta">以行证知 · 以知照行 · 周流进化</div>
 </div>
