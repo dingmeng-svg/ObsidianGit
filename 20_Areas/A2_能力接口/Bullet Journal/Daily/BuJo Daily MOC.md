@@ -28,7 +28,7 @@ LIMIT 10
 ## 目录结构
 
 ```
-Bullet Journal/Daily/
+Bullet Journal/
 ├── BuJo Daily MOC.md
 ├── 2026-06/
 │   ├── 2026-06-28-Daily-Log.md
@@ -37,7 +37,7 @@ Bullet Journal/Daily/
 └── 2026-07/
     ├── 2026-07-01-Daily-Log.md
     ├── ...
-    └── 2026-07-09-Daily-Log.md
+    └── 2026-07-19-Daily-Log.md
 ```
 
 ---

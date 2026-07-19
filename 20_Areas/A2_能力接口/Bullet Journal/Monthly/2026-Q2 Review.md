@@ -1,7 +1,7 @@
 # 《12 Rules for Life》语言组块批量处理最终完成报告
 
 **日期**：2026-07-10  
-**来源**：20_Areas/22_个人成长/心理学/人生十二法则/《12 Rules for Life》阅读笔记：词汇与表达摘录.md  
+**来源**：30_Resources/31_Atomic_Notes/心理学/人生十二法则/《12 Rules for Life》阅读笔记：词汇与表达摘录.md  
 **存储位置**：30_Resources/31_Atomic_Notes/语言/实践/  
 **执行方式**：多轮并行子代理批处理
 
