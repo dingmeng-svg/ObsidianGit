@@ -35,7 +35,8 @@ SORT file.ctime ASC
 ## 🟢 已处理（Ingest 完成）
 
 ```dataview
-LIST FROM "00_Inbox/_raw"
+TABLE file.ctime AS "创建时间", ingested_at AS "Ingest 完成"
+FROM "00_Inbox/_raw"
 WHERE ingest_status = "ingested"
 SORT file.mtime DESC
 LIMIT 10
@@ -44,7 +45,8 @@ LIMIT 10
 ## 📦 全部原始素材
 
 ```dataview
-LIST FROM "00_Inbox/_raw"
+TABLE file.ctime AS "创建时间", file.mtime AS "修改时间"
+FROM "00_Inbox/_raw"
 WHERE file.name != "_raw 素材总MOC"
 SORT file.ctime DESC
 ```

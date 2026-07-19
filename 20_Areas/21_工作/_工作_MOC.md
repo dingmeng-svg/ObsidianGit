@@ -42,7 +42,5 @@ human_edited: true
 
 ## 关联
 
-- → [[Areas：My roles and responsibilities MOC]]
-- → [[_个人成长_MOC|22 个人成长：认知升级反哺工作
-- → [[_关系_MOC|24 关系：同事、合作伙伴
-]]]]
+- → [[_个人成长_MOC|22 个人成长：认知升级反哺工作]]
+- → [[_关系_MOC|24 关系：同事、合作伙伴]]

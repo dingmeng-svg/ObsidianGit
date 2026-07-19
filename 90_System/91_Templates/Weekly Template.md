@@ -147,3 +147,25 @@ if (!dv.app.vault.getAbstractFileByPath(lastWeeklyPath)) {
 > - [ ] 暂无可萃取内容
 
 > 🗓️ **月末操作**：若本月第一个周复盘，执行 [[操盘手骑士 · 产出物归档 SOP|上月股市数据播报产出物归档]]
+
+---
+
+## 📊 体态矫正周复盘
+
+```dataview
+TABLE 
+  file.name AS "日期",
+  pain_score AS "痛感分",
+  complete_level AS "完成等级"
+FROM "20_Areas/22_个人成长/Bullet Journal/Daily"
+WHERE 
+  contains(file.content, "pain_score:") AND 
+  file.week = <% tp.date.now("YYYY-[W]WW") %>
+SORT file.name ASC
+```
+
+**本周核心指标**：
+- 完整训练达标天数：___/7（完成等级 ≥3）
+- 平均疼痛评分：___
+- 体态改善直观感受：
+- 下周微调方案：

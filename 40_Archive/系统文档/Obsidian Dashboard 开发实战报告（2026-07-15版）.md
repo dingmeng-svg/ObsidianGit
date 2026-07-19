@@ -1,8 +1,8 @@
 
 
 > **项目名称**：Hermes 知识库 · 首页 Dashboard（`🏠 首页.md`）
-> **迭代周期**：2026-07-13 ~ 2026-07-15
-> **终局版本**：v6.1-final（知行合一重构）
+> **迭代周期**：2026-07-13 ~ 2026-07-16
+> **终局版本**：v6.1.3（永久封板）
 > **归档位置**：`40_Archive/系统文档/`
 > **报告用途**：未来任何 Obsidian Dashboard 项目的可复用经验库，避免重复踩坑
 
@@ -388,8 +388,12 @@
 | 27 | `obsidian://open?file=路径` 与 `obsidian://open?vault=Hermes&file=路径` 行为不同 | 无 vault 参数时自动匹配当前打开 vault；有 vault 参数时需精确匹配 Vault 名称 | 统一使用 `obsidian://open?vault=Hermes&file=` 格式 |
 | 28 | `renderHeatmapCalendar()` 在 DataviewJS 代码块中可能因插件未启用而报错 | Heatmap Calendar 插件与 Dataview 共享 Luxon 库，版本冲突时静默失败 | 包裹 `try/catch`，插件未启用时显示友好提示 |
 | 29 | 多维嵌入文件时 frontmatter 和元数据行也被渲染 | `![[嵌入]]` 会显示文件全部内容，包括 YAML 头部和数据范围说明 | 让 `今日知识洞察.md` 只包含展示内容，Agent 每日覆盖写入 |
-| 30 | `dv.span()` 多行数据无法换行 | `dv.span()` 输出内联文本，`\n` 在 Obsidian 渲染中无效 | 多行输出用 `dv.paragraph()` 替代第二个及后续的 `dv.span()` |
-| 30 | 数据文件路径写死导致多处修改 | 多个 DataviewJS 代码块中硬编码了 `"日记/BuJo"` 等路径，路径变更时需逐处修改 | 使用 Dataview 变量复用路径，或统一写在首页顶部常量区 |
+| 30 | dv.span() 多行数据无法换行 | dv.span() 输出内联文本，\n 在 Obsidian 渲染中无效 | 多行输出用 dv.paragraph() 替代第二个及后续的 dv.span() |
+| 31 | 数据文件路径写死导致多处修改 | 多个 DataviewJS 代码块中硬编码了路径，路径变更时需逐处修改 | 使用 Dataview 变量复用路径，或统一写在首页顶部常量区 |
+| 32 | CSS 选择器路径过长导致样式完全失效 | `.homepage .callout[data-callout="info"]` 多层嵌套，dv.span() 输出不在 .callout-content 内，选择器路径中断 | .homepage 直接前缀即可，不要嵌套 Callout 中间层 |
+| 33 | 自定义 Callout div 内嵌入和双链解析失败 | 用 HTML div 替代原生 Callout 后，嵌入语法和双链在 div 内不被解析 | 回滚到原生 Callout，不使用自定义 div 替代 |
+| 34 | 标题层级与 CSS 选择器强耦合 | h3 选择器在标题从 ### 改为 ## 后全部失效 | 修改标题层级前同步更新 CSS 选择器，双视图验证 |
+| 35 | 首页版本冻结决策缺失 | 没有明确封板标准，导致无休止迭代 | 设定封板条件：功能完整 + 无阻塞 Bug + 双视图一致，冻结后仅允许文字/颜色调整 |
 
 
 ## 八、快速复刻流程（从零开始，按顺序执行）
@@ -415,8 +419,10 @@
 6. **嵌入文件用 `![[完整路径]]`，不要分段嵌入 `#emoji标题`**：含中文 emoji 的锚点解析不稳定，直接嵌入整个文件，让 Agent 控制今日入口的内容。
 7. **统计「活跃项目」按文件夹去重，不是按文件数**：`status=active` 匹配的是项目目录下所有 `.md` 文件，不是你真正想要的项目数。用 `p.file.folder.split("/").length === 3` 按子目录统计。
 8. **Callout 类型要区分，不能共用**：顶部横幅 `[!info]`、洞察镜 `[!faq]`、系统规范 `[!example]`，各占一个，互不冲突。
-9. **卡片内的统计数据只能写死静态文字**：HTML 卡片内不能放代码块，代码块在卡片外又无法 DOM 注入进卡片内部。这是 Obsidian 渲染引擎的物理限制，无法绕过。需要展示动态数据时，在卡片下方用公共 `dv.span()` 输出汇总行。
-10. **Callout 左侧色条无法通过 CSS 片段覆盖**：`--callout-color` CSS 变量在 Obsidian 核心样式 `app.css` 中定义，snippets 的 `!important` 无法覆盖。`border-left`、`::before`、`outline`、`border-inline-start` 等方法均无效。如需消除色条，必须修改主题文件。
+9. **卡片内的统计数据只能写死静态文字**：HTML 卡片内不能放代码块，代码块在卡片外又无法 DOM 注入进卡片内部。这是 Obsidian 渲染引擎的物理限制，无法绕过。需要展示动态数据时，在卡片下方用公共 dv.span() 输出汇总行。
+10. **Callout 左侧色条无法通过 CSS 片段覆盖**：--callout-color CSS 变量在 Obsidian 核心样式 app.css 中定义，snippets 的 !important 无法覆盖。border-left、::before、outline、border-inline-start 等 11 种方法均无效。如需消除色条，必须修改主题文件。
+11. **CSS 选择器路径不能嵌套 Callout 中间层**：.homepage .callout[data-callout="info"] 这类多层选择器会因 dv.span() 输出不在 .callout-content 内而中断。直接 .homepage 前缀就是最优解。
+12. **标题层级是 CSS 和 Markdown 之间的契约接口**：修改标题层级前必须同步更新所有相关的 CSS 选择器，否则页面样式会全部错乱。这是最容易踩的坑之一——改了 h3 忘记同步 CSS，导致 2 次回滚。
 
 
 ## 十、关键文件留存（封板版本）
@@ -426,10 +432,11 @@
 | 首页 | `🏠 首页.md` | v3.0（知行合一重构） |
 | 样式片段 | `.obsidian/snippets/knowledge-home.css` | 780 行，含 2×3 卡片网格 + Insight 卡片 + 页脚 Apple 极简 |
 | 洞察模板 | `90_System/91_Templates/AI Insight.md` | 七维知行循环框架 |
-| 开发实战报告 | `00_Inbox/外部导入/Obsidian Dashboard 开发实战报告.md` | 完整踩坑清单 30 条 |
+| 开发实战报告 | `40_Archive/系统文档/Obsidian Dashboard 开发实战报告（2026-07-15版）.md` | 完整踩坑清单 35 条 |
+| 17 号踩坑记录 | `90_System/系统文档/17_Obsidian 踩坑记录.md` | 8 个坑的深度展开（含 11 种方案+根因） |
 
 
-**报告版本**：v2.0
-**报告日期**：2026-07-15
-**对应 Dashboard 版本**：v3.0（知行合一重构）
+**报告版本**：v2.1
+**报告日期**：2026-07-17
+**对应 Dashboard 版本**：v6.1.3（永久封板）
 **状态**：✅ 持续演化，按需追加

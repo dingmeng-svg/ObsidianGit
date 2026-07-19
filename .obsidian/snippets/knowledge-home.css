@@ -293,6 +293,13 @@
   border-radius: var(--h-radius-card);
   padding: 1rem 1.5rem !important;
 }
+.homepage .callout[data-callout="faq"] .callout-content {
+  overflow-x: auto;
+  width: 100%;
+}
+.homepage .callout[data-callout="faq"] .markdown-embed-content {
+  width: 100%;
+}
 .homepage .callout[data-callout="faq"] .callout-title {
   font-size: 1rem;
   font-weight: 700;
@@ -336,6 +343,25 @@
 .homepage .heatmap-calendar {
   margin: 0.5rem 0 var(--h-spacing-module) 0;
   background: transparent;
+}
+.homepage .heatmap-calendar-graph {
+  min-width: 0;
+  overflow-x: auto;
+}
+.homepage .heatmap-calendar-graph ul li {
+  width: 16px;
+  height: 16px;
+}
+/* 确保月份标签不被截断 */
+.homepage .heatmap-calendar-graph .heatmap-calendar-months li {
+  white-space: nowrap;
+  font-size: 10px;
+}
+/* 确保星期标签不被遮挡 */
+.homepage .heatmap-calendar-graph .heatmap-calendar-days li {
+  white-space: nowrap;
+  font-size: 10px;
+  padding-left: 2px;
 }
 .homepage .heatmap-calendar table {
   border-collapse: collapse !important;
@@ -459,6 +485,11 @@
   .homepage .card-action .card-icon {
     font-size: 1.3rem;
   }
+}
+
+/* 隐藏嵌入洞察时的文件名标题栏 */
+.homepage .markdown-embed-title {
+  display: none;
 }
 
 /* ============================================================

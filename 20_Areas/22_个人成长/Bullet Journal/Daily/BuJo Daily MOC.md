@@ -31,13 +31,13 @@ LIMIT 10
 Bullet Journal/Daily/
 ├── BuJo Daily MOC.md
 ├── 2026-06/
-│   ├── 2026-06-28.md
-│   ├── 2026-06-29.md
-│   └── 2026-06-30.md
+│   ├── 2026-06-28-Daily-Log.md
+│   ├── 2026-06-29-Daily-Log.md
+│   └── 2026-06-30-Daily-Log.md
 └── 2026-07/
-    ├── 2026-07-01.md
+    ├── 2026-07-01-Daily-Log.md
     ├── ...
-    └── 2026-07-09.md
+    └── 2026-07-09-Daily-Log.md
 ```
 
 ---
@@ -67,7 +67,7 @@ SORT file.name DESC
 ### 位置规则
 
 - 日记文件存放在 `Bullet Journal/Daily/YYYY-MM/` 子目录
-- 文件名格式：`YYYY-MM-DD.md`
+- 文件名格式：`YYYY-MM-DD-Daily-Log.md`
 
 ### 双链规范
 

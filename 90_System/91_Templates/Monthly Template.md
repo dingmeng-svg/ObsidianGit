@@ -127,3 +127,21 @@ if (!dv.app.vault.getAbstractFileByPath(lastMonthlyPath)) {
 > - [ ] 暂无可萃取内容
 
 ---
+## 🏋️ 本月体态矫正汇总
+
+```dataview
+TABLE 
+  filter(rows.file.name, (x) => contains(x, "Daily-Log")) AS "训练日",
+  round(avg(rows.pain_score), 1) AS "均痛感",
+  length(filter(rows, (r) => r.complete_level >= 3)) AS "达标天数"
+FROM "20_Areas/22_个人成长/Bullet Journal/Daily"
+WHERE 
+  contains(file.content, "pain_score:") AND 
+  file.month = <% tp.date.now("YYYY-MM") %>
+GROUP BY ""
+```
+
+### 月度里程碑确认
+- [ ] W1-W2 唤醒期完成
+- [ ] W3-W6 强化期完成
+- [ ] W7-W8 整合期完成
