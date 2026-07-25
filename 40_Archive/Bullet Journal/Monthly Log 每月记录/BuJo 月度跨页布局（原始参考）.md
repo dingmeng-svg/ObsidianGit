@@ -1,12 +1,12 @@
 ---
-title: BuJo 月度跨页布局（原始参考）
+title: Bullet Journal 月度跨页布局（原始参考）
 date: 2026-06-29
 status: 历史参考
-tags: [归档, Bullet Journal]
-note: "旧版纸质 BuJo 月度跨页布局模板，已被 Obsidian 数字版 Monthly Template 取代。归档备查。"
+tags: [归档, BuJo]
+note: "旧版纸质 Bullet Journal 月度跨页布局模板，已被 Obsidian 数字版 Monthly Template 取代。归档备查。"
 ---
 
-# BuJo 月度跨页布局（原始参考）
+# Bullet Journal 月度跨页布局（原始参考）
 
 > 旧版纸质子弹笔记月度跨页布局，左页日历 + 右页任务。原始来源：`90_System/91_Templates/` 下的两个旧模板文件合并。
 

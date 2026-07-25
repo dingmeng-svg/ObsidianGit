@@ -24,6 +24,7 @@ keywords:
   - psychology
 project: 知行进化
 related:
+  - "[[A4_内核定力/A4_内核定力]]"
   - "[[知→行→进化]]"
   - 语言学习
 ---

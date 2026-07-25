@@ -8,6 +8,7 @@ source: "12 Rules for Life: An Antidote to Chaos"
 author: Jordan B. Peterson
 aliases: [无产阶级, 工人阶级]
 related: []
+  - "[[A2_能力接口/_MOC]]"
 target_lang: en
 source_lang: zh
 chunk_type: word

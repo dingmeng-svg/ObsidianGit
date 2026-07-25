@@ -12,6 +12,7 @@ aliases:
   - "AI 知识库编译器"
   - "Karpathy LLM Wiki"
 related:
+  - "[[A1_认知算法/A1_认知算法]]"
   - "[[LLM Wiki 知识构建系统 MOC]]"
   - "[[LLM 知识编译器]]"
   - "[[Raw-Wiki-Schema 三层架构]]"

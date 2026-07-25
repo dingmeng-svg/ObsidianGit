@@ -1,7 +1,7 @@
 ---
 title: Future Log
 tags:
-  - 系统文档
+  - 复盘
   - 知识管理/Bujo
 date: 2026-06-29
 ---

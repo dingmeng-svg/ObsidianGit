@@ -9,6 +9,7 @@ aliases:
   - "Externalization"
   - "隐性知识显性化"
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[SECI知识创造模型（Nonaka）]]"
   - "[[知识螺旋：从隐性到显性的循环上升（SECI）]]"
   - "[[外化思考（卡片笔记写作法）]]"

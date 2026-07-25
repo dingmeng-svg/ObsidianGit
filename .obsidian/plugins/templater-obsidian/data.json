@@ -1,0 +1,63 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "90_System/91_Templates",
+  "templates_pairs": [
+    [
+      "",
+      ""
+    ]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": false,
+  "enable_system_commands": true,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "20_Areas_My roles and responsibilities/22_个人成长/Bullet Journal/Daily",
+      "template": "90_System/91_Templates/Daily Template.md"
+    },
+    {
+      "folder": "20_Areas_My roles and responsibilities/22_个人成长/Bullet Journal/Monthly",
+      "template": "90_System/91_Templates/Monthly Template.md"
+    },
+    {
+      "folder": "20_Areas_My roles and responsibilities/22_个人成长/Bullet Journal/Weekly",
+      "template": "90_System/91_Templates/Weekly Template.md"
+    },
+    {
+      "folder": "20_Areas_My roles and responsibilities/22_个人成长/Bullet Journal/Future Log",
+      "template": "90_System/91_Templates/Future Log Template.md"
+    },
+    {
+      "folder": "20_Areas_My roles and responsibilities/22_个人成长/Bullet Journal/Yearly",
+      "template": "90_System/91_Templates/Annual Compass Template.md"
+    },
+    {
+      "folder": "10_Source_Material/Video",
+      "template": "90_System/91_Templates/T_Video_Source.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    {
+      "regex": ".*",
+      "template": ""
+    }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [
+    ""
+  ],
+  "startup_templates": [
+    ""
+  ],
+  "intellisense_render": 1,
+  "ignore_folders_on_creation": [
+    {
+      "folder": ""
+    }
+  ]
+}

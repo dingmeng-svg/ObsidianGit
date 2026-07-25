@@ -9,7 +9,7 @@ tags:
   - 知识管理/Bujo
 aliases:
   - "子弹笔记"
-  - "BuJo"
+  - "Bullet Journal"
   - "子弹笔记方法论"
 related:
   - "[[从被动回应到主动设计（子弹笔记）]]"

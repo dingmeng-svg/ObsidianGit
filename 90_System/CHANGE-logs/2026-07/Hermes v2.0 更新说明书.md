@@ -101,7 +101,7 @@ tags:
 - 入站提醒频率：每周汇总一次
 
 **2. 习惯打卡单一数据源**
-- Habit Scorecard 改为 Dataview 任务级完成状态检索看板
+- Habit Tracker 改为 Dataview 任务级完成状态检索看板
 - Daily Template 习惯打卡区统一为 `- [ ] [habit:: 习惯名] -` 格式
 - 不再维护独立的习惯打卡表格
 

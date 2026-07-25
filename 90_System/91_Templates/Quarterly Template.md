@@ -30,7 +30,7 @@ const qEnd   = String(q * 3).padStart(2, "0");
 const fileName = y + "-Q" + q + " Review";
 
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Quarterly/" + fileName);
+await tp.file.move("20_Areas/A2_能力接口/Bullet Journal/Quarterly/" + fileName);
 
 // === 输出全部内容 ===
 tR += "---\n";
@@ -75,7 +75,7 @@ tR += "const q = Math.floor(m / 3) + 1;\n";
 tR += "const qStart = String((q - 1) * 3 + 1).padStart(2, \"0\");\n";
 tR += "const qEnd = String(q * 3).padStart(2, \"0\");\n";
 tR += "\n";
-tR += "const targetFolder = \"20_Areas/22_个人成长/Bullet Journal/Monthly\";\n";
+tR += "const targetFolder = \"20_Areas/A2_能力接口/Bullet Journal/Monthly\";\n";
 tR += "\n";
 tR += "const pages = dv.pages(`\"${targetFolder}\"`)\n";
 tR += "    .where(p => p.file.name >= `${y}-${qStart}` && p.file.name <= `${y}-${qEnd}`)\n";
@@ -133,7 +133,7 @@ tR += "\n";
 tR += "## 4. 月度趋势洞察\n";
 tR += "\n";
 tR += "> 💡 请直接查阅以下资源后，记录跨越三个月的模式与趋势：\n";
-tR += "> -   [[Habit Scorecard]]（三个月打卡数据一览）\n";
+tR += "> -   [[Habit Tracker/Habit Tracker]]（三个月打卡数据一览）\n";
 tR += "> -   上方 2 中的月报链接 → 各月「月末复盘」区块\n";
 tR += "\n";
 tR += "| 维度 | 观察到的模式 | 是否需要调整 |\n";

@@ -8,6 +8,7 @@ source: 用户个人语境
 author: 原创
 aliases: [反思, 回顾]
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[ponder over]]"
   - "[[contemplate]]"
 target_lang: en

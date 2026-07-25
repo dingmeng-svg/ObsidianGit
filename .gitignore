@@ -1,20 +1,22 @@
-# Obsidian 内部缓存与高频变动文件
+# Obsidian 缓存与工作文件
 .obsidian/cache/
 .obsidian/workspace.json
+.obsidian/workspaces/
+.obsidian/plugins/*/.data.json
+.obsidian/logs/
 
-# 插件运行时高频缓存（核心插件配置已保留在版本控制中）
-.obsidian/plugins/*/data.json
+# 临时文件
+_*.tmp
+*.tmp
+*.bak
 
-# 本地手动备份目录
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 备份目录
 _备份_*/
+90_System/_备份_*/
 
-# 临时回收站文件
-.trash/
-
-# 超大媒体文件 >10MB，仅本地+外置硬盘双存储，不上传远程Git
-*.mp4
-*.mov
-*.avi
-*.zip
-*.tar.gz
-*.7z
+# 自动备份日志
+.git/backup.log

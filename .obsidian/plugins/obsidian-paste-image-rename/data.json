@@ -1,0 +1,18 @@
+{
+  "autoRename": true,
+  "handleAllAttachments": true,
+  "excludeExtensionPattern": "",
+  "handleImages": true,
+  "handleAudio": true,
+  "handleVideo": true,
+  "handlePdfs": true,
+  "keepOriginalFileName": false,
+  "renameExistingFiles": false,
+  "filenameTemplate": "{date} {time} {original}",
+  "dateTimeFormat": "YYYY-MM-DD HHmmss",
+  "dateFormat": "YYYY-MM-DD",
+  "timeFormat": "HHmmss",
+  "overwriteSameFileName": false,
+  "log": false,
+  "logPath": ""
+}

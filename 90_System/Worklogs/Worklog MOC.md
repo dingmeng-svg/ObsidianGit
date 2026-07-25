@@ -70,7 +70,7 @@ SORT file.name DESC
 | [[2026-07-06-Worklog]] | 知→行→进化 项目归档 |
 | [[2026-07-05-Worklog]] | Resources 资源-MOC 全量修复 |
 | [[2026-07-04-Worklog]] | 老刘工具箱全量校准 + 菜谱标准 |
-| [[2026-07-03-Worklog]] | 系统文档链接清理 & related 修复 + BuJo 补记 |
+| [[2026-07-03-Worklog]] | 系统文档链接清理 & related 修复 + Bullet Journal 补记 |
 | [[2026-07-02-Worklog]] | 痛点分析体系收尾 + 股市数据播报全体系整理 + SOP V4.1 |
 | [[2026-07-01-Worklog]] | 日常整理 |
 

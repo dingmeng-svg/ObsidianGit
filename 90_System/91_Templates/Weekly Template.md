@@ -1,17 +1,17 @@
 ---
 title: Weekly Template
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 复盘
 week: <% tp.date.now("YYYY-[W]WW") %>
 start_date: <% tp.date.weekday("Monday", "YYYY-MM-DD") %>
 end_date: <% tp.date.weekday("Sunday", "YYYY-MM-DD") %>
 month: <% tp.date.now("YYYY-MM") %>
+type: template
 ---
 <%*
 let fileName = tp.date.now("YYYY-[W]WW");
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Weekly/" + fileName);
+await tp.file.move("20_Areas/A2_能力接口/Bullet Journal/Weekly/" + fileName);
 _%>
 # 📅 周记录：<% tp.date.now("YYYY年[第]WW周") %>
 > 从 `<% tp.frontmatter.start_date %>` 到 `<% tp.frontmatter.end_date %>`
@@ -30,7 +30,7 @@ _%>
 - ! 
 - ! 
 ## ✅ 本周习惯追踪
-> 💡 每日打卡请前往 [[Habit Scorecard]] | 月末可用 Dataview 自动聚合统计
+> 💡 每日打卡请前往 [[Habit Tracker/Habit Tracker]] | 月末可用 Dataview 自动聚合统计
 - [ ] 运动（周一）
 - [ ] 运动（周二）
 - [ ] 运动（周三）
@@ -55,7 +55,7 @@ _%>
 ## 🔥 本周未完成任务汇总（来自每日日志）
 ```dataview
 TASK
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily" OR "20_Areas/22_个人成长/Bullet Journal/Weekly"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily" OR "20_Areas/A2_能力接口/Bullet Journal/Weekly"
 WHERE !completed
   AND file.day >= date("<% tp.frontmatter.start_date %>")
   AND file.day <= date("<% tp.frontmatter.end_date %>")
@@ -72,7 +72,7 @@ SORT file.day ASC
 | | ✓ / ✗ | |
 
 ### 习惯趋势（本周打卡汇总）
-> 由 [[Habit Scorecard]] 手动汇总，或前往各日记查看
+> 由 [[Habit Tracker/Habit Tracker]] 手动汇总，或前往各日记查看
 
 ### 学到了什么
 - 
@@ -92,7 +92,7 @@ SORT file.day ASC
 > ⚡ 点击按钮即可将上周未完成任务追加到下方列表
 ```dataviewjs
 const lastWeek = moment().subtract(1, 'weeks');
-const folder = "20_Areas/22_个人成长/Bullet Journal/Weekly";
+const folder = "20_Areas/A2_能力接口/Bullet Journal/Weekly";
 const lastWeeklyPath = `${folder}/${lastWeek.format('YYYY-[W]WW')}.md`;
 if (!dv.app.vault.getAbstractFileByPath(lastWeeklyPath)) {
     dv.paragraph("⚠️ 未找到上周周记文件，请检查路径或手动迁移。");
@@ -157,7 +157,7 @@ TABLE
   file.name AS "日期",
   pain_score AS "痛感分",
   complete_level AS "完成等级"
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily"
 WHERE 
   contains(file.content, "pain_score:") AND 
   file.week = <% tp.date.now("YYYY-[W]WW") %>

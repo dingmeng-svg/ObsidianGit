@@ -10,6 +10,7 @@ aliases:
   - "AI 知识编译器"
   - "LLM 编译知识库"
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[LLM Wiki]]"
   - "[[Raw-Wiki-Schema 三层架构]]"
   - "[[知识复利效应]]"

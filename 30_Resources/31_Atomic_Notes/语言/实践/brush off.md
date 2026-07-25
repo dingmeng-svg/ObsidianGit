@@ -8,6 +8,7 @@ source: 用户个人语境
 author: 原创
 aliases: [不理睬, 打发]
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[ponder over]]"
   - "[[mull over]]"
 target_lang: en

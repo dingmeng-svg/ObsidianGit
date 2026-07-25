@@ -1,15 +1,15 @@
 ---
 title: Monthly Template
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 复盘
 month: <% tp.date.now("YYYY-MM") %>
 date: <% tp.date.now("YYYY-MM-DD") %>
+type: template
 ---
 <%*
 let fileName = tp.date.now("YYYY-MM");
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Monthly/" + fileName);
+await tp.file.move("20_Areas/A2_能力接口/Bullet Journal/Monthly/" + fileName);
 _%>
 # 📆 <% tp.date.now("YYYY年MM月") %> 月度日志
 
@@ -19,7 +19,7 @@ _%>
 3. 
 
 ## ✅ 本月习惯回顾
-> 💡 每日打卡请前往 [[Habit Scorecard]]，周度汇总请查看各周周报。
+> 💡 每日打卡请前往 [[Habit Tracker/Habit Tracker]]，周度汇总请查看各周周报。
 
 ## 📌 本月重要事件 / 截止日
 - ! 
@@ -28,14 +28,14 @@ _%>
 ## 📅 日历概览
 ```dataview
 CALENDAR file.day
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily" OR "20_Areas/22_个人成长/Bullet Journal/Monthly"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily" OR "20_Areas/A2_能力接口/Bullet Journal/Monthly"
 WHERE dateformat(file.day, "yyyy-MM") = this.month
 ```
 
 ## 🔗 本月每日日志快速跳转
 ```dataview
 LIST
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily" OR "20_Areas/22_个人成长/Bullet Journal/Monthly"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily" OR "20_Areas/A2_能力接口/Bullet Journal/Monthly"
 WHERE dateformat(file.day, "yyyy-MM") = this.month
 SORT file.day ASC
 ```
@@ -43,7 +43,7 @@ SORT file.day ASC
 ## 🔥 本月未完成任务汇总
 ```dataview
 TASK
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily" OR "20_Areas/22_个人成长/Bullet Journal/Monthly"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily" OR "20_Areas/A2_能力接口/Bullet Journal/Monthly"
 WHERE !completed AND dateformat(file.day, "yyyy-MM") = this.month
 GROUP BY file.link
 SORT file.day ASC
@@ -54,7 +54,7 @@ SORT file.day ASC
 
 ```dataviewjs
 const lastMonth = moment().subtract(1, 'months');
-const folder = "20_Areas/22_个人成长/Bullet Journal/Monthly";
+const folder = "20_Areas/A2_能力接口/Bullet Journal/Monthly";
 const lastMonthlyPath = `${folder}/${lastMonth.format('YYYY-MM')}.md`;
 
 if (!dv.app.vault.getAbstractFileByPath(lastMonthlyPath)) {
@@ -134,7 +134,7 @@ TABLE
   filter(rows.file.name, (x) => contains(x, "Daily-Log")) AS "训练日",
   round(avg(rows.pain_score), 1) AS "均痛感",
   length(filter(rows, (r) => r.complete_level >= 3)) AS "达标天数"
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily"
 WHERE 
   contains(file.content, "pain_score:") AND 
   file.month = <% tp.date.now("YYYY-MM") %>

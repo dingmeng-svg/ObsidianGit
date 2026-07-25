@@ -14,6 +14,9 @@ tags:
   - 个人成长
   - 知识管理
 human_edited: true
+related:
+  - "[[A1_认知算法/A1_认知算法]]"
+  - "[[A2_能力接口/_MOC]]"
 ---
 
 # PKM：个人知识管理

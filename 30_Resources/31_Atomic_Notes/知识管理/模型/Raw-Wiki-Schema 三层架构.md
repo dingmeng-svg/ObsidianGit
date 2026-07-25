@@ -10,6 +10,7 @@ aliases:
   - "知识库三层架构"
   - "Raw Wiki Schema"
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[LLM Wiki 知识构建系统 MOC]]"
   - "[[LLM Wiki]]"
   - "[[LLM 知识编译器]]"

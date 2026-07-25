@@ -204,7 +204,7 @@ tags:
 ---
 date: "YYYY-MM-DD"
 tags: [日记]
-area: "22_个人成长/Bullet Journal"
+area: "A2_能力接口/Bullet Journal"
 ---
 ```
 
@@ -212,7 +212,7 @@ area: "22_个人成长/Bullet Journal"
 | :--- | :---: | :--- |
 | `date` | ✅ | 日记日期 |
 | `tags` | ✅ | 固定为 `[日记]` |
-| `area` | ✅ | 固定为 `22_个人成长/Bullet Journal` |
+| `area` | ✅ | 固定为 `A2_能力接口/Bullet Journal` |
 
 ---
 

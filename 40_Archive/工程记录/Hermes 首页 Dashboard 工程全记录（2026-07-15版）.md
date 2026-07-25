@@ -23,7 +23,7 @@ related:
 
 ## 一、项目背景
 
-为 Hermes 知识库构建一个「操作台 + 洞察镜」双层架构的个人工作台首页，作为打开 Obsidian 时的默认入口。严格对齐 PARA + BuJo + Zettelkasten + Inbox 分区，数据由 Dataview 自动拉取。
+为 Hermes 知识库构建一个「操作台 + 洞察镜」双层架构的个人工作台首页，作为打开 Obsidian 时的默认入口。严格对齐 PARA + Bullet Journal + Zettelkasten + Inbox 分区，数据由 Dataview 自动拉取。
 
 ---
 

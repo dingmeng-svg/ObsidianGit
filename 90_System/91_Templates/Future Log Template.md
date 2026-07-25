@@ -1,14 +1,14 @@
 ---
 title: Future Log Template
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 复盘
 date: <% tp.date.now("YYYY-MM-DD") %>
+type: template
 ---
 <%*
 let fileName = "Future Log";
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Future Log/" + fileName);
+await tp.file.move("20_Areas/A2_能力接口/Bullet Journal/Future Log/" + fileName);
 _%>
 # 🗓️ Future Log
 > 📌 记录未来 6-12 个月的已知事件、截止日和长期计划。每月复盘时更新，过期月份自然移除。

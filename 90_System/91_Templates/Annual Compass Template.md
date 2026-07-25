@@ -1,14 +1,14 @@
 ---
 title: Annual Compass Template
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 复盘
 year: <% tp.date.now("YYYY") %>
+type: template
 ---
 <%*
 let fileName = tp.date.now("YYYY") + " Annual Compass";
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Yearly/" + fileName);
+await tp.file.move("20_Areas/A2_能力接口/Bullet Journal/Yearly/" + fileName);
 _%>
 # 🧭 <% tp.date.now("YYYY") %> 年度指南
 > 💡 每月拆解目标时，请回溯此处确认方向一致性。
@@ -20,7 +20,7 @@ _%>
 2. 
 3. 
 ## 年度习惯设计
-> 今年重点培养的习惯，每月在 [[Habit Scorecard]] 中追踪
+> 今年重点培养的习惯，每月在 [[Habit Tracker/Habit Tracker]] 中追踪
 - 
 - 
 ## 季度检查点

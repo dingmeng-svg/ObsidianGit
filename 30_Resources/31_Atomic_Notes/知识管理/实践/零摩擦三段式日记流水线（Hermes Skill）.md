@@ -8,6 +8,7 @@ source: "[[Obsidian x AI 第71篇：零摩擦跨端自动日记工作流搭建�
 author: "Get达人"
 aliases: []
 related:
+  - "[[A2_能力接口/_MOC]]"
   - "[[日记的5标签分类哲学]]"
 ---
 

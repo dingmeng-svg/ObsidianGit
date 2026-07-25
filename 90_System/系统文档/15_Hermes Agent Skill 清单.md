@@ -106,7 +106,7 @@ tags:
 
 | 文件 | 新建日期 | 说明 |
 |:----|:--------|:-----|
-| `Daily/2026-07-07.md` | 7月8日补 | BuJo日报 — 闲鱼9.9元做图上架 |
+| `Daily/2026-07-07.md` | 7月8日补 | Bullet Journal 日报 — 闲鱼9.9元做图上架 |
 | `Worklogs/2026-07-07.md` | 7月8日补 | Worklog — 做图流程固化 |
 | `Worklogs/2026-07-06.md` | 7月8日补 | Worklog — 知→行→进化 基建日规划 |
 | `Worklogs/2026-07-08.md` | 7月8日 | 得到大脑管线建设 |
@@ -226,6 +226,6 @@ tags:
 - [[系统文档版本矩阵]] — 版本信息与依赖关系
 - `90_System/Worklogs/` — 逐日工作记录
 - `90_System/91_Templates/` — 5层模板（Daily/Weekly/Monthly/Quarterly/Annual/Future Log）
-- `20_Areas/22_个人成长/Bullet Journal/` — BuJo 体系
-- `20_Areas/22_个人成长/Habit Tracking/` — 习惯追踪
+- `20_Areas/22_个人成长/Bullet Journal/` — Bullet Journal 体系
+- `20_Areas/22_个人成长/Atomic Habits/` — 习惯追踪
 - `00_Inbox/_raw/` — Get 笔记原始导入区

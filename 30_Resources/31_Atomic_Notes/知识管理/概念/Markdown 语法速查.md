@@ -7,6 +7,8 @@ human_edited: true
 aliases:
   - "md语法"
   - "markdown参考"
+related:
+  - "[[A2_能力接口/_MOC]]"
 ---
 
 # Markdown 语法速查

@@ -37,7 +37,7 @@ TABLE WITHOUT ID
   join(filter(file.tasks, (t) => contains(meta(t.section).subpath, "本月目标")), "<br>") AS "本月目标项",
   length(filter(file.tasks, (t) => contains(meta(t.section).subpath, "本月目标") and t.completed)) AS "已完成",
   length(filter(file.tasks, (t) => contains(meta(t.section).subpath, "本月目标") and !t.completed)) AS "未完成"
-FROM "20_Areas/22_个人成长/Bullet Journal"
+FROM "20_Areas/A2_能力接口/Bullet Journal"
 WHERE file.name >= "2026-04"
   AND file.name <= "2026-06"
 SORT file.name ASC

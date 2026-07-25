@@ -7,6 +7,7 @@ tags: [语言]
 source: 外部导入
 aliases: []
 related: []
+  - "[[A2_能力接口/_MOC]]"
 target_lang: en
 source_lang: zh
 chunk_type: semi_fixed

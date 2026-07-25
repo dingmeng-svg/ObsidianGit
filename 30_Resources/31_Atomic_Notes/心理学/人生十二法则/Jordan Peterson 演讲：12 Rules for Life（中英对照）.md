@@ -8,6 +8,7 @@ tags:
 aliases: [12 Rules for Life 演讲, Jordan Peterson 讲座, 人生十二法则 现场, 龙虾教授演讲]
 rating: 4.5
 related:
+  - "[[A4_内核定力/A4_内核定力]]"
   - "[[知→行→进化]]"
 ---
 

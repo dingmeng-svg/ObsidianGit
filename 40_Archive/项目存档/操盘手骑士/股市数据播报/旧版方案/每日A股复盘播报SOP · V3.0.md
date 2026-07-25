@@ -188,15 +188,16 @@ summary: 一句话总结当日市场
 - 操作建议（宏观/板块层面，严禁个股买卖建议）
 
 **模块5：🌍 创世纪映射+英文关键词**
-| 星期 | 映射 | 关键词 |
-|:---:|:---|:---|
-| 周一 | 看见真相，不靠预测靠看见 | LIGHT, SEE, GOOD |
-| 周二 | 聚焦主线，忽略杂音 | FIRMAMENT, VAULT, SKY |
-| 周三 | 各从其类，种什么收什么 | SEED, FRUIT, KIND |
-| 周四 | 识别周期，春夏秋冬各做各的事 | SEASONS, SIGNS, RULE |
-| 周五 | 策略要有生命，能适应环境 | LIVING, ABUNDANT, BLESSED |
+
+| 星期 | 映射                                 | 关键词                        |
+|:----:|:------------------------------------ |:----------------------------- |
+| 周一 | 看见真相，不靠预测靠看见             | LIGHT, SEE, GOOD              |
+| 周二 | 聚焦主线，忽略杂音                   | FIRMAMENT, VAULT, SKY         |
+| 周三 | 各从其类，种什么收什么               | SEED, FRUIT, KIND             |
+| 周四 | 识别周期，春夏秋冬各做各的事         | SEASONS, SIGNS, RULE          |
+| 周五 | 策略要有生命，能适应环境             | LIVING, ABUNDANT, BLESSED     |
 | 周六 | 攻守兼备，该进攻时果断，该等待时耐心 | DOMINION, IMAGE, SUBDUE, GOOD |
-| 周日 | 强制停止，主动空仓是顶级利润 | REST, BLESSED, HOLY, FINISHED |
+| 周日 | 强制停止，主动空仓是顶级利润         | REST, BLESSED, HOLY, FINISHED |
 
 **模块6：📋 信息源表格**
 - 至少8条来源

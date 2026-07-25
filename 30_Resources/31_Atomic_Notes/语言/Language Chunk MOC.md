@@ -4,6 +4,8 @@ date: 2026-07-10
 type: moc
 status: active
 tags: [语言]
+related:
+  - "[[A2_能力接口/_MOC]]"
 ---
 
 # Language Chunk MOC

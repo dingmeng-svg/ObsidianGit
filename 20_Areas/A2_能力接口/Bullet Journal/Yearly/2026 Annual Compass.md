@@ -1,8 +1,7 @@
 ---
 title: 2026 Annual Compass
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 复盘
 year: 2026
 ---
 

@@ -1,8 +1,7 @@
 ---
-title: Daily Template
+title: "<% tp.date.now('YYYY-MM-DD') %>"
 tags:
-  - 系统文档
-  - 知识管理/Bujo
+  - 日记
 date: <% tp.date.now("YYYY-MM-DD") %>
 weekday: <% tp.date.now("dddd", 0, tp.date.now("YYYY-MM-DD"), "zh-cn") %>
 month: <% tp.date.now("YYYY-MM") %>
@@ -11,7 +10,6 @@ month: <% tp.date.now("YYYY-MM") %>
 let fileName = tp.date.now("YYYY-MM-DD") + "-Daily-Log";
 let month = tp.date.now("YYYY-MM");
 await tp.file.rename(fileName);
-await tp.file.move("20_Areas/22_个人成长/Bullet Journal/Daily/" + month + "/" + fileName);
 _%>
 # <% fileName %>
 
@@ -73,7 +71,7 @@ _%>
 ## 📌 从昨天迁移的闪念
 ```dataviewjs
 let yesterday = dv.date("today").minus({days: 1});
-let folder = '"20_Areas/22_个人成长/Bullet Journal/Daily"';
+let folder = '"A2_能力接口/Bullet Journal/Daily"';
 let yesterdayPage = dv.pages(folder)
     .where(p => p.file.day && p.file.day.ts === yesterday.ts)
     .first();
@@ -93,7 +91,7 @@ if (yesterdayPage) {
 ## 🔁 从昨天迁移的任务
 ```dataview
 TASK
-FROM "20_Areas/22_个人成长/Bullet Journal/Daily"
+FROM "20_Areas/A2_能力接口/Bullet Journal/Daily"
 WHERE !completed 
   AND file.day = date(today) - dur(1 day)
   AND !contains(header.subpath, "今日闪念捕获")  
@@ -107,9 +105,9 @@ WHERE !completed
 
 **此刻的清醒责任人**
 
-- [ ] [habit:: 曦 · 启明 · 以守筑基] 🌅 晨起5分钟：上交叉晨间三件套（门框拉伸+下巴后缩+肩胛后缩）
-- [ ] [habit:: 午 · 承势 · 以执笃行] 🌤️ 上午先投一票：完成最重要那件事
-- [ ] [habit:: 夕 · 观成 · 以校归正] 🌙 睡前5分钟：复盘+终局过滤+丢弃烦恼
+- [ ] [habit:: 曦 · 启明 · 以守筑基] — 膈肌呼吸 2min + 收下巴自检 ×5
+- [ ] [habit:: 午 · 承势 · 以执笃行] — 完成最重要那件事（先投一票）
+- [ ] [habit:: 夕 · 观成 · 以校归正] — 复盘 + 丢弃烦恼
 
 <details>
 <summary>🏋️ 上交叉矫正训练 · 今日记录</summary>

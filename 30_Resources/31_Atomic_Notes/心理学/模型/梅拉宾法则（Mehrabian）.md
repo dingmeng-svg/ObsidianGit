@@ -8,6 +8,8 @@ date: 2026-06-08
 status: mature
 tags: [模型, 心理学]
 human_edited: true
+related:
+  - "[[A4_内核定力/A4_内核定力]]"
 ---
 
 # 梅拉宾法则 (Mehrabian's Rule)

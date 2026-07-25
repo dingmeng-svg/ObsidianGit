@@ -3,18 +3,18 @@ title: 2026-Q2 Review
 date: 2026-07-02
 status: active
 tags:
-  - 个人成长
+  - 复盘
 type: quarterly-review
 aliases: []
 related:
-  - "[[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]]"
+  - "[[A2_能力接口/Bullet Journal/Yearly/2026 Annual Compass]]"
   - "[[2026 Future Log]]"
 ---
 
 # 📅 2026 Q2 (04月 ~ 06月) 季度复盘
 
 > 🎯 年度战略与月度执行之间的校准层。季度末用 2 小时完成。
-> 完成后请手动勾选 [[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]] 中的对应季度检查点。
+> 完成后请手动勾选 [[A2_能力接口/Bullet Journal/Yearly/2026 Annual Compass]] 中的对应季度检查点。
 
 ---
 
@@ -40,7 +40,7 @@ const q = Math.floor(m / 3) + 1;
 const qStart = String((q - 1) * 3 + 1).padStart(2, "0");
 const qEnd = String(q * 3).padStart(2, "0");
 
-const targetFolder = "20_Areas/22_个人成长/Bullet Journal/Monthly";
+const targetFolder = "A2_能力接口/Bullet Journal/Monthly";
 
 const pages = dv.pages(`"${targetFolder}"`)
     .where(p => p.file.name >= `${y}-${qStart}` && p.file.name <= `${y}-${qEnd}`)
@@ -98,7 +98,7 @@ if (data.length === 0) {
 ## 4. 月度趋势洞察
 
 > 💡 请直接查阅以下资源后，记录跨越三个月的模式与趋势：
-> -   [[Habit Scorecard]]（三个月打卡数据一览）
+> -   [[Habit Tracker/Habit Tracker]]（三个月打卡数据一览）
 > -   上方 2 中的月报链接 → 各月「月末复盘」区块
 
 | 维度 | 观察到的模式 | 是否需要调整 |
@@ -117,7 +117,7 @@ if (data.length === 0) {
 
 ## 6. 年度进度校准
 
-> 年度目标详见 [[20_Areas/22_个人成长/Bullet Journal/Yearly/2026 Annual Compass]]
+> 年度目标详见 [[A2_能力接口/Bullet Journal/Yearly/2026 Annual Compass]]
 
 | 年度关键成果 | 本季推进 | 全年进度判断                |
 | :----------- | :------- | :-------------------------- |

@@ -1,0 +1,35 @@
+{
+  "showGettingStartedBanner": true,
+  "hasMigratedDailyNoteSettings": false,
+  "hasMigratedWeeklyNoteSettings": false,
+  "daily": {
+    "format": "YYYY-MM/YYYY-MM-DD",
+    "template": "90_System/91_Templates/Daily Template.md",
+    "folder": "20_Areas/22_个人成长/Bullet Journal/Daily",
+    "enabled": true
+  },
+  "weekly": {
+    "format": "",
+    "template": "90_System/91_Templates/Weekly Template.md",
+    "folder": "20_Areas/22_个人成长/Bullet Journal/Weekly",
+    "enabled": true
+  },
+  "monthly": {
+    "format": "",
+    "template": "90_System/91_Templates/Monthly Template.md",
+    "folder": "20_Areas/22_个人成长/Bullet Journal/Monthly",
+    "enabled": true
+  },
+  "quarterly": {
+    "format": "",
+    "template": "",
+    "folder": "",
+    "enabled": false
+  },
+  "yearly": {
+    "format": "",
+    "template": "90_System/91_Templates/Annual Compass Template.md",
+    "folder": "20_Areas/22_个人成长/Bullet Journal/Yearly",
+    "enabled": true
+  }
+}

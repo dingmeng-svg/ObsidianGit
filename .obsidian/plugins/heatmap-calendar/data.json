@@ -1,0 +1,67 @@
+{
+  "year": 2026,
+  "colors": {
+    "default": [
+      "#c6e48b",
+      "#7bc96f",
+      "#49af5d",
+      "#2e8840",
+      "#196127"
+    ],
+    "apple-gray-blue": [
+      "#ABC3E3",
+      "#6694CF",
+      "#3966A8",
+      "#1C4273",
+      "#0C2648"
+    ],
+    "apple-alpha-blue": [
+      "#F2F8FF",
+      "#B3D1FF",
+      "#80B2FF",
+      "#4D93FF",
+      "#007AFF"
+    ],
+    "apple-alpha-red": [
+      "#FFEAE9",
+      "#FFB5B0",
+      "#FF827A",
+      "#FF5248",
+      "#FF3B30"
+    ],
+    "apple-alpha-yellow": [
+      "#FFFAE5",
+      "#FFF0B3",
+      "#FFE680",
+      "#FFD84D",
+      "#FFCC00"
+    ],
+    "apple-alpha-purple": [
+      "#F6EEFA",
+      "#DDB7F0",
+      "#C585E6",
+      "#B55BD8",
+      "#AF52DE"
+    ],
+    "apple-alpha-green": [
+      "#E8F5E9",
+      "#A5D6A7",
+      "#66BB6A",
+      "#43A047",
+      "#2E7D32"
+    ]
+  },
+  "entries": [
+    {
+      "date": "1900-01-01",
+      "color": "#7bc96f",
+      "intensity": 5,
+      "content": ""
+    }
+  ],
+  "showCurrentDayBorder": true,
+  "defaultEntryIntensity": 4,
+  "intensityScaleStart": 1,
+  "intensityScaleEnd": 5,
+  "weekStartDay": 1
+}
