@@ -105,7 +105,7 @@ doc_level: L4
 
 - [ ] [T] 自动化：Hermes Agent 每日扫描 `Collector`，按前缀自动分流至 Bullet Journal / 习惯记分卡
 - [x] [T] Insight 全自动化：每日扫描全库，按七维框架生成当日洞察，写入 `Insight/每日洞察/YYYY-MM/YYYY-MM-DD-Insight.md` ✅ 2026-07-20
-- [ ] [T] 洞察周期模板：周度/月度/季度复盘模板，与 Insight 七维框架和 Periodic Notes 集成
+- [x] [T] 洞察周期模板：周度/月度/季度复盘模板，与 Insight 七维框架和 Periodic Notes 集成 ✅ 2026-07-26
 - [x] [T] 系统信息流整合：「知」+「行」+「检」三流合一，统一仪表盘展示 ✅ 2026-07-20
 - [x] [T] Projects 项目模板去重整合：检查 `10_Projects/` 下各项目目录中的模板文件 ✅ 2026-07-25
 - [x] [T] 刷新洞察 @now | 手动触发：Agent 检测到此条目时立即执行洞察刷新 ✅ 2026-07-17 21:09 ✅ 2026-07-17 23:10

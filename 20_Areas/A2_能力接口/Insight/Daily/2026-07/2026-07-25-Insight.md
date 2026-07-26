@@ -1,0 +1,336 @@
+---
+title: "Insight · Daily — 2026-07-25"
+date: 2026-07-25
+tags: [洞察, 系统文档]
+aliases: [2026-07-25-Insight]
+---
+
+## 🗓️ 2026-07-25 周六·知识洞察
+
+```dataviewjs
+// ===== 观全局 🌐 =====
+const renderGreenBar = (label, pct, displayText = null, useRankMode = false) => {
+    let barColor = "#c6e48b";
+    const val = useRankMode ? pct : pct;
+    if (useRankMode) {
+        if (val > 0.8) barColor = "#196127";
+        else if (val > 0.6) barColor = "#2e8840";
+        else if (val > 0.4) barColor = "#49af5d";
+        else if (val > 0.2) barColor = "#7bc96f";
+        else barColor = "#c6e48b";
+    } else {
+        if (val <= 15) barColor = "#c6e48b";
+        else if (val <= 30) barColor = "#7bc96f";
+        else if (val <= 45) barColor = "#49af5d";
+        else if (val <= 60) barColor = "#2e8840";
+        else barColor = "#196127";
+    }
+    const rightText = displayText !== null ? displayText : `${Math.round(pct)}%`;
+    return `<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <span style="min-width: 150px; font-size: 13px; color: #4B5563; flex-shrink: 0; text-align: right;">${label}</span>
+        <div style="flex: 1; max-width: 460px; height: 8px; background-color: #F3F4F6; border-radius: 99px; overflow: hidden;">
+            <div style="width: ${useRankMode ? (val * 100) : val}%; height: 100%; border-radius: 99px; background-color: ${barColor};"></div>
+        </div>
+        <span style="min-width: 30px; font-size: 13px; font-weight: 600; color: #4B5563; text-align: right; white-space: nowrap; flex-shrink: 0;">${rightText}</span>
+    </div>`;
+};
+
+const items = [
+    { label: "原子笔记", pct: 100, val: "534 篇" },
+    { label: "近 7 天修改", pct: 58, val: "312 篇" },
+    { label: "BuJo 近 7 天", pct: 100, val: "28 篇" },
+    { label: "Inbox 待处理", pct: 15, val: "10 篇" },
+    { label: "_raw 待编译", pct: 0, val: "0 篇" },
+    { label: "归档积累", pct: 70, val: "374 篇" },
+];
+let html = `<div style="margin:1rem 0;font-family:-apple-system,sans-serif;">`;
+items.forEach(d => {
+    html += renderGreenBar(d.label, d.pct, d.val, false);
+});
+html += `</div>`;
+dv.paragraph(html);
+dv.paragraph("> **判断**：近 7 天原子笔记修改活跃（312 篇），BuJo 连续每日记录（28 篇）。_raw 待编译清零，输入输出平衡。当前处于「双端活跃」的健康状态。");
+```
+
+## 🌐 观全局——知行循环
+
+**全库扫描**结果：
+
+| 指标 | 数值 | 状态 |
+|:---|:---:|:---|
+| 原子笔记总数 | 534 篇 | — |
+| 近 7 天原子笔记修改 | 312 篇 | 🔥 高度活跃 |
+| BuJo 近 7 天活跃 | 28 篇（连续每日） | ✅ 持续 |
+| Inbox 待处理 | 10 篇（含外部导入 6 篇 + 根目录 4 篇） | ⚠️ 需消化 |
+| _raw 待编译 | 0 篇 | ✅ 已清零 |
+| 归档积累 | 374 篇 | — |
+
+**各目录分布**：Resources 562 > Archive 374 > Projects 208 > Areas 136 > System 136 > Inbox 10
+
+**判断**：近 7 天原子笔记修改 312 篇，BuJo 连续 7 天记录。_raw 清零是好信号，但 Inbox 外部导入堆积 6 篇（金融语料库、词汇表等），需要安排编译。
+
+---
+
+## 🌊 察潜流——潜意识偏好
+
+**全库原子笔记 type 分布**：
+
+```dataviewjs
+const renderGreenBar = (label, pct, displayText = null, useRankMode = false) => {
+    let barColor = "#c6e48b";
+    const val = useRankMode ? pct : pct;
+    if (useRankMode) {
+        if (val > 0.8) barColor = "#196127";
+        else if (val > 0.6) barColor = "#2e8840";
+        else if (val > 0.4) barColor = "#49af5d";
+        else if (val > 0.2) barColor = "#7bc96f";
+        else barColor = "#c6e48b";
+    } else {
+        if (val <= 15) barColor = "#c6e48b";
+        else if (val <= 30) barColor = "#7bc96f";
+        else if (val <= 45) barColor = "#49af5d";
+        else if (val <= 60) barColor = "#2e8840";
+        else barColor = "#196127";
+    }
+    const rightText = displayText !== null ? displayText : `${Math.round(pct)}%`;
+    return `<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <span style="min-width: 150px; font-size: 13px; color: #4B5563; flex-shrink: 0; text-align: right;">${label}</span>
+        <div style="flex: 1; max-width: 460px; height: 8px; background-color: #F3F4F6; border-radius: 99px; overflow: hidden;">
+            <div style="width: ${useRankMode ? (val * 100) : val}%; height: 100%; border-radius: 99px; background-color: ${barColor};"></div>
+        </div>
+        <span style="min-width: 30px; font-size: 13px; font-weight: 600; color: #4B5563; text-align: right; white-space: nowrap; flex-shrink: 0;">${rightText}</span>
+    </div>`;
+};
+
+const typeData = [
+    { label: "practice 实践", pct: 100, val: "123 篇" },
+    { label: "concept 概念", pct: 90, val: "111 篇" },
+    { label: "model 模型", pct: 10, val: "12 篇" },
+    { label: "critique 批判", pct: 2, val: "3 篇" },
+    { label: "moc 知识地图", pct: 1, val: "1 篇" },
+];
+let html2 = `<div style="margin:1rem 0;font-family:-apple-system,sans-serif;">`;
+typeData.forEach(d => {
+    html2 += renderGreenBar(d.label, d.pct, d.val, false);
+});
+html2 += `</div>`;
+dv.paragraph(html2);
+```
+
+**全库比例**：practice 123（49%）> concept 111（44%）> model 12（5%）> critique 3（1%）> moc 1（0.4%）
+
+**判断**：practice 与 concept 双峰均衡（49% vs 44%），属于「实践-概念」双驱动型知识库。critique（3 篇）和 moc（1 篇）明显偏弱——批判性思考和知识地图建设处于起步阶段。
+
+**近 7 天增量**：312 篇修改遍布个人成长、健身、心理学、知识管理、语言等领域，以健身理论（30+篇训练法则）和个人成长概念笔记为主，属于「集中补课」模式。
+
+---
+
+## 🪸 拂遗珠——被遗忘的内容
+
+### _raw 已全部编译
+
+6 篇素材全部标记 `ingest_status: ingested`，无积压。✅
+
+### 外部导入待处理（6 篇）
+
+`00_Inbox/外部导入/` 中待消化素材：
+
+| 文件 | 大小 | 来源时间 |
+|:---|:---:|:---:|
+| 纯金融高频词表.md | 34KB | 7月25日 |
+| 知→行→进化 分镜台本.md | 32KB | 7月20日 |
+| 词汇表.md | 23KB | 7月22日 |
+| 金融语料库.md | 250KB | 7月21日 |
+| market language chunk.md | 11KB | 7月24日 |
+| stock language chunk.md | 4KB | 7月24日 |
+
+**建议**：优先处理 `market language chunk.md` 和 `stock language chunk.md`（最小单元，快速出成果），其次是 `知→行→进化 分镜台本.md`（创作类素材）。
+
+### ai_generated 待审核（7 篇）
+
+| 领域 | 篇数 | 文件 |
+|:---|:---:|:---|
+| 关系 | 4 篇 | 情绪表达的习得性无助、指责的动机分类、提供安全氛围、权力反转的谬误 |
+| 生活 | 3 篇 | 18%-22%咖啡萃取、上热下寒（中医）、冷萃化学原理 |
+
+**建议**：关系领域 4 篇 ai_generated 笔记已较长时间未人工审核，建议优先审阅 `权力反转的谬误`（critique 类型，与用户关系认知框架直接相关）。
+
+### 近 90 天未修改的 active 笔记
+
+全库近 30 天几乎所有原子笔记都有修改记录（532/534），无长期被遗忘的 active 笔记。✅
+
+---
+
+## 🔦 照暗面——认知盲区
+
+### 近 30 天输入/输出比
+
+- Inbox 流入：6 篇外部导入 + 6 篇 _raw（共 12 篇流入）
+- 新增原子笔记：534 篇中有 532 篇在近 30 天有修改，但大部分为历史笔记的集中整理和打标，并非「新建」
+- 实际新建笔记：健身理论（30+篇训练法则系列）是主要新建产出
+
+**输入/输出比估算**：约 12:30+（流入 vs 产出），约 1:2.5，输入略少于产出。健康状态。
+
+### 注意力风险
+
+**近 7 天活跃标签分布**显示：语言（95 篇修改）> 健身（30 篇）> 心理学（26 篇）> 概念·心理学（17 篇）
+
+语言标签的 95 篇修改几乎覆盖了全部语言原子笔记（词汇卡片），属于「批量打标/整理」而非深度学习。真正的注意力焦点在**健身领域**（30 篇训练法则的集中补课）。
+
+**警惕**：「只整理不消化」——语言领域 95 篇修改主要是标签统一而非内容深化。
+
+### moc 类型仅 1 篇
+
+全库仅有 1 篇 `moc` 类型笔记（`Language Chunk MOC.md`），知识地图建设严重空白。这意味着大量概念笔记之间缺乏显式连接结构。
+
+---
+
+## 🍃 辨风势——热点趋势
+
+```dataviewjs
+const renderGreenBar = (label, pct, displayText = null, useRankMode = false) => {
+    let barColor = "#c6e48b";
+    const val = useRankMode ? pct : pct;
+    if (useRankMode) {
+        if (val > 0.8) barColor = "#196127";
+        else if (val > 0.6) barColor = "#2e8840";
+        else if (val > 0.4) barColor = "#49af5d";
+        else if (val > 0.2) barColor = "#7bc96f";
+        else barColor = "#c6e48b";
+    } else {
+        if (val <= 15) barColor = "#c6e48b";
+        else if (val <= 30) barColor = "#7bc96f";
+        else if (val <= 45) barColor = "#49af5d";
+        else if (val <= 60) barColor = "#2e8840";
+        else barColor = "#196127";
+    }
+    const rightText = displayText !== null ? displayText : `${Math.round(pct)}%`;
+    return `<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <span style="min-width: 150px; font-size: 13px; color: #4B5563; flex-shrink: 0; text-align: right;">${label}</span>
+        <div style="flex: 1; max-width: 460px; height: 8px; background-color: #F3F4F6; border-radius: 99px; overflow: hidden;">
+            <div style="width: ${useRankMode ? (val * 100) : val}%; height: 100%; border-radius: 99px; background-color: ${barColor};"></div>
+        </div>
+        <span style="min-width: 30px; font-size: 13px; font-weight: 600; color: #4B5563; text-align: right; white-space: nowrap; flex-shrink: 0;">${rightText}</span>
+    </div>`;
+};
+
+const tagsData = [
+    { label: "语言", count: 126 },
+    { label: "健身", count: 30 },
+    { label: "心理学", count: 26 },
+    { label: "个人成长", count: 26 },
+    { label: "概念·个人成长", count: 22 },
+    { label: "概念·心理学", count: 21 },
+    { label: "概念·生活", count: 17 },
+    { label: "技术", count: 12 },
+    { label: "模型·个人成长", count: 8 },
+    { label: "知识管理", count: 7 },
+];
+const totalTags = tagsData.length;
+let tagHtml = `<div style="margin:1rem 0;font-family:-apple-system,sans-serif;">`;
+for (let i = 0; i < totalTags; i++) {
+    const d = tagsData[i];
+    const rankPct = (totalTags - i - 1) / (totalTags - 1);
+    tagHtml += renderGreenBar(d.label, rankPct, `${d.count} 篇`, true);
+}
+tagHtml += `</div>`;
+dv.paragraph(tagHtml);
+```
+
+**趋势判断**：语言（126 篇）为全库最大标签，远超其他领域。健身（30 篇）近 7 天有集中补课，训练法则系列批量入库，是本周热点。心理学（26 篇）+ 个人成长（26 篇）构成知识库第二梯队，但近 7 天修改量以健身为最。
+
+**沉寂领域**：国际政治（12 篇）、认知算法（6 篇）近 7 天无新增修改，建议关注。
+
+---
+
+## 🌡️ 测热力——注意力热力图
+
+以下为 Heatmap Calendar 渲染的每日活跃度分布（色块越深表示当天修改笔记越多）：
+
+```dataviewjs
+dv.span("加载中...");
+const calendarData = dv.pages('"30_Resources/31_Atomic_Notes"')
+    .where(p => p.file.mtime)
+    .map(p => ({
+        date: p.file.mtime.toFormat("yyyy-MM-dd"),
+        intensity: 1
+    }));
+const grouped = {};
+calendarData.forEach(d => {
+    grouped[d.date] = (grouped[d.date] || 0) + 1;
+});
+const entries = Object.entries(grouped).map(([date, count]) => ({
+    date, intensity: Math.min(count / 10, 1)
+}));
+renderHeatmapCalendar(this.container, {
+    colors: "default",
+    entries: entries
+});
+```
+
+**近 30 天注意力分布概览**（按活跃文件数排序的领域热度）：
+
+```dataviewjs
+const renderGreenBar = (label, pct, displayText = null, useRankMode = false) => {
+    let barColor = "#c6e48b";
+    const val = useRankMode ? pct : pct;
+    if (useRankMode) {
+        if (val > 0.8) barColor = "#196127";
+        else if (val > 0.6) barColor = "#2e8840";
+        else if (val > 0.4) barColor = "#49af5d";
+        else if (val > 0.2) barColor = "#7bc96f";
+        else barColor = "#c6e48b";
+    } else {
+        if (val <= 15) barColor = "#c6e48b";
+        else if (val <= 30) barColor = "#7bc96f";
+        else if (val <= 45) barColor = "#49af5d";
+        else if (val <= 60) barColor = "#2e8840";
+        else barColor = "#196127";
+    }
+    const rightText = displayText !== null ? displayText : `${Math.round(pct)}%`;
+    return `<div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+        <span style="min-width: 150px; font-size: 13px; color: #4B5563; flex-shrink: 0; text-align: right;">${label}</span>
+        <div style="flex: 1; max-width: 460px; height: 8px; background-color: #F3F4F6; border-radius: 99px; overflow: hidden;">
+            <div style="width: ${useRankMode ? (val * 100) : val}%; height: 100%; border-radius: 99px; background-color: ${barColor};"></div>
+        </div>
+        <span style="min-width: 30px; font-size: 13px; font-weight: 600; color: #4B5563; text-align: right; white-space: nowrap; flex-shrink: 0;">${rightText}</span>
+    </div>`;
+};
+
+const attentionData = [
+    { label: "个人成长", pct: 100, val: "148 篇" },
+    { label: "语言", pct: 85, val: "126 篇" },
+    { label: "健身", pct: 20, val: "30 篇" },
+    { label: "心理学", pct: 18, val: "26 篇" },
+    { label: "知识管理", pct: 5, val: "7 篇" },
+    { label: "关系", pct: 4, val: "6 篇" },
+    { label: "工作", pct: 3, val: "4 篇" },
+    { label: "技术", pct: 3, val: "4 篇" },
+    { label: "认知算法", pct: 2, val: "3 篇" },
+    { label: "生活", pct: 2, val: "3 篇" },
+];
+let attnHtml = `<div style="margin:1rem 0;font-family:-apple-system,sans-serif;">`;
+attentionData.forEach(d => {
+    attnHtml += renderGreenBar(d.label, d.pct, d.val, false);
+});
+attnHtml += `</div>`;
+dv.paragraph(attnHtml);
+dv.paragraph("**注意力分布判断**：个人成长（148 篇）和语言（126 篇）占据绝对主导。健身（30 篇）近 7 天集中补课，是本周增量主力。关系、生活、认知算法等维度注意力不足，建议定期轮换注意力焦点。");
+```
+
+---
+
+## 🎯 践一诺——唯一行动项
+
+**从外部导入中选取 1 篇完成编译入库**。
+
+优先选择 `market language chunk.md`（11KB）或 `stock language chunk.md`（4KB），这两篇是 Language Chunk 系列的自然延伸，与已有的 `Language Chunk MOC.md` 可直接衔接，编译成本最低、产出最快。
+
+> [!note] 唯一承诺
+> 本周洞察收敛为唯一可执行承诺。多则失焦，少则无力。
+>
+> **约束**：此区块仅保留 1 条最高优先级行动项。多个候选须在 `## 察潜流` 或 `## 辨风势` 中完成筛选，只有胜出者方可进入此处。
+
+---
+
+*本报告由 Hermes Agent 于 2026-07-25 21:01 自动生成。*
