@@ -48,7 +48,7 @@ let monthFiles = dv.pages(trackerFolder)
 dv.list(monthFiles.file.link);
 ```
 
-> 每月 1 日：复制 `90_System/91_Templates/Habit Tracker Template.md` 到本目录，重命名为 `YYYY-MM Habit Tracker.md`，YAML 中 `month` 改为当前月份。
+> 每月 1 日：复制 `90_System/91_Templates/Habit Tracker · Template.md` 到本目录，重命名为 `YYYY-MM Habit Tracker.md`，YAML 中 `month` 改为当前月份。
 
 
 ## 中断处理：永不连续错过两次

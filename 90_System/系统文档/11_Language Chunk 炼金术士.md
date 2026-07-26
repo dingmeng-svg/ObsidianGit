@@ -371,7 +371,7 @@ human_edited: false
 | `register` | `formal`/`neutral`/`informal`/`slang`/`archaic` | 语域 | 可选 |
 | `frequency` | `high`/`mid`/`low` | 语料库频率 | 可选 |
 | `human_edited` | `true`/`false` | AI 写入权限锁 | **必填** |
-| `deep_reviewed` | `true`/`false` | 是否完成至少一轮人工深回流修正 | **必填** |
+| `deep_reviewed` | `true`/`false` | 是否完成至少一轮人工深回流修正。**触发条件**：人工完成至少一轮深回流修正后，由人类手动设为 `true`。**效果**：`true` 时，AI 增量更新仅追加 `## 🤖 Hermes 补充`，不修改已有释义和例句 | **必填** |
 
 **字段语义区分**：
 - `human_edited`：AI 写入权限锁。`true` = 禁止 Agent 覆盖正文，仅允许文末追加 `## 🤖 Hermes 补充`。与内容质量、修订深度无关。

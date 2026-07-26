@@ -73,8 +73,8 @@ const genDate = dv.date("{{date:YYYY-MM-DD}}");
 if (!genDate || !genDate.isValid) {
     dv.paragraph("📌 模板预览模式 — 生成文件后 Dataview 将自动渲染。");
 } else {
-    const weekStart = genDate.startOf('isoWeek');
-    const weekEnd = genDate.endOf('isoWeek');
+    const weekStart = genDate.startOf('week');
+    const weekEnd = genDate.endOf('week');
 
     const pages = dv.pages('"20_Areas/A2_能力接口/Bullet Journal/Daily"')
         .where(p => p.file.day && p.file.day >= weekStart && p.file.day <= weekEnd);
@@ -171,8 +171,8 @@ const genDate = dv.date("{{date:YYYY-MM-DD}}");
 if (!genDate || !genDate.isValid) {
     dv.paragraph("📌 模板预览模式 — 生成文件后 Dataview 将自动渲染。");
 } else {
-    const weekStart = genDate.startOf('isoWeek');
-    const weekEnd = genDate.endOf('isoWeek');
+    const weekStart = genDate.startOf('week');
+    const weekEnd = genDate.endOf('week');
 
     const notes = dv.pages('"30_Resources/31_Atomic_Notes"')
         .where(p => p.file.cday && p.file.cday >= weekStart && p.file.cday <= weekEnd);
@@ -205,8 +205,8 @@ try {
     if (!genDate || !genDate.isValid) {
         dv.paragraph("📌 模板预览模式 — 生成文件后 Dataview 将自动渲染。");
     } else {
-        const weekStart = genDate.startOf('isoWeek');
-        const weekEnd = genDate.endOf('isoWeek');
+        const weekStart = genDate.startOf('week');
+        const weekEnd = genDate.endOf('week');
         const pages = dv.pages('"20_Areas" or "30_Resources" or "10_Projects" or "00_Inbox"')
             .where(p => p.file.day && p.file.day >= weekStart && p.file.day <= weekEnd);
         const countMap = {};
@@ -233,8 +233,8 @@ const genDate = dv.date("{{date:YYYY-MM-DD}}");
 if (!genDate || !genDate.isValid) {
     dv.paragraph("📌 模板预览模式 — 生成文件后 Dataview 将自动渲染。");
 } else {
-    const weekStart = genDate.startOf('isoWeek');
-    const weekEnd = genDate.endOf('isoWeek');
+    const weekStart = genDate.startOf('week');
+    const weekEnd = genDate.endOf('week');
 
     const pages = dv.pages('"20_Areas/A2_能力接口/Bullet Journal/Daily"')
         .where(p => p.file.day && p.file.day >= weekStart && p.file.day <= weekEnd);

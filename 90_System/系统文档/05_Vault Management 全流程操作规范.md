@@ -596,6 +596,7 @@ Vault 已纳入 Git 版本控制。`.gitignore` 排除规则禁止手动修改�
 
 - 标记 `deprecated`、`retired`、`archived` 的文件**不物理删除**，仅修改 YAML 状态字段
 - Git 历史永久保留其全部版本记录
+- 废弃文件名前加 `⚠️` 前缀，如 `⚠️认知失调（旧版）.md`
 
 **物理删除前置自动校验**：
 - Agent 处理物理删除退役文件前，自动读取文件 YAML 中首次标记 `status: deprecated` 或 `status: retired` 的日期

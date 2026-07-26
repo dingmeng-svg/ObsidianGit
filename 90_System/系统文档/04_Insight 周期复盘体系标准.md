@@ -3,7 +3,7 @@ title: 04_Insight 周期复盘体系标准
 date: 2026-07-26
 status: active
 type: system_document
-fit_content_type: system_spec
+insight_type: system_spec
 doc_level: L1
 version: 2.2.0
 tags: [系统文档, 洞察]
@@ -81,15 +81,17 @@ graph TD
 
 ### 2.2 模板存放
 
-模板统一存放于 `90_System/91_Templates/Insight/` 目录：
+| 模板统一存放于 `90_System/91_Templates/Insight/` 目录：
 
 | 周期 | 模板文件名 |
 |:---|:---|
-| Daily | `Insight · Daily.md` |
-| Weekly | `Insight · Weekly.md` |
-| Monthly | `Insight · Monthly.md` |
-| Quarterly | `Insight · Quarterly.md` |
-| Annual | `Insight · Annual.md` |
+| Daily | `Insight · Daily · Template.md` |
+| Weekly | `Insight · Weekly · Template.md` |
+| Monthly | `Insight · Monthly · Template.md` |
+| Quarterly | `Insight · Quarterly · Template.md` |
+| Annual | `Insight · Annual · Template.md` |
+
+模板存放目录：`90_System/91_Templates/Insight/`
 
 ### 2.3 文件命名规范
 
@@ -168,7 +170,7 @@ date: "{{date:YYYY-MM-DD}}"
 period_type: daily/weekly/monthly/quarterly/annual
 period_range: "[周期起止范围]"
 status: active
-fit_content_type: insight_report
+insight_type: insight_report
 tags: [洞察, 系统文档]
 related:
   - "[[上期链接]]"
@@ -184,9 +186,9 @@ related:
 | `title` | string | 固定格式 `Insight · {Period}` |
 | `date` | string | 生成日期，ISO 格式 |
 | `period_type` | enum | `daily/weekly/monthly/quarterly/annual` |
-| `period_range` | string | 覆盖时间范围（**仅用于人眼识别**，所有 Dataview 逻辑不读取此字段） |
+| `period_range` | string | 覆盖时间范围，仅用于人眼识别（推荐）。所有 Dataview 逻辑不读取此字段 |
 | `status` | enum | 固定 `active` |
-| `fit_content_type` | string | 固定 `insight_report` |
+| `insight_type` | string | 固定 `insight_report` |
 | `tags` | array | 固定 `[洞察, 系统文档]` |
 | `daily_promise` | string | **仅 Daily 必填**，用于周度候选池聚合 |
 | `related` | array | 上下期导航 + 固定引用 |
@@ -270,7 +272,19 @@ if (!genDate || !genDate.isValid) {
 
 **其他所有指标统计、笔记类型聚合、素材盘点，严格禁止无边界全库扫描。**
 
-### 6.4 代码块分区与写入约束
+### 6.4 周起始日计算（DataviewJS 陷阱）
+
+**规则**：周起始日统一为周一（ISO 8601）。
+
+**⚠️ DataviewJS 陷阱**：禁止使用 `genDate.startOf('isoWeek')`——Dataview 内置的 luxon 版本较老，不支持 `isoWeek` 单位，会报错 `Invalid unit isoWeek`。
+
+**正确写法**：
+```javascript
+const weekStart = genDate.startOf('week');  // luxon 中 'week' 默认周一为一周起始
+const weekEnd = genDate.endOf('week');
+```
+
+### 6.5 代码块分区与写入约束
 
 模板内使用标准化注释区分区块：
 
