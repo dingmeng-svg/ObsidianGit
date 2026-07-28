@@ -120,6 +120,7 @@ dv.paragraph(html);
 ### 外部导入待处理清单（7 篇）
 
 `00_Inbox/外部导入/`：
+
 | 文件 | 大小 | 来源 |
 |:---|:---:|:---|
 | 词汇表.md | 22KB | 7/26 最新 |
@@ -239,29 +240,17 @@ dv.paragraph(tagHtml);
 
 ```dataviewjs
 try {
-    const entries = dv.pages('"20_Areas/A2_能力接口/Bullet Journal/Daily"')
-        .where(p => p.file.day)
-        .map(p => ({ date: p.file.day.toISODate(), intensity: 0.5 }));
-    
-    // 补充原子笔记7天活跃数据
-    const noteEntries = dv.pages('"30_Resources/31_Atomic_Notes"')
-        .where(p => p.file.mtime && p.file.mtime > dv.date("today").minus({ days: 7 }))
-        .map(p => ({ date: p.file.mtime.toISODate(), intensity: 1 }));
-    
-    const allEntries = [...entries, ...noteEntries];
-    
-    const container = this.container;
-    const heatmapContainer = container.createDiv();
-    
-    renderHeatmapCalendar(heatmapContainer, {
-        colors: "default",
-        entries: allEntries,
-        startOfWeek: 'week'
-    });
-    
-    dv.paragraph("✅ 热力图渲染完成");
-} catch (e) {
-    dv.paragraph(`⚠️ 热力图渲染异常: ${e.message}`);
+  const pages = dv.pages('"20_Areas/A2_能力接口/Bullet Journal" or "00_Inbox" or "10_Projects" or "20_Areas" or "30_Resources"')
+    .where(p => p.file.day);
+  const countMap = {};
+  pages.forEach(p => {
+    const key = p.file.day.toFormat("yyyy-MM-dd");
+    countMap[key] = (countMap[key] || 0) + 1;
+  });
+  const entries = Object.entries(countMap).map(([date, count]) => ({ date: date, intensity: count }));
+  renderHeatmapCalendar(this.container, { colors: "default", entries: entries });
+} catch(e) {
+  dv.span("⚠️ Heatmap Calendar 插件未启用，请安装后查看热力图");
 }
 ```
 
