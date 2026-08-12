@@ -1,8 +1,10 @@
 ---
-title: "Obsidian 附件管理完全指南：从新手避坑到全类型文件规范存放"
+title: "Obsidian 附件管理完全指南"
 author: "Get达人"
 date: "2026-07-12"
-ingest_status: ingested
+status: archived
+tags: [技术, Obsidian]
+ingest_status: archived
 ingested_at: 2026-07-17
 ---
 

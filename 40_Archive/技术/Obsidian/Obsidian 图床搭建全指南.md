@@ -1,8 +1,10 @@
 ---
-title: "Obsidian 图床搭建全指南：解决笔记库臃肿、同步慢痛点（Mac/Windows双平台适配）"
+title: "Obsidian 图床搭建全指南"
 author: "Get达人"
 date: "2026-07-12"
-ingest_status: ingested
+status: archived
+tags: [技术, Obsidian]
+ingest_status: archived
 ingested_at: 2026-07-17
 ---
 

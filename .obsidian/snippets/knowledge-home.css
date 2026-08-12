@@ -900,6 +900,77 @@
 }
 
 /* ============================================================
+   v3.4 · Obsidian 新版兼容修复
+   修复：嵌入容器 max-height 截断 / 折叠 Callout 交互
+   ============================================================ */
+
+/* --- 1. 洞察嵌入容器的 max-height 解除（新版 Obsidian 加了默认 300px 截断） --- */
+.homepage .callout[data-callout="faq"] .markdown-embed {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+/* 确保嵌入内容容器也不截断 */
+.homepage .callout[data-callout="faq"] .markdown-embed-content {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* --- 2. 系统折叠 Callout 彻底修复 --- */
+/* 恢复 callout-fold 的可见性（Obsidian 新版可能隐藏了折叠图标） */
+.homepage .callout[data-callout="example"] .callout-fold {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  order: 2;
+  margin-left: auto;
+}
+/* 确保折叠图标 SVG 可见 */
+.homepage .callout[data-callout="example"] .callout-fold svg,
+.homepage .callout[data-callout="faq"] .callout-fold svg {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+/* callout-title 必须可见且可点击 */
+.homepage .callout[data-callout="example"] .callout-title {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  cursor: pointer !important;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: nowrap;
+}
+/* callout-title-inner 文本可见 */
+.homepage .callout[data-callout="example"] .callout-title-inner {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: var(--h-color-text, #2d3a2d) !important;
+  order: 1;
+}
+/* callout-icon 可见 */
+.homepage .callout[data-callout="example"] .callout-icon {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  order: 0;
+}
+/* 强制 callout-color 不干扰 */
+.homepage .callout[data-callout="example"] {
+  --callout-color: 74, 124, 89 !important;
+}
+/* 深色模式适配 */
+.theme-dark .homepage .callout[data-callout="example"] .callout-title-inner {
+  color: #cde2cd !important;
+}
+
+/* ============================================================
    Banner Apple Hero 区样式 · v6.1-final
    ============================================================ */
 .banner-header-group {
@@ -1212,12 +1283,10 @@
    安全承诺：仅改 border-left，不碰任何布局属性
    ============================================================ */
 .homepage .callout[data-callout="faq"],
-.homepage .callout[data-callout="example"],
 .homepage blockquote,
 .callout[data-callout="faq"],
 .callout[data-callout="example"] {
     border-left: none !important;
-    --callout-color: transparent !important;
 }
 
 

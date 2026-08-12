@@ -1,8 +1,10 @@
 ---
-title: "Obsidian 高性价比多端同步方案：Remotely Save + 腾讯云COS 全流程实操指南"
+title: "Obsidian 高性价比多端同步方案"
 author: "Get达人"
 date: "2026-07-12"
-ingest_status: ingested
+status: archived
+tags: [技术, Obsidian]
+ingest_status: archived
 ingested_at: 2026-07-17
 ---
 
