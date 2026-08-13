@@ -1,0 +1,280 @@
+/* Cammvas Plugin Styles */
+
+/* Mindmap mode toggle button in canvas toolbar */
+.cammvas-toggle-btn {
+	color: var(--text-muted);
+}
+
+.cammvas-toggle-btn:not(:disabled):hover {
+	color: var(--text-normal);
+}
+
+.cammvas-toggle-btn.is-active {
+	color: var(--interactive-accent);
+}
+
+.cammvas-toggle-btn:disabled {
+	color: var(--text-faint);
+	opacity: 0.35;
+	cursor: not-allowed;
+}
+
+/* Smooth node repositioning animation */
+.canvas-node.mindmap-animating {
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth group resize animation */
+.canvas-node.mindmap-group-animating {
+	transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+	            width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+	            height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Map outline sidebar panel */
+.cammvas-outline {
+	padding: 0;
+}
+
+.cammvas-outline-group .tree-item-inner {
+	font-weight: var(--font-semibold);
+	display: flex;
+	align-items: baseline;
+}
+
+/* Inline rename editing state */
+.cammvas-outline-group .tree-item-inner span[contenteditable="true"] {
+	outline: 1px solid var(--interactive-accent);
+	border-radius: var(--radius-s);
+	padding: 0 4px;
+}
+
+.cammvas-outline-group-count {
+	color: var(--text-faint);
+	font-weight: normal;
+	font-size: var(--font-ui-smaller);
+	margin-inline-start: auto;
+	padding-inline-start: 6px;
+}
+
+.cammvas-outline .tree-item-children {
+	overflow: hidden;
+}
+
+.cammvas-outline .tree-item.is-collapsed > .tree-item-children {
+	display: none;
+}
+
+/* Persistent branch collapse controls on Canvas nodes */
+.cammvas-canvas-collapse-button {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	z-index: 10;
+	width: 20px;
+	height: 20px;
+	padding: 3px;
+	border-radius: var(--radius-s);
+	background: var(--background-secondary);
+	border: 0;
+	box-shadow: none;
+	color: var(--text-muted);
+	opacity: 0.45;
+}
+
+.canvas-node:hover > .cammvas-canvas-collapse-button,
+.cammvas-canvas-collapse-button:hover {
+	color: var(--text-normal);
+	opacity: 1;
+}
+
+.cammvas-canvas-collapse-button[data-state="collapsed"] {
+	color: var(--interactive-accent);
+	opacity: 1;
+}
+
+.canvas-wrapper .cammvas-canvas-branch-hidden {
+	display: none;
+}
+
+.canvas-node.cammvas-reparent-drop-target {
+	outline: 3px solid var(--interactive-accent);
+	outline-offset: 4px;
+	box-shadow: 0 0 0 6px color-mix(in srgb, var(--interactive-accent) 20%, transparent);
+}
+
+.cammvas-outline.cammvas-outline.is-searching .tree-item .tree-item-children {
+	display: block;
+}
+
+.cammvas-outline .cammvas-outline-item .tree-item-inner {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 0;
+	flex: 1;
+}
+
+.cammvas-outline .cammvas-outline-item.is-active {
+	background-color: var(--background-modifier-hover);
+	border-radius: var(--radius-s);
+}
+
+.cammvas-outline .cammvas-outline-item.is-selected {
+	background-color: var(--background-modifier-active-hover);
+}
+
+.cammvas-outline .collapse-icon svg {
+	transition: transform 100ms ease-in-out;
+	transform: rotate(-90deg);
+}
+
+.cammvas-outline .tree-item:not(.is-collapsed) > .tree-item-self .collapse-icon svg {
+	transform: rotate(0deg);
+}
+
+/* Drag handle on TOC root items — shown on hover */
+.cammvas-outline .cammvas-outline-drag-handle {
+	cursor: grab;
+	color: var(--text-faint);
+	flex-shrink: 0;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+}
+
+.cammvas-outline .cammvas-outline-item:hover .cammvas-outline-drag-handle {
+	opacity: 1;
+}
+
+.cammvas-outline .cammvas-outline-drag-handle:hover {
+	color: var(--text-muted);
+}
+
+/* Dragging state */
+.cammvas-outline-item.is-dragging {
+	opacity: 0.4;
+}
+
+/* Drop target highlight */
+.cammvas-outline-group.is-drag-over,
+.cammvas-outline-ungrouped-zone.is-drag-over {
+	background-color: var(--background-modifier-hover);
+	border-radius: var(--radius-s);
+}
+
+/* Ungrouped zone drop target */
+.cammvas-outline-ungrouped-zone {
+	min-height: 20px;
+}
+
+/* Separator between ungrouped roots and groups */
+.cammvas-outline-ungrouped-zone.has-group-separator {
+	padding-bottom: 4px;
+	margin-bottom: 4px;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/* Search filter */
+.cammvas-outline-search-container {
+	padding: 4px 10px 8px;
+}
+
+.cammvas-outline .tree-item.is-hidden {
+	display: none;
+}
+
+.cammvas-outline-empty {
+	padding: 12px 10px;
+	color: var(--text-muted);
+	font-size: var(--font-ui-small);
+	font-style: italic;
+}
+
+.is-mobile .cammvas-toggle-btn {
+	width: 44px;
+	height: 44px;
+}
+
+.is-mobile .cammvas-canvas-collapse-button {
+	top: 0;
+	right: 0;
+	width: 44px;
+	height: 44px;
+	padding: 12px;
+	opacity: 1;
+	touch-action: manipulation;
+}
+
+.is-mobile .cammvas-outline .tree-item-self {
+	min-height: 44px;
+}
+
+.is-mobile .cammvas-outline .collapse-icon {
+	min-width: 44px;
+	min-height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.is-mobile .cammvas-outline-drag-handle {
+	display: none;
+}
+
+.cammvas-mobile-editing-bar {
+	position: fixed;
+	left: 50%;
+	bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+	z-index: var(--layer-popover, 30);
+	display: flex;
+	gap: 6px;
+	width: min(420px, calc(100vw - 16px));
+	padding: 6px;
+	transform: translateX(-50%);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 12px;
+	background: var(--background-primary);
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.24);
+}
+
+.cammvas-mobile-editing-bar[hidden] {
+	display: none;
+}
+
+.cammvas-mobile-editing-bar.is-visual-viewport-positioned {
+	bottom: auto;
+}
+
+.cammvas-mobile-editing-action {
+	display: flex;
+	flex: 1 1 0;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	min-width: 0;
+	height: 44px;
+	padding: 0 8px;
+	font-weight: var(--font-semibold);
+	touch-action: manipulation;
+}
+
+.cammvas-mobile-editing-action-icon {
+	display: flex;
+	flex: 0 0 auto;
+}
+
+.cammvas-mobile-editing-action-icon svg {
+	width: 18px;
+	height: 18px;
+}
+
+.cammvas-mobile-editing-done {
+	flex-grow: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.canvas-node.mindmap-animating,
+	.canvas-node.mindmap-group-animating {
+		transition: none;
+	}
+}
