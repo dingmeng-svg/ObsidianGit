@@ -1,7 +1,7 @@
 ---
-title: "天赋的隐秘形态——Goggins不曾强调但无法否认的身体基础"
-author: "David Goggins"
-source: "[[009. 我，刀槍不入 _第九章 · 成為不尋常中的不尋常_220-244]]"
+title: 天赋的隐秘形态——Goggins不曾强调但无法否认的身体基础
+author: David Goggins
+source: "[[009. 我，刀槍不入_第九章 · 成為不尋常中的不尋常_220-244]]"
 date: 2026-08-12
 status: mature
 type: concept

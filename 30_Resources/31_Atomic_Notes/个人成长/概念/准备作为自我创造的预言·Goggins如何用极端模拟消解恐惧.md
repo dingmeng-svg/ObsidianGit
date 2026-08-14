@@ -1,7 +1,7 @@
 ---
-title: "准备作为自我创造的预言——Goggins如何用极端模拟消解恐惧"
-author: "David Goggins"
-source: "[[007. 我，刀槍不入 _第七章 · 破除限制性信念的四O%法則_166-194]]"
+title: 准备作为自我创造的预言——Goggins如何用极端模拟消解恐惧
+author: David Goggins
+source: "[[007. 我，刀槍不入_第七章 · 破除限制性信念的四O%法則_166-194]]"
 date: 2026-08-12
 status: mature
 type: concept

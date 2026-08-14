@@ -112,7 +112,7 @@
     "file": null,
     "createMissingPeriodicNote": true
   },
-  "dualPane": true,
+  "dualPane": false,
   "dualPaneOrientation": "horizontal",
   "narrowSidebarLayout": "singlePane",
   "narrowSidebarTriggerMode": "fitPanes",
@@ -208,7 +208,7 @@
   "showAllPropertiesFolder": true,
   "scopePropertiesToCurrentContext": false,
   "defaultListMode": "standard",
-  "includeDescendantNotes": true,
+  "includeDescendantNotes": false,
   "defaultFolderSort": "modified-desc",
   "propertySortKey": "",
   "propertySortSecondary": "title",

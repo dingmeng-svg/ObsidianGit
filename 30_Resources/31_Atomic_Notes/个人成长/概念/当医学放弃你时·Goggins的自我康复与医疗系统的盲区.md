@@ -1,7 +1,7 @@
 ---
-title: "当医学放弃你时——Goggins的自我康复与医疗系统的盲区"
-author: "David Goggins"
-source: "[[011. 我，刀槍不入 _第十一章 · 致那些說不可能的人  _ _273-292]]"
+title: 当医学放弃你时——Goggins的自我康复与医疗系统的盲区
+author: David Goggins
+source: "[[011. 我，刀槍不入_第十一章 · 致那些說不可能的人  _ _273-292]]"
 date: 2026-08-12
 status: mature
 type: concept
