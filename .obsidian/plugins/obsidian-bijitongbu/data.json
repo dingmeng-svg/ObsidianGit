@@ -14,12 +14,12 @@
   "filename": "{{{title}}}",
   "filenameDateFormat": "yyyy-MM-dd",
   "attachmentFolder": "笔记同步助手/attachments",
-  "version": "3.2.2",
+  "version": "3.2.12",
   "mergeMode": "messages",
   "messageSortOrder": "desc",
   "messageFolder": "",
   "frequency": 300,
-  "intervalId": 723,
+  "intervalId": 2024,
   "frontMatterVariables": [],
   "frontMatterTemplate": "author: {{{author}}}\nsource: {{{siteName}}}\nurl: {{{originalUrl}}}\nsaved: {{{dateSaved}}}\ntags: [笔记同步助手{{#labels}}, {{{name}}}{{/labels}}]",
   "syncOnStart": true,
@@ -37,6 +37,7 @@
   "sectionSeparator": "%%{{{dateSaved}}}_start%%",
   "sectionSeparatorEnd": "%%{{{dateSaved}}}_end%%",
   "wechatMessageTemplate": "---\n#### {{{heading}}}\n## 📅 {{{dateSaved}}}\n{{{content}}}",
+  "chatRecordTimestampTemplate": "<small style=\"color: #999;\">{{{timestamp}}}</small>",
   "imageMode": "local",
   "enablePngToJpeg": false,
   "jpegQuality": 85,
@@ -53,6 +54,7 @@
   "diaryLinkType": "all",
   "autoCreateDiaryNote": false,
   "diaryLinkPrefix": "- ",
+  "diaryLinkTemplate": "- {{{link}}}",
   "diaryLinkMaxLength": 0,
   "deviceSyncCursors": {
     "desktop-mrbfmiqz-uwli": "2026-07-27T21:07:38.827+08:00"
@@ -80,5 +82,6 @@
   "pendingBurnDeletes": [],
   "disableMessageMarkers": false,
   "omitFrontmatterId": false,
-  "disableDiaryLinkMarkers": false
+  "disableDiaryLinkMarkers": false,
+  "renewalReminderLastShown": ""
 }
